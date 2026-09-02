@@ -7,17 +7,28 @@ export type AdminUser = {
   fullName: string | null;
 };
 
-const ADMIN_EMAILS = new Set([
-  "portaldominaoab@gmail.com",
-]);
+type SupabaseUserLike = {
+  email?: string;
+  app_metadata?: Record<string, unknown>;
+  user_metadata?: Record<string, unknown>;
+};
 
-export function isAdminEmail(email: string | null | undefined) {
-  return Boolean(email && ADMIN_EMAILS.has(email.toLowerCase()));
+export function hasAdminRole(user: SupabaseUserLike | null | undefined) {
+  if (!user) return false;
+  const metadata = user.app_metadata;
+  if (!metadata) return false;
+
+  if (metadata.role === "admin") return true;
+  if (Array.isArray(metadata.roles)) {
+    return metadata.roles.some((role) => role === "admin");
+  }
+
+  return false;
 }
 
 export async function getAdminUser(): Promise<AdminUser | null> {
   const user = await getSupabaseUser();
-  if (!user?.email || !isAdminEmail(user.email)) return null;
+  if (!user?.email || !hasAdminRole(user)) return null;
 
   const fullName =
     typeof user.user_metadata?.full_name === "string"

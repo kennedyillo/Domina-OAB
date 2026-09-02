@@ -9,7 +9,6 @@ export const dynamic = "force-dynamic";
 type Lead = { id:number; email:string; status:"founder"; created_at:string };
 type Source = { source:string; total:number };
 type PageRow = { path:string; total:number };
-type FinancialTotals = { gross:number|null; fees:number|null; net:number|null; approved:number };
 type PaymentRow = { id:number; email:string; plan_name:string; status:string; payment_method:string|null; installments:number; gross_amount_cents:number; created_at:string };
 type PlanRow = { id:string; name:string; billing_type:string; duration_days:number|null; price_cents:number; max_installments:number; active:boolean };
 
@@ -49,7 +48,7 @@ export default async function AdminPage() {
   return <main className="admin-surface">
     <header className="admin-header"><Brand compact/><div><span className="admin-environment"><i/> PAINEL ADMINISTRATIVO</span><a href="/api/auth/logout"><LogOut size={15}/>Sair</a></div></header>
     <div className="admin-shell">
-      <aside className="admin-sidebar"><nav aria-label="Navegação administrativa"><a className="active" href="#visao"><LayoutDashboard/>Visão geral</a><a href="#analytics"><BarChart3/>Analytics</a><a href="#financeiro"><WalletCards/>Financeiro</a><a href="#fundadores"><TicketCheck/>Fundadores <b>{data.founders}</b></a><a href="#conteudo"><BookOpenCheck/>Questões</a><a href="#usuarios"><Users/>Usuários</a><a href="#reportes"><Flag/>Reportes</a></nav><div className="admin-account"><span>KP</span><div><b>{user.fullName??"Kennedy Pereira"}</b><small>PROPRIETÁRIO</small></div></div></aside>
+      <aside className="admin-sidebar"><nav aria-label="Navegação administrativa"><a className="active" href="#visao"><LayoutDashboard/>Visão geral</a><a href="#analytics"><BarChart3/>Analytics</a><a href="#financeiro"><WalletCards/>Financeiro</a><a href="#fundadores"><TicketCheck/>Fundadores <b>{data.founders}</b></a><Link href="/admin/questoes"><BookOpenCheck/>Questões</Link><Link href="/admin/usuarios"><Users/>Usuários</Link><Link href="/admin/reportes"><Flag/>Reportes</Link><Link href="/admin/simulados"><BarChart3/>Simulados</Link><Link href="/admin/comunicacoes"><Mail/>Comunicações</Link></nav><div className="admin-account"><span>KP</span><div><b>{user.fullName??"Kennedy Pereira"}</b><small>PROPRIETÁRIO</small></div></div></aside>
 
       <section className="admin-content" id="visao"><div className="admin-title"><div><span className="eyebrow"><span/> Operação em tempo real</span><h1>Visão geral</h1><p>Dados dos últimos 30 dias e situação atual da campanha fundadora.</p></div><span className="admin-updated"><Activity/>Atualizado agora</span></div>
 
@@ -76,7 +75,7 @@ export default async function AdminPage() {
           <div className="payment-foundation"><ShieldCheck/><div><small>FUNDAÇÃO MERCADO PAGO</small><h3>Credenciais ainda não configuradas</h3><p>O checkout, os Webhooks assinados e a liberação automática de acesso serão conectados depois, usando somente segredos do servidor.</p></div><span>SEM COBRANÇAS</span></div>
         </section>
 
-        <section className="admin-next" id="conteudo"><div><CircleDollarSign/><span><small>PRÓXIMO BLOCO</small><h2>Checkout de teste e Webhooks</h2><p>Com a base financeira pronta, a próxima etapa conecta o Mercado Pago em ambiente de testes e valida a liberação de acesso.</p></span></div><div><span id="usuarios">Usuários</span><span id="reportes">Reportes</span><span>Questões</span><span>Simulados</span></div></section>
+        <section className="admin-next"><div><CircleDollarSign/><span><small>PRÓXIMO BLOCO</small><h2>Checkout de teste e Webhooks</h2><p>A operação acadêmica e administrativa já está preparada; o próximo bloco financeiro conecta o Mercado Pago.</p></span></div><div><Link href="/admin/usuarios">Usuários</Link><Link href="/admin/questoes">Questões</Link><Link href="/admin/reportes">Reportes</Link><Link href="/admin/simulados">Simulados</Link><Link href="/admin/comunicacoes">Comunicações</Link></div></section>
       </section>
     </div>
   </main>;

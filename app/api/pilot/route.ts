@@ -1,4 +1,4 @@
-import { supabasePublicRpc } from "@/lib/supabase";
+import { supabaseAdminRpc } from "@/lib/supabase";
 
 const FOUNDER_LIMIT = 25;
 
@@ -8,6 +8,11 @@ function normalizeEmail(value: unknown) {
 
 function validEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && email.length <= 254;
+}
+
+function clientIp(request: Request) {
+  const forwarded = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
+  return forwarded || request.headers.get("x-real-ip")?.trim() || null;
 }
 
 type FounderResult = {
@@ -20,7 +25,7 @@ type FounderResult = {
 
 export async function GET() {
   try {
-    const result = await supabasePublicRpc<FounderResult>("founder_availability", {});
+    const result = await supabaseAdminRpc<FounderResult>("founder_availability");
     return Response.json({ remaining: result.remaining, limit: FOUNDER_LIMIT });
   } catch {
     return Response.json({ remaining: FOUNDER_LIMIT, limit: FOUNDER_LIMIT });
@@ -39,9 +44,10 @@ export async function POST(request: Request) {
       return Response.json({ error: "É necessário aceitar o envio das comunicações." }, { status: 400 });
     }
 
-    const result = await supabasePublicRpc<FounderResult>("register_founder", {
+    const result = await supabaseAdminRpc<FounderResult>("register_founder_server", {
       p_email: email,
       p_consent_version: "2026-09",
+      p_client_ip: clientIp(request),
     });
 
     if (result.closed) {
@@ -49,7 +55,11 @@ export async function POST(request: Request) {
     }
 
     return Response.json({ status: result.status ?? "founder", remaining: result.remaining }, { status: result.inserted ? 201 : 200 });
-  } catch {
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "";
+    if (message.includes("rate_limit_exceeded")) {
+      return Response.json({ error: "Muitas tentativas de cadastro. Tente novamente mais tarde." }, { status:429 });
+    }
     return Response.json({ error: "Não foi possível concluir o cadastro agora. Tente novamente." }, { status: 500 });
   }
 }
