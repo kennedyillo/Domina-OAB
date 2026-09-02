@@ -17,9 +17,39 @@ function publicHeaders() {
   };
 }
 
+function legacyJwtRole(key: string) {
+  const parts = key.split(".");
+  if (parts.length !== 3) return null;
+  try {
+    const payload = JSON.parse(Buffer.from(parts[1], "base64url").toString("utf8")) as { role?: unknown };
+    return typeof payload.role === "string" ? payload.role : null;
+  } catch {
+    return null;
+  }
+}
+
 function adminHeaders() {
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
-  if (!key) throw new Error("Variável SUPABASE_SERVICE_ROLE_KEY não configurada.");
+  const key = process.env.SUPABASE_SECRET_KEY?.trim() || process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
+  if (!key) {
+    throw new Error("Chave privilegiada do Supabase não configurada. Defina SUPABASE_SECRET_KEY ou SUPABASE_SERVICE_ROLE_KEY no servidor.");
+  }
+
+  if (key.startsWith("sb_publishable_")) {
+    throw new Error("Chave Supabase inválida no backend: foi configurada uma chave publicável no lugar da chave secreta.");
+  }
+
+  if (key.startsWith("sb_secret_")) {
+    return {
+      apikey: key,
+      "content-type": "application/json",
+    };
+  }
+
+  const role = legacyJwtRole(key);
+  if (role !== "service_role") {
+    throw new Error(`Chave Supabase privilegiada inválida no backend${role ? `: role ${role}` : ": formato desconhecido"}.`);
+  }
+
   return {
     apikey: key,
     authorization: `Bearer ${key}`,
