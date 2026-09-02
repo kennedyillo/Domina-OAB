@@ -1,8 +1,7 @@
 import { Brand } from "@/components/app-header";
-import { requireChatGPTUser } from "@/app/chatgpt-auth";
-import { isAdminUser } from "@/lib/admin-access";
+import { requireAdminUser } from "@/lib/admin-access";
+import { supabaseAdminRpc } from "@/lib/supabase";
 import { Activity, ArrowDownToLine, BarChart3, BookOpenCheck, CircleDollarSign, ClipboardCheck, CreditCard, Flag, Gauge, LayoutDashboard, LogOut, Mail, MousePointerClick, ReceiptText, ShieldCheck, TicketCheck, TrendingUp, Users, WalletCards } from "lucide-react";
-import { notFound } from "next/navigation";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
@@ -12,70 +11,43 @@ type Source = { source:string; total:number };
 type PageRow = { path:string; total:number };
 type FinancialTotals = { gross:number|null; fees:number|null; net:number|null; approved:number };
 type PaymentRow = { id:number; email:string; plan_name:string; status:string; payment_method:string|null; installments:number; gross_amount_cents:number; created_at:string };
-type PlanRow = { id:string; name:string; billing_type:string; duration_days:number|null; price_cents:number; max_installments:number; active:number };
+type PlanRow = { id:string; name:string; billing_type:string; duration_days:number|null; price_cents:number; max_installments:number; active:boolean };
 
 const configuredPlans:PlanRow[] = [
-  {id:"domina-monthly",name:"Domina Mensal",billing_type:"recurring",duration_days:30,price_cents:4990,max_installments:1,active:1},
-  {id:"domina-90",name:"Domina 90 dias",billing_type:"one_time",duration_days:90,price_cents:12990,max_installments:1,active:1},
-  {id:"domina-annual",name:"Domina Anual",billing_type:"one_time",duration_days:365,price_cents:36000,max_installments:12,active:1},
-  {id:"founder-annual",name:"Acesso Fundador",billing_type:"promotional",duration_days:365,price_cents:0,max_installments:1,active:1},
+  {id:"domina-monthly",name:"Domina Mensal",billing_type:"recurring",duration_days:30,price_cents:4990,max_installments:1,active:true},
+  {id:"domina-90",name:"Domina 90 dias",billing_type:"one_time",duration_days:90,price_cents:12990,max_installments:1,active:true},
+  {id:"domina-annual",name:"Domina Anual",billing_type:"one_time",duration_days:365,price_cents:36000,max_installments:12,active:true},
+  {id:"founder-annual",name:"Acesso Fundador",billing_type:"promotional",duration_days:365,price_cents:0,max_installments:1,active:true},
 ];
 
-async function adminData() {
-  const { env } = await import("cloudflare:workers");
-  const [founders, leads, pageViews, sessions, starts, completions, recent, sources, pages, financial, pending, activeSubscriptions, recentPayments, planRows] = await Promise.all([
-    env.DB.prepare("SELECT COUNT(*) AS total FROM pilot_leads WHERE status = 'founder'").first<{total:number}>(),
-    env.DB.prepare("SELECT COUNT(*) AS total FROM pilot_leads").first<{total:number}>(),
-    env.DB.prepare("SELECT COUNT(*) AS total FROM analytics_events WHERE event_type = 'page_view' AND created_at >= datetime('now','-30 days')").first<{total:number}>(),
-    env.DB.prepare("SELECT COUNT(DISTINCT session_id) AS total FROM analytics_events WHERE created_at >= datetime('now','-30 days')").first<{total:number}>(),
-    env.DB.prepare("SELECT COUNT(*) AS total FROM analytics_events WHERE event_type = 'simulado_started' AND created_at >= datetime('now','-30 days')").first<{total:number}>(),
-    env.DB.prepare("SELECT COUNT(*) AS total FROM analytics_events WHERE event_type = 'simulado_completed' AND created_at >= datetime('now','-30 days')").first<{total:number}>(),
-    env.DB.prepare("SELECT id,email,status,created_at FROM pilot_leads ORDER BY created_at DESC,id DESC LIMIT 12").all<Lead>(),
-    env.DB.prepare("SELECT CASE WHEN utm_source = '' THEN 'Direto / sem UTM' ELSE utm_source END AS source, COUNT(*) AS total FROM analytics_events WHERE event_type = 'page_view' AND created_at >= datetime('now','-30 days') GROUP BY source ORDER BY total DESC LIMIT 5").all<Source>(),
-    env.DB.prepare("SELECT path, COUNT(*) AS total FROM analytics_events WHERE event_type = 'page_view' AND created_at >= datetime('now','-30 days') GROUP BY path ORDER BY total DESC LIMIT 5").all<PageRow>(),
-    env.DB.prepare("SELECT COALESCE(SUM(gross_amount_cents),0) AS gross, COALESCE(SUM(fee_amount_cents),0) AS fees, COALESCE(SUM(net_amount_cents),0) AS net, COUNT(*) AS approved FROM payments WHERE status = 'approved' AND created_at >= datetime('now','-30 days')").first<FinancialTotals>(),
-    env.DB.prepare("SELECT COALESCE(SUM(gross_amount_cents),0) AS total FROM payments WHERE status = 'pending'").first<{total:number}>(),
-    env.DB.prepare("SELECT COUNT(*) AS total FROM subscriptions WHERE status IN ('authorized','active')").first<{total:number}>(),
-    env.DB.prepare("SELECT payments.id,payments.email,plans.name AS plan_name,payments.status,payments.payment_method,payments.installments,payments.gross_amount_cents,payments.created_at FROM payments JOIN plans ON plans.id = payments.plan_id ORDER BY payments.created_at DESC,payments.id DESC LIMIT 8").all<PaymentRow>(),
-    env.DB.prepare("SELECT id,name,billing_type,duration_days,price_cents,max_installments,active FROM plans ORDER BY price_cents ASC").all<PlanRow>(),
-  ]);
+type AdminDashboard = {
+  founders:number; leads:number; pageViews:number; sessions:number; started:number; completed:number; completionRate:number;
+  recent:Lead[]; sources:Source[]; pages:PageRow[];
+  financial:{gross:number;fees:number;net:number;approved:number;pending:number;activeSubscriptions:number};
+  recentPayments:PaymentRow[]; plans:PlanRow[];
+};
 
-  const started = Number(starts?.total ?? 0);
-  const completed = Number(completions?.total ?? 0);
+async function adminData(): Promise<AdminDashboard> {
+  const data = await supabaseAdminRpc<AdminDashboard>("admin_dashboard");
   return {
-    founders:Number(founders?.total ?? 0),
-    leads:Number(leads?.total ?? 0),
-    pageViews:Number(pageViews?.total ?? 0),
-    sessions:Number(sessions?.total ?? 0),
-    started,
-    completed,
-    completionRate:started ? Math.round((completed/started)*100) : 0,
-    recent:recent.results,
-    sources:sources.results,
-    pages:pages.results,
-    financial:{
-      gross:Number(financial?.gross ?? 0),
-      fees:Number(financial?.fees ?? 0),
-      net:Number(financial?.net ?? 0),
-      approved:Number(financial?.approved ?? 0),
-      pending:Number(pending?.total ?? 0),
-      activeSubscriptions:Number(activeSubscriptions?.total ?? 0),
-    },
-    recentPayments:recentPayments.results,
-    plans:planRows.results.length ? planRows.results : configuredPlans,
+    ...data,
+    recent:data.recent ?? [],
+    sources:data.sources ?? [],
+    pages:data.pages ?? [],
+    recentPayments:data.recentPayments ?? [],
+    plans:data.plans?.length ? data.plans : configuredPlans,
   };
 }
 
 export default async function AdminPage() {
-  const user = await requireChatGPTUser("/admin");
-  if (!isAdminUser(user)) notFound();
+  const user = await requireAdminUser("/admin");
   const data = await adminData();
   const remaining = Math.max(0,25-data.founders);
   const maxSource = Math.max(1,...data.sources.map(item=>Number(item.total)));
   const maxPage = Math.max(1,...data.pages.map(item=>Number(item.total)));
 
   return <main className="admin-surface">
-    <header className="admin-header"><Brand compact/><div><span className="admin-environment"><i/> PAINEL ADMINISTRATIVO</span><a href="/signout-with-chatgpt?return_to=/"><LogOut size={15}/>Sair</a></div></header>
+    <header className="admin-header"><Brand compact/><div><span className="admin-environment"><i/> PAINEL ADMINISTRATIVO</span><a href="/api/auth/logout"><LogOut size={15}/>Sair</a></div></header>
     <div className="admin-shell">
       <aside className="admin-sidebar"><nav aria-label="Navegação administrativa"><a className="active" href="#visao"><LayoutDashboard/>Visão geral</a><a href="#analytics"><BarChart3/>Analytics</a><a href="#financeiro"><WalletCards/>Financeiro</a><a href="#fundadores"><TicketCheck/>Fundadores <b>{data.founders}</b></a><a href="#conteudo"><BookOpenCheck/>Questões</a><a href="#usuarios"><Users/>Usuários</a><a href="#reportes"><Flag/>Reportes</a></nav><div className="admin-account"><span>KP</span><div><b>{user.fullName??"Kennedy Pereira"}</b><small>PROPRIETÁRIO</small></div></div></aside>
 
@@ -86,7 +58,7 @@ export default async function AdminPage() {
         <div className="admin-primary-grid" id="analytics"><article className="admin-panel traffic-panel"><header><div><span><TrendingUp/> AQUISIÇÃO</span><h2>Origem do tráfego</h2></div><small>ÚLTIMOS 30 DIAS</small></header><div className="admin-bars">{data.sources.length?data.sources.map(item=><div key={item.source}><div><b>{item.source}</b><span>{item.total}</span></div><i><em style={{width:`${(Number(item.total)/maxSource)*100}%`}}/></i></div>):<Empty text="Os dados aparecerão após os primeiros acessos."/>}</div></article><article className="admin-panel pages-panel"><header><div><span><BarChart3/> CONTEÚDO</span><h2>Páginas mais acessadas</h2></div><small>VISUALIZAÇÕES</small></header><div className="admin-bars">{data.pages.length?data.pages.map(item=><div key={item.path}><div><b>{item.path}</b><span>{item.total}</span></div><i><em style={{width:`${(Number(item.total)/maxPage)*100}%`}}/></i></div>):<Empty text="Nenhuma visualização registrada ainda."/>}</div></article></div>
 
         <section className="founder-admin" id="fundadores"><div className="founder-summary"><div><span className="panel-kicker"><ShieldCheck/> CAMPANHA FUNDADORA</span><h2>{remaining>0?`${remaining} acessos anuais disponíveis`:"Vagas gratuitas preenchidas"}</h2><p>{remaining>0?"Os próximos cadastros válidos ainda recebem 12 meses gratuitos.":"Novos interessados devem ser direcionados automaticamente aos planos pagos."}</p><div className="founder-progress"><i><em style={{width:`${(data.founders/25)*100}%`}}/></i><span><b>{data.founders}</b> de 25 ocupados</span></div></div><div className="founder-actions"><a href="/admin/fundadores.csv"><ArrowDownToLine/>Exportar CSV</a><Link href="/#piloto">Ver campanha</Link></div></div>
-          <div className="admin-table"><div className="admin-table-head"><span>E-mail</span><span>Situação</span><span>Cadastro</span></div>{data.recent.length?data.recent.map(lead=><div className="admin-table-row" key={lead.id}><b>{lead.email}</b><span className="founder">Fundador</span><small>{new Intl.DateTimeFormat("pt-BR",{dateStyle:"short",timeStyle:"short",timeZone:"America/Sao_Paulo"}).format(new Date(`${lead.created_at}Z`))}</small></div>):<Empty text="Nenhum cadastro recebido ainda."/>}</div>
+          <div className="admin-table"><div className="admin-table-head"><span>E-mail</span><span>Situação</span><span>Cadastro</span></div>{data.recent.length?data.recent.map(lead=><div className="admin-table-row" key={lead.id}><b>{lead.email}</b><span className="founder">Fundador</span><small>{new Intl.DateTimeFormat("pt-BR",{dateStyle:"short",timeStyle:"short",timeZone:"America/Sao_Paulo"}).format(new Date(lead.created_at))}</small></div>):<Empty text="Nenhum cadastro recebido ainda."/>}</div>
         </section>
 
         <section className="finance-admin" id="financeiro">
