@@ -1,34 +1,76 @@
 import { redirect } from "next/navigation";
-import { getSupabaseUser } from "@/lib/supabase";
+import { getSupabaseUser, supabaseAdminSelect } from "@/lib/supabase";
+
+export type AdminRole = "owner" | "administrator" | "editor" | "legal_reviewer" | "support";
+export type AdminPermission =
+  | "dashboard:view"
+  | "analytics:view"
+  | "finance:view"
+  | "founders:export"
+  | "content:view"
+  | "content:edit"
+  | "legal:review"
+  | "users:view"
+  | "users:manage"
+  | "reports:view"
+  | "support:manage"
+  | "audit:view"
+  | "roles:manage";
 
 export type AdminUser = {
   id: string;
   email: string;
   fullName: string | null;
+  role: AdminRole;
 };
 
-type SupabaseUserLike = {
-  email?: string;
-  app_metadata?: Record<string, unknown>;
-  user_metadata?: Record<string, unknown>;
+type AdminMembershipRow = {
+  role: AdminRole;
+  active: boolean;
 };
 
-export function hasAdminRole(user: SupabaseUserLike | null | undefined) {
-  if (!user) return false;
-  const metadata = user.app_metadata;
-  if (!metadata) return false;
+const permissions: Record<AdminRole, readonly AdminPermission[] | "*"> = {
+  owner: "*",
+  administrator: [
+    "dashboard:view", "analytics:view", "finance:view", "founders:export",
+    "content:view", "content:edit", "legal:review", "users:view", "users:manage",
+    "reports:view", "support:manage", "audit:view",
+  ],
+  editor: ["dashboard:view", "content:view", "content:edit", "reports:view"],
+  legal_reviewer: ["dashboard:view", "content:view", "legal:review", "reports:view"],
+  support: ["dashboard:view", "users:view", "reports:view", "support:manage"],
+};
 
-  if (metadata.role === "admin") return true;
-  if (Array.isArray(metadata.roles)) {
-    return metadata.roles.some((role) => role === "admin");
-  }
+const roleLabels: Record<AdminRole, string> = {
+  owner: "PROPRIETÁRIO",
+  administrator: "ADMINISTRADOR",
+  editor: "EDITOR",
+  legal_reviewer: "REVISOR JURÍDICO",
+  support: "ATENDIMENTO",
+};
 
-  return false;
+export function adminRoleLabel(role: AdminRole) {
+  return roleLabels[role];
+}
+
+export function adminCan(role: AdminRole, permission: AdminPermission) {
+  const allowed = permissions[role];
+  return allowed === "*" || allowed.includes(permission);
+}
+
+export async function getAdminMembershipByUserId(userId: string): Promise<AdminMembershipRow | null> {
+  const rows = await supabaseAdminSelect<AdminMembershipRow[]>(
+    `admin_members?select=role,active&user_id=eq.${encodeURIComponent(userId)}&active=eq.true&limit=1`,
+  );
+  return rows[0] ?? null;
 }
 
 export async function getAdminUser(): Promise<AdminUser | null> {
   const user = await getSupabaseUser();
-  if (!user?.email || !hasAdminRole(user)) return null;
+  if (!user?.email) return null;
+
+  const membership = await getAdminMembershipByUserId(user.id);
+  if (!membership) return null;
 
   const fullName =
     typeof user.user_metadata?.full_name === "string"
@@ -37,11 +79,17 @@ export async function getAdminUser(): Promise<AdminUser | null> {
         ? user.user_metadata.name
         : null;
 
-  return { id: user.id, email: user.email, fullName };
+  return { id: user.id, email: user.email, fullName, role: membership.role };
 }
 
 export async function requireAdminUser(returnTo = "/admin") {
   const user = await getAdminUser();
   if (user) return user;
   redirect(`/admin/login?return_to=${encodeURIComponent(returnTo)}`);
+}
+
+export async function requireAdminPermission(permission: AdminPermission, returnTo = "/admin") {
+  const user = await requireAdminUser(returnTo);
+  if (adminCan(user.role, permission)) return user;
+  redirect("/admin?error=forbidden");
 }
