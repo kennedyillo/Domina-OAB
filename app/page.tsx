@@ -33,7 +33,7 @@ export default function Home(){return <main>
   <section className="hero" id="inicio">
     <div className="hero-copy">
       <span className="eyebrow"><span/> Inteligência de desempenho para a OAB</span>
-      <h1>Descubra o que falta para chegar aos <em>40 pontos.</em></h1>
+      <h1>Transforme seus erros em um <em>plano claro para a 1ª fase.</em></h1>
       <p className="hero-lead">O Domina transforma suas respostas em um diagnóstico preciso e mostra onde estudar, o que corrigir e qual ação tem maior potencial para aumentar sua nota.</p>
       <div className="hero-actions"><a className="button" href="/simulado">Fazer diagnóstico gratuito <ArrowRight size={18}/></a><a className="text-link" href="#metodo">Conhecer o método <ChevronRight size={17}/></a></div>
       <div className="hero-proof"><span><CircleCheck size={17}/> Simulados gratuitos</span><span><CircleCheck size={17}/> Resultado imediato</span><span><CircleCheck size={17}/> Sem cartão</span></div>
