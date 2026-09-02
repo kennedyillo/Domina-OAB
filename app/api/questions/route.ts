@@ -1,4 +1,4 @@
-import { supabasePublicRpc } from "@/lib/supabase";
+import { supabaseAdminRpc } from "@/lib/supabase";
 
 type PublicQuestion = {
   id:number;
@@ -16,7 +16,7 @@ export async function GET(request:Request){
   const url=new URL(request.url);
   const discipline=url.searchParams.get("discipline")?.trim()||"etica-profissional";
   try{
-    const questions=await supabasePublicRpc<PublicQuestion[]>("public_questions",{p_discipline_slug:discipline});
+    const questions=await supabaseAdminRpc<PublicQuestion[]>("public_questions",{p_discipline_slug:discipline});
     return Response.json({questions});
   }catch{
     return Response.json({error:"Não foi possível carregar as questões."},{status:500});
