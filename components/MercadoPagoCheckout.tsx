@@ -23,9 +23,9 @@ export default function MercadoPagoCheckout({ plan }: Props) {
 
   const customization = {
     paymentMethods: {
-      creditCard: "all",
-      debitCard: "all",
-      pix: "all",
+      creditCard: "all" as const,
+      debitCard: "all" as const,
+      pix: "all" as const,
     },
   };
 
