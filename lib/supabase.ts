@@ -81,6 +81,27 @@ export async function signInWithPassword(email: string, password: string) {
   }));
 }
 
+export async function signUpWithPassword(email: string, password: string, fullName?: string) {
+  const url = requiredEnv("NEXT_PUBLIC_SUPABASE_URL");
+  return parseResponse<{
+    access_token?: string;
+    expires_in?: number;
+    user: { id: string; email?: string; user_metadata?: Record<string, unknown> };
+  }>(await fetch(`${url}/auth/v1/signup`, {
+    method: "POST",
+    headers: {
+      apikey: requiredEnv("NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY"),
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({ email, password, data: fullName ? { full_name: fullName } : undefined }),
+    cache: "no-store",
+  }));
+}
+
+export async function resolveLoginIdentifier(identifier: string) {
+  return supabaseAdminRpc<string | null>("resolve_login_identifier", { p_identifier: identifier });
+}
+
 export async function getSupabaseUser() {
   const store = await cookies();
   const token = store.get(ACCESS_COOKIE)?.value;
@@ -98,6 +119,7 @@ export async function getSupabaseUser() {
   return await response.json() as {
     id: string;
     email?: string;
+    phone?: string;
     user_metadata?: Record<string, unknown>;
   };
 }

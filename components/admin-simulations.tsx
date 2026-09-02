@@ -1,0 +1,48 @@
+"use client";
+
+import { useEffect,useState } from "react";
+import { Archive,BarChart3,CheckCircle2,Edit3,Gauge,LoaderCircle,PauseCircle,PlayCircle,PlusCircle,Target } from "lucide-react";
+
+type Recent={id:number;full_name:string|null;email:string;discipline:string;status:string;total_questions:number;answered_questions:number;correct_answers:number;started_at:string;completed_at:string|null};
+type Hard={id:number;code:string;statement:string;topic:string|null;answers:number;errors:number;error_rate:number};
+type Definition={id:number;slug:string;name:string;description:string|null;discipline_slug:string|null;discipline:string|null;topic_ids:number[];question_count:number;time_limit_minutes:number|null;randomize_questions:boolean;randomize_options:boolean;status:"draft"|"published"|"paused"|"archived";available_questions:number};
+type Payload={total30:number;completed30:number;averageScore:number;recent:Recent[];hardestQuestions:Hard[];definitions:Definition[]};
+const blank={id:null as number|null,slug:"",name:"",description:"",discipline_slug:"etica-profissional",topic_ids:[] as number[],question_count:10,time_limit_minutes:30 as number|null,randomize_questions:true,randomize_options:false,status:"draft" as Definition["status"]};
+
+export function AdminSimulations(){
+  const [data,setData]=useState<Payload|null>(null),[error,setError]=useState(""),[busy,setBusy]=useState(false),[form,setForm]=useState(blank);
+  async function load(){setError("");try{const r=await fetch("/api/admin/simulations",{cache:"no-store"});const j=await r.json();if(!r.ok)throw new Error(j.error||"Falha ao carregar simulados.");setData(j);}catch(e){setError(e instanceof Error?e.message:"Falha ao carregar simulados.");}}
+  useEffect(()=>{void load();},[]);
+  async function save(e:React.FormEvent){e.preventDefault();setBusy(true);setError("");try{const r=await fetch("/api/admin/simulations",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(form)});const j=await r.json();if(!r.ok)throw new Error(j.error);setForm(blank);await load();}catch(e){setError(e instanceof Error?e.message:"Falha ao salvar simulado.");}finally{setBusy(false);}}
+  async function setStatus(id:number,status:Definition["status"]){setBusy(true);try{const r=await fetch("/api/admin/simulations",{method:"PATCH",headers:{"content-type":"application/json"},body:JSON.stringify({id,status})});const j=await r.json();if(!r.ok)throw new Error(j.error);await load();}catch(e){setError(e instanceof Error?e.message:"Falha ao atualizar simulado.");}finally{setBusy(false);}}
+  function edit(s:Definition){setForm({id:s.id,slug:s.slug,name:s.name,description:s.description||"",discipline_slug:s.discipline_slug||"",topic_ids:s.topic_ids||[],question_count:s.question_count,time_limit_minutes:s.time_limit_minutes,randomize_questions:s.randomize_questions,randomize_options:s.randomize_options,status:s.status});window.scrollTo({top:0,behavior:"smooth"});}
+  if(error&&!data) return <p className="form-error">{error}</p>;
+  if(!data) return <div className="admin-empty"><LoaderCircle className="spin"/><p>Carregando simulados...</p></div>;
+  const completion=data.total30?Math.round(data.completed30/data.total30*100):0;
+  return <>
+    <section className="admin-panel">
+      <header><div><span><PlusCircle/> CATÁLOGO</span><h2>{form.id?"Editar simulado":"Novo simulado"}</h2></div><small>CONFIGURAÇÃO DE PROVA</small></header>
+      <form onSubmit={save} style={{display:"grid",gap:12}}>
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}><input required placeholder="Slug ex. etica-20" value={form.slug} onChange={e=>setForm({...form,slug:e.target.value})}/><input required placeholder="Nome do simulado" value={form.name} onChange={e=>setForm({...form,name:e.target.value})}/></div>
+        <textarea rows={2} placeholder="Descrição" value={form.description} onChange={e=>setForm({...form,description:e.target.value})}/>
+        <div style={{display:"grid",gridTemplateColumns:"1fr 160px 160px 180px",gap:10}}><input placeholder="Disciplina (slug)" value={form.discipline_slug} onChange={e=>setForm({...form,discipline_slug:e.target.value})}/><input type="number" min={1} max={200} value={form.question_count} onChange={e=>setForm({...form,question_count:Number(e.target.value)})}/><input type="number" min={1} max={600} placeholder="Tempo (min)" value={form.time_limit_minutes??""} onChange={e=>setForm({...form,time_limit_minutes:e.target.value?Number(e.target.value):null})}/><select value={form.status} onChange={e=>setForm({...form,status:e.target.value as Definition["status"]})}><option value="draft">Rascunho</option><option value="published">Publicado</option><option value="paused">Pausado</option><option value="archived">Arquivado</option></select></div>
+        <div style={{display:"flex",gap:18,flexWrap:"wrap"}}><label><input type="checkbox" checked={form.randomize_questions} onChange={e=>setForm({...form,randomize_questions:e.target.checked})}/> Embaralhar questões</label><label><input type="checkbox" checked={form.randomize_options} onChange={e=>setForm({...form,randomize_options:e.target.checked})}/> Embaralhar alternativas</label></div>
+        <div style={{display:"flex",gap:8}}><button className="button" disabled={busy}>{busy?<LoaderCircle className="spin" size={16}/>:<CheckCircle2 size={16}/>}Salvar simulado</button>{form.id&&<button type="button" onClick={()=>setForm(blank)}>Cancelar edição</button>}</div>
+      </form>
+      {error&&<p className="form-error">{error}</p>}
+    </section>
+
+    <section className="admin-panel" style={{marginTop:24}}>
+      <header><div><span><PlayCircle/> CATÁLOGO</span><h2>Simulados configurados</h2></div><small>{data.definitions.length} CADASTRADOS</small></header>
+      <div style={{display:"grid",gap:10}}>{data.definitions.length?data.definitions.map(s=><article key={s.id} style={{border:"1px solid #e2ddd3",padding:16,background:"#fff"}}><div style={{display:"flex",justifyContent:"space-between",gap:18,flexWrap:"wrap"}}><div><small>{s.slug} · {s.discipline||"Todas as disciplinas"}</small><h3 style={{margin:"5px 0"}}>{s.name}</h3><p style={{margin:0,fontSize:12}}>{s.question_count} questões · {s.time_limit_minutes?`${s.time_limit_minutes} min`:"sem limite"} · {s.available_questions} questões publicadas disponíveis · {statusLabel(s.status)}</p></div><div style={{display:"flex",gap:7,flexWrap:"wrap"}}><button onClick={()=>edit(s)}><Edit3 size={15}/> Editar</button>{s.status!=="published"&&<button disabled={busy} onClick={()=>void setStatus(s.id,"published")}><PlayCircle size={15}/> Publicar</button>}{s.status==="published"&&<button disabled={busy} onClick={()=>void setStatus(s.id,"paused")}><PauseCircle size={15}/> Pausar</button>}{s.status!=="archived"&&<button disabled={busy} onClick={()=>void setStatus(s.id,"archived")}><Archive size={15}/> Arquivar</button>}</div></div></article>):<div className="admin-empty"><p>Nenhum simulado configurado ainda.</p></div>}</div>
+    </section>
+
+    <div className="admin-kpis" style={{marginTop:24}}><article><span><BarChart3/></span><div><small>TENTATIVAS · 30 DIAS</small><strong>{data.total30}</strong><p>simulados iniciados</p></div></article><article><span><CheckCircle2/></span><div><small>CONCLUÍDOS</small><strong>{data.completed30}</strong><p>{completion}% de conclusão</p></div></article><article><span><Gauge/></span><div><small>MÉDIA</small><strong>{data.averageScore}%</strong><p>entre tentativas concluídas</p></div></article><article><span><Target/></span><div><small>QUESTÕES CRÍTICAS</small><strong>{data.hardestQuestions.length}</strong><p>com maior taxa de erro</p></div></article></div>
+
+    <section className="admin-panel" style={{marginTop:24}}><header><div><span><BarChart3/> HISTÓRICO</span><h2>Tentativas recentes</h2></div><small>ATÉ 100 REGISTROS</small></header><div style={{display:"grid",gap:8}}>{data.recent.length?data.recent.map(row=><div key={row.id} style={{display:"grid",gridTemplateColumns:"1.3fr .8fr .7fr .7fr 1fr",gap:12,padding:"11px 0",borderBottom:"1px solid #eee8df",fontSize:12}}><span><b>{row.full_name||"Sem nome"}</b><small style={{display:"block"}}>{row.email}</small></span><span>{row.discipline}</span><span>{row.status}</span><span>{row.correct_answers}/{row.total_questions}</span><span>{new Intl.DateTimeFormat("pt-BR",{dateStyle:"short",timeStyle:"short"}).format(new Date(row.started_at))}</span></div>):<div className="admin-empty"><p>Nenhuma tentativa registrada ainda.</p></div>}</div></section>
+
+    <section className="admin-panel" style={{marginTop:24}}><header><div><span><Target/> DESEMPENHO</span><h2>Questões com maior índice de erro</h2></div><small>ORDENADO POR TAXA DE ERRO</small></header><div style={{display:"grid",gap:10}}>{data.hardestQuestions.length?data.hardestQuestions.map(q=><article key={q.id} style={{padding:14,border:"1px solid #e2ddd3",background:"#fff"}}><div style={{display:"flex",justifyContent:"space-between",gap:20}}><div><small>{q.code} · {q.topic||"Sem tema"}</small><p style={{margin:"6px 0 0"}}>{q.statement}</p></div><strong style={{whiteSpace:"nowrap"}}>{q.error_rate}% erro</strong></div><small>{q.errors} erros em {q.answers} respostas</small></article>):<div className="admin-empty"><p>Dados insuficientes para calcular dificuldade real.</p></div>}</div></section>
+  </>;
+}
+
+function statusLabel(v:Definition["status"]){return ({draft:"Rascunho",published:"Publicado",paused:"Pausado",archived:"Arquivado"} as const)[v];}
