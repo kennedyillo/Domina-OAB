@@ -28,7 +28,7 @@ function legacyJwtRole(key: string) {
   }
 }
 
-function adminHeaders() {
+function adminHeaders(): Record<string, string> {
   const key = process.env.SUPABASE_SECRET_KEY?.trim() || process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
   if (!key) {
     throw new Error("Chave privilegiada do Supabase não configurada. Defina SUPABASE_SECRET_KEY ou SUPABASE_SERVICE_ROLE_KEY no servidor.");
@@ -38,23 +38,20 @@ function adminHeaders() {
     throw new Error("Chave Supabase inválida no backend: foi configurada uma chave publicável no lugar da chave secreta.");
   }
 
-  if (key.startsWith("sb_secret_")) {
-    return {
-      apikey: key,
-      "content-type": "application/json",
-    };
-  }
+  const headers: Record<string, string> = {
+    apikey: key,
+    "content-type": "application/json",
+  };
+
+  if (key.startsWith("sb_secret_")) return headers;
 
   const role = legacyJwtRole(key);
   if (role !== "service_role") {
     throw new Error(`Chave Supabase privilegiada inválida no backend${role ? `: role ${role}` : ": formato desconhecido"}.`);
   }
 
-  return {
-    apikey: key,
-    authorization: `Bearer ${key}`,
-    "content-type": "application/json",
-  };
+  headers.authorization = `Bearer ${key}`;
+  return headers;
 }
 
 async function parseResponse<T>(response: Response): Promise<T> {
