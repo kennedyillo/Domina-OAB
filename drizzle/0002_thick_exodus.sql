@@ -1,0 +1,2 @@
+CREATE INDEX `analytics_events_type_created_idx` ON `analytics_events` (`event_type`,`created_at`);--> statement-breakpoint
+CREATE INDEX `analytics_events_session_idx` ON `analytics_events` (`session_id`);

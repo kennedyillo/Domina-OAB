@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1788254737938,
+      "tag": "0000_romantic_black_knight",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1788258920698,
+      "tag": "0001_light_molly_hayes",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1788259010294,
+      "tag": "0002_thick_exodus",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1788259873719,
+      "tag": "0003_serious_paper_doll",
+      "breakpoints": true
+    }
+  ]
+}
