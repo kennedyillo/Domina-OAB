@@ -6,7 +6,7 @@ import { Archive,CheckCircle2,Copy,Edit3,Eye,FileClock,FilePlus2,LoaderCircle,Pa
 type Status="draft"|"reviewing"|"published"|"suspended"|"archived";
 type Version={version_no:number;status:Status;change_type:string;changed_by_email:string|null;created_at:string;statement:string};
 type Q={id:number;code:string;discipline_slug:string;discipline:string;topic:string|null;statement:string;options:string[];correct_index:number;explanation:string;source_label:string|null;difficulty:"easy"|"medium"|"hard";status:Status;open_reports:number;version_count:number;last_edited_by_email:string|null};
-const blank={id:null as number|null,code:"",discipline_slug:"etica-profissional",topic:"",statement:"",options:["","","",""],correct_index:0,explanation:"",source_label:"",difficulty:"medium" as const,status:"draft" as Status};
+const blank={id:null as number|null,code:"",discipline_slug:"etica-profissional",topic:"",statement:"",options:["","","",""],correct_index:0,explanation:"",source_label:"",difficulty:"medium" as Q["difficulty"],status:"draft" as Status};
 
 export function AdminQuestions(){
  const [items,setItems]=useState<Q[]>([]),[query,setQuery]=useState(""),[status,setStatus]=useState(""),[loading,setLoading]=useState(true),[busy,setBusy]=useState(false),[error,setError]=useState(""),[form,setForm]=useState(blank),[history,setHistory]=useState<Record<number,Version[]>>({});
