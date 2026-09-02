@@ -8,7 +8,6 @@ export type AdminUser = {
 };
 
 const ADMIN_EMAILS = new Set([
-  "kmps16@gmail.com",
   "portaldominaoab@gmail.com",
 ]);
 
