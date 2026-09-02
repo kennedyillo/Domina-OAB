@@ -69,7 +69,12 @@ export async function signInWithPassword(email: string, password: string) {
   return parseResponse<{
     access_token: string;
     expires_in: number;
-    user: { id: string; email?: string; user_metadata?: Record<string, unknown> };
+    user: {
+      id: string;
+      email?: string;
+      app_metadata?: Record<string, unknown>;
+      user_metadata?: Record<string, unknown>;
+    };
   }>(await fetch(`${url}/auth/v1/token?grant_type=password`, {
     method: "POST",
     headers: {
@@ -86,7 +91,7 @@ export async function signUpWithPassword(email: string, password: string, fullNa
   return parseResponse<{
     access_token?: string;
     expires_in?: number;
-    user: { id: string; email?: string; user_metadata?: Record<string, unknown> };
+    user: { id: string; email?: string; app_metadata?: Record<string, unknown>; user_metadata?: Record<string, unknown> };
   }>(await fetch(`${url}/auth/v1/signup`, {
     method: "POST",
     headers: {
@@ -120,6 +125,7 @@ export async function getSupabaseUser() {
     id: string;
     email?: string;
     phone?: string;
+    app_metadata?: Record<string, unknown>;
     user_metadata?: Record<string, unknown>;
   };
 }
