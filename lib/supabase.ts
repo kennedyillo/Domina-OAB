@@ -99,7 +99,6 @@ export async function signUpWithPassword(email: string, password: string, fullNa
 }
 
 export async function resolveLoginIdentifier(identifier: string) {
-  if (identifier.includes("@")) return identifier.trim().toLowerCase();
   return supabaseAdminRpc<string | null>("resolve_login_identifier", { p_identifier: identifier });
 }
 
