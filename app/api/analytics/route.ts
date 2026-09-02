@@ -1,3 +1,5 @@
+import { supabasePublicRpc } from "@/lib/supabase";
+
 const ALLOWED_EVENTS = new Set(["page_view", "simulado_started", "simulado_completed"]);
 
 function clean(value: unknown, max: number) {
@@ -14,20 +16,15 @@ export async function POST(request: Request) {
       return Response.json({ error:"Evento inválido." }, { status:400 });
     }
 
-    const { env } = await import("cloudflare:workers");
-    await env.DB.prepare(
-      `INSERT INTO analytics_events
-       (event_type, path, session_id, referrer, utm_source, utm_medium, utm_campaign)
-       VALUES (?, ?, ?, ?, ?, ?, ?)`,
-    ).bind(
-      eventType,
-      path,
-      sessionId,
-      clean(body.referrer, 500),
-      clean(body.utmSource, 120),
-      clean(body.utmMedium, 120),
-      clean(body.utmCampaign, 160),
-    ).run();
+    await supabasePublicRpc("record_analytics", {
+      p_event_type: eventType,
+      p_path: path,
+      p_session_id: sessionId,
+      p_referrer: clean(body.referrer, 500),
+      p_utm_source: clean(body.utmSource, 120),
+      p_utm_medium: clean(body.utmMedium, 120),
+      p_utm_campaign: clean(body.utmCampaign, 160),
+    });
 
     return new Response(null, { status:204 });
   } catch {
