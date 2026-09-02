@@ -7,7 +7,7 @@ export async function POST(request: Request) {
   const password = String(form.get("password") ?? "");
   const fullName = String(form.get("full_name") ?? "").trim();
 
-  if (!email || !email.includes("@") || password.length < 8) {
+  if (!email || !email.includes("@") || password.length < 6) {
     return NextResponse.redirect(new URL("/cadastro?error=1", request.url), 303);
   }
 
