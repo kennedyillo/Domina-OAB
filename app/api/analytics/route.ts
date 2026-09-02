@@ -1,4 +1,4 @@
-import { supabasePublicRpc } from "@/lib/supabase";
+import { supabaseAdminRpc } from "@/lib/supabase";
 
 const ALLOWED_EVENTS = new Set(["page_view", "simulado_started", "simulado_completed"]);
 
@@ -16,7 +16,7 @@ export async function POST(request: Request) {
       return Response.json({ error:"Evento inválido." }, { status:400 });
     }
 
-    await supabasePublicRpc("record_analytics", {
+    await supabaseAdminRpc("record_analytics", {
       p_event_type: eventType,
       p_path: path,
       p_session_id: sessionId,
