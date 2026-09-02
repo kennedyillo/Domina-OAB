@@ -82,6 +82,19 @@ export async function supabaseAdminInsert(table: string, body: Record<string, un
   }
 }
 
+export async function supabaseAdminUpdate<T>(path: string, body: Record<string, unknown>) {
+  const url = requiredEnv("NEXT_PUBLIC_SUPABASE_URL");
+  return parseResponse<T>(await fetch(`${url}/rest/v1/${path}`, {
+    method: "PATCH",
+    headers: {
+      ...adminHeaders(),
+      prefer: "return=representation",
+    },
+    body: JSON.stringify(body),
+    cache: "no-store",
+  }));
+}
+
 export async function signInWithPassword(email: string, password: string) {
   const url = requiredEnv("NEXT_PUBLIC_SUPABASE_URL");
   return parseResponse<{
