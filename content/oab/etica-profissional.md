@@ -6,6 +6,35 @@
 
 Ética Profissional reúne as regras do Estatuto da Advocacia e da OAB, do Regulamento Geral, do Código de Ética e Disciplina e dos provimentos do Conselho Federal que disciplinam o exercício da advocacia. Na 1ª fase, a cobrança costuma privilegiar situações práticas: inscrição, prerrogativas, mandato, honorários, incompatibilidades, infrações, sanções, publicidade e organização da OAB.
 
+## Proporção dos temas nos simulados
+
+Os simulados do Domina OAB não distribuem os temas de maneira puramente uniforme. Cada tema possui um peso de incidência histórica, calibrado a partir da classificação de provas anteriores da OAB/FGV. Temas mais recorrentes recebem maior probabilidade de aparecer, sem excluir assuntos de menor incidência.
+
+A ponderação é probabilística: cada tentativa continua variando, mas, ao longo de várias sessões, a distribuição tende a refletir os pesos históricos cadastrados. Os pesos ficam no banco e podem ser recalibrados conforme novas provas forem classificadas.
+
+### Calibração inicial de Ética
+
+**Prioridade muito alta**
+- Direitos e prerrogativas
+- Incompatibilidades e impedimentos
+
+**Prioridade alta**
+- Honorários advocatícios
+- Infrações e sanções disciplinares
+- Publicidade e marketing jurídico
+
+**Prioridade média**
+- Inscrição na OAB
+- Sociedade de advogados
+- Mandato e renúncia
+- Sigilo profissional
+
+**Prioridade complementar**
+- Atos privativos da advocacia
+- Órgãos da OAB
+
+Esses níveis são pesos editoriais iniciais, não uma promessa de percentual fixo da próxima prova. O objetivo é aproximar progressivamente os simulados da distribuição observada nas provas oficiais.
+
 ## Fontes normativas principais
 
 - Lei nº 8.906/1994 — Estatuto da Advocacia e da OAB.
@@ -122,14 +151,14 @@ Questões de prova frequentemente pedem qual órgão é competente para determin
 
 Prioridade de memorização:
 
-1. inscrição e licenciamento;
-2. prerrogativas do art. 7º;
-3. incompatibilidades e impedimentos;
-4. honorários;
-5. mandato, substabelecimento e renúncia;
-6. infrações e sanções;
-7. sigilo profissional;
-8. publicidade e Provimento nº 205/2021;
+1. prerrogativas do art. 7º;
+2. incompatibilidades e impedimentos;
+3. honorários;
+4. infrações e sanções;
+5. publicidade e Provimento nº 205/2021;
+6. inscrição e licenciamento;
+7. mandato, substabelecimento e renúncia;
+8. sigilo profissional;
 9. sociedade de advogados;
 10. competências dos órgãos da OAB.
 
