@@ -107,6 +107,10 @@ Use build commands for targeted diagnosis after a remote failure, not as part of
 
 The timeout defaults can be overridden for a controlled canary with `SITES_INSTALL_TIMEOUT`, `SITES_INSTALL_KILL_AFTER`, `SITES_BUILD_TIMEOUT`, and `SITES_BUILD_KILL_AFTER`. A timeout fails the command; the helpers never retry an unchanged install or build.
 
+## Domina OAB: conteúdo e simulados
+
+O banco acadêmico é organizado por disciplina, tema e questão. Os simulados podem usar pesos de incidência histórica por tema: assuntos mais recorrentes nas provas anteriores da OAB/FGV recebem maior probabilidade de aparecer, sem excluir temas menos frequentes. A distribuição é probabilística e os pesos podem ser recalibrados conforme novas provas oficiais forem classificadas.
+
 ## Learn More
 
 - [vinext Documentation](https://github.com/cloudflare/vinext)
