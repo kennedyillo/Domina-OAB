@@ -109,7 +109,7 @@ The timeout defaults can be overridden for a controlled canary with `SITES_INSTA
 
 ## Domina OAB: conteúdo e simulados
 
-O banco acadêmico é organizado por disciplina, tema e questão. Os simulados podem usar pesos de incidência histórica por tema: assuntos mais recorrentes nas provas anteriores da OAB/FGV recebem maior probabilidade de aparecer, sem excluir temas menos frequentes. Os pesos são recalibráveis conforme novas provas oficiais forem classificadas.
+O banco acadêmico é organizado por disciplina, tema e questão. Os simulados podem usar pesos de incidência histórica por tema: assuntos mais recorrentes nas provas anteriores da OAB/FGV recebem maior probabilidade de aparecer, sem excluir temas menos frequentes. A distribuição é probabilística e os pesos podem ser recalibrados conforme novas provas oficiais forem classificadas.
 
 ## Learn More
 
