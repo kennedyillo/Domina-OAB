@@ -27,11 +27,11 @@ const subjects=[
 const groups=[
   {title:"Alta incidência",caption:"Disciplinas que concentram maior número de questões",range:[0,6]},
   {title:"Peso estratégico",caption:"Matérias de cinco e quatro questões",range:[6,11]},
-  {title:"Cobertura complementar",caption:"Disciplinas menores que podem decidir a aprovação",range:[11,20]},
+  {title:"Cobertura complementar",caption:"Disciplinas de menor incidência que completam o mapa de domínio",range:[11,20]},
 ];
 
 export default function Disciplinas(){return <main className="app-surface"><AppHeader active="disciplinas"/><div className="app-container">
-  <section className="catalog-intro"><div><span className="eyebrow"><span/> 47º exame · 1ª fase</span><h1>Mapa das disciplinas</h1><p>Veja o peso de cada matéria e onde seu estudo pode produzir mais pontos.</p></div><div className="catalog-kpis"><div><strong>20</strong><span>disciplinas</span></div><div><strong>80</strong><span>questões</span></div><div><strong>40</strong><span>para passar</span></div></div></section>
+  <section className="catalog-intro"><div><span className="eyebrow"><span/> 47º exame · 1ª fase</span><h1>Mapa das disciplinas</h1><p>Veja o peso de cada matéria e onde seu estudo pode produzir mais pontos.</p></div><div className="catalog-kpis"><div><strong>20</strong><span>disciplinas</span></div><div><strong>80</strong><span>questões</span></div><div><strong>1ª</strong><span>fase</span></div></div></section>
 
   <section className="priority-banner"><div><span><Target size={18}/></span><div><small>PRIORIDADE RECOMENDADA AGORA</small><h2>Ética Profissional</h2><p>Maior peso da prova e potencial estimado de +6 a 8 pontos.</p></div></div><a className="button" href="/simulado">Continuar diagnóstico <ArrowRight size={17}/></a></section>
 
