@@ -3,6 +3,7 @@ import { requireAdminUser } from "@/lib/admin-access";
 import { supabaseAdminRpc } from "@/lib/supabase";
 import { ArrowLeft, BarChart3, Clock3, Flag, LogOut, XCircle } from "lucide-react";
 import Link from "next/link";
+import type { ReactNode } from "react";
 
 export const dynamic = "force-dynamic";
 
@@ -44,7 +45,7 @@ export default async function QuestionAnalyticsPage(){
   </main>;
 }
 
-function QuestionPanel({icon,kicker,title,empty,children}:{icon:React.ReactNode;kicker:string;title:string;empty:string;children:React.ReactNode}){
+function QuestionPanel({icon,kicker,title,empty,children}:{icon:ReactNode;kicker:string;title:string;empty:string;children:ReactNode}){
   const hasChildren=Array.isArray(children)?children.length>0:Boolean(children);
   return <article className="admin-panel"><header><div><span>{icon} {kicker}</span><h2>{title}</h2></div><small>TOP 10</small></header>{hasChildren?children:<div className="admin-empty"><p>{empty}</p></div>}</article>;
 }
