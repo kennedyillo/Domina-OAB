@@ -3,6 +3,7 @@ import { Inter, Outfit } from "next/font/google";
 import { AnalyticsTracker } from "@/components/analytics-tracker";
 import "./globals.css";
 import "./domina-redesign.css";
+import "./accessibility.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit", display: "swap" });
@@ -22,5 +23,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({children}:Readonly<{children:React.ReactNode}>){
-  return <html lang="pt-BR"><body className={`${inter.variable} ${outfit.variable}`}>{children}<AnalyticsTracker/></body></html>;
+  return <html lang="pt-BR"><body className={`${inter.variable} ${outfit.variable}`}><a className="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a><div id="conteudo-principal" tabIndex={-1}>{children}</div><AnalyticsTracker/></body></html>;
 }
