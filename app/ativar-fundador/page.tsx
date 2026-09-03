@@ -8,14 +8,14 @@ export default async function AtivarFundadorPage({searchParams}:{searchParams:Pr
   const user=await getSupabaseUser();
   if(!user?.email) redirect("/entrar?return_to=/ativar-fundador");
   const params=await searchParams;
-  const message=params.error==="cpf"?"Este CPF já está associado a outra conta.":params.error==="phone"?"Este telefone já está associado a outra conta.":params.error==="reservation"?"Não encontramos uma vaga fundadora reservada para este e-mail.":params.error?"Não foi possível concluir a ativação. Verifique os dados informados.":null;
+  const message=params.error==="cpf"?"Este CPF já está associado a outra conta.":params.error==="phone"?"Este telefone já está associado a outra conta.":params.error==="full"?"As 25 vagas de acesso fundador já foram preenchidas. Você ainda pode escolher um dos planos Domina.":params.error?"Não foi possível concluir a ativação. Verifique os dados informados.":null;
 
   return <AuthShell
-    eyebrow="ATIVAÇÃO DO FUNDADOR"
+    eyebrow="ACESSO FUNDADOR"
     title="Ative seus 12 meses"
-    description="Conclua sua identificação para vincular a vaga fundadora à sua conta Domina."
+    description="Se ainda houver vaga disponível, conclua sua identificação para ativar 12 meses gratuitos. A inscrição em newsletter não é necessária."
   >
-    <div className="auth-founder-banner"><b>Acesso fundador</b>Seu benefício será vinculado à sua identidade. Cada CPF, e-mail e telefone pode pertencer a apenas uma conta.</div>
+    <div className="auth-founder-banner"><b>Acesso fundador</b>As vagas são limitadas a 25 pessoas. Cada CPF, e-mail e telefone pode pertencer a apenas uma conta.</div>
     {message&&<p className="auth-alert">{message}</p>}
     <form method="post" action="/api/account/activate-founder" className="auth-form">
       <label className="auth-field">Nome completo<input className="auth-input" name="full_name" required autoComplete="name"/></label>
@@ -24,6 +24,6 @@ export default async function AtivarFundadorPage({searchParams}:{searchParams:Pr
       <label className="auth-field">Telefone<input className="auth-input" name="phone" inputMode="tel" placeholder="(83) 99999-9999" required autoComplete="tel"/></label>
       <button className="auth-submit" type="submit">Ativar acesso fundador</button>
     </form>
-    <p className="auth-helper">O CPF é usado para impedir múltiplos benefícios por pessoa. Alterações posteriores exigirão atendimento administrativo.</p>
+    <p className="auth-helper">O CPF é usado apenas para garantir um benefício por pessoa. Receber comunicações de marketing é opcional e configurado separadamente.</p>
   </AuthShell>;
 }
