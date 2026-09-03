@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { hasAdminRole } from "@/lib/admin-access";
+import { getAdminMembershipByUserId } from "@/lib/admin-access";
 import { signInWithPassword, supabaseAccessCookie, supabaseAdminRpc } from "@/lib/supabase";
 
 function safeReturnTo(value: FormDataEntryValue | null) {
@@ -50,7 +50,8 @@ export async function POST(request: Request) {
     }
 
     const session = await signInWithPassword(email, password);
-    if (!session.user.email || !hasAdminRole(session.user)) {
+    const membership = await getAdminMembershipByUserId(session.user.id);
+    if (!session.user.email || !membership?.active) {
       await recordAttempt(ip, email, false);
       return NextResponse.redirect(new URL("/admin/login?error=1", request.url), 303);
     }

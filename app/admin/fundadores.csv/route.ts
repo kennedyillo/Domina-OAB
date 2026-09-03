@@ -1,4 +1,4 @@
-import { getAdminUser } from "@/lib/admin-access";
+import { adminCan, getAdminUser } from "@/lib/admin-access";
 import { supabaseAdminSelect } from "@/lib/supabase";
 
 function csv(value: unknown) {
@@ -9,7 +9,9 @@ type FounderRow = { email:string; status:string; created_at:string };
 
 export async function GET() {
   const user = await getAdminUser();
-  if (!user) return Response.json({error:"Acesso negado."},{status:403});
+  if (!user || !adminCan(user.role, "founders:export")) {
+    return Response.json({error:"Acesso negado."},{status:403});
+  }
 
   const rows = await supabaseAdminSelect<FounderRow[]>(
     "pilot_leads?select=email,status,created_at&order=created_at.asc,id.asc",

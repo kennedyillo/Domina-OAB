@@ -91,6 +91,37 @@ export async function supabaseAdminSelect<T>(path: string) {
   }));
 }
 
+export async function supabaseAdminInsert(table: string, body: Record<string, unknown>) {
+  const url = requiredEnv("NEXT_PUBLIC_SUPABASE_URL");
+  const response = await fetch(`${url}/rest/v1/${table}`, {
+    method: "POST",
+    headers: {
+      ...adminHeaders(),
+      prefer: "return=minimal",
+    },
+    body: JSON.stringify(body),
+    cache: "no-store",
+  });
+
+  if (!response.ok) {
+    const detail = await response.text();
+    throw new Error(`Supabase respondeu ${response.status}: ${detail.slice(0, 600)}`);
+  }
+}
+
+export async function supabaseAdminUpdate<T>(path: string, body: Record<string, unknown>) {
+  const url = requiredEnv("NEXT_PUBLIC_SUPABASE_URL");
+  return parseResponse<T>(await fetch(`${url}/rest/v1/${path}`, {
+    method: "PATCH",
+    headers: {
+      ...adminHeaders(),
+      prefer: "return=representation",
+    },
+    body: JSON.stringify(body),
+    cache: "no-store",
+  }));
+}
+
 export async function signInWithPassword(email: string, password: string) {
   const url = requiredEnv("NEXT_PUBLIC_SUPABASE_URL");
   return parseResponse<{
