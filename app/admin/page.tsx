@@ -15,6 +15,7 @@ type SubscriberPlan = { id:string; name:string; total:number };
 type GrowthMetrics = { newRegistrations:number; activeUsers:number; conversionRate:number; subscribersByPlan:SubscriberPlan[] };
 type FinancialHealth = { grossRevenue30d:number; netRevenue30d:number; cancellations30d:number; delinquentPayments:number; delinquentAmount:number; delinquencyThresholdHours:number };
 type RetentionMetrics = { d1:number; d7:number; d15:number; d30:number; cohortD1:number; cohortD7:number; cohortD15:number; cohortD30:number };
+type StudentProgress = { comparablePairs:number; averageFirstScore:number; averageLatestScore:number; averageEvolution:number };
 
 const configuredPlans:PlanRow[] = [
   {id:"domina-monthly",name:"Domina Mensal",billing_type:"recurring",duration_days:30,price_cents:4990,max_installments:1,active:true},
@@ -72,9 +73,19 @@ async function retentionData(): Promise<RetentionMetrics> {
   };
 }
 
+async function studentProgressData(): Promise<StudentProgress> {
+  const data = await supabaseAdminRpc<StudentProgress>("admin_student_progress_metrics");
+  return {
+    comparablePairs:Number(data.comparablePairs ?? 0),
+    averageFirstScore:Number(data.averageFirstScore ?? 0),
+    averageLatestScore:Number(data.averageLatestScore ?? 0),
+    averageEvolution:Number(data.averageEvolution ?? 0),
+  };
+}
+
 export default async function AdminPage() {
   const user = await requireAdminUser("/admin");
-  const [data,growth,financialHealth,retention] = await Promise.all([adminData(),growthData(),financialHealthData(),retentionData()]);
+  const [data,growth,financialHealth,retention,studentProgress] = await Promise.all([adminData(),growthData(),financialHealthData(),retentionData(),studentProgressData()]);
   const remaining = Math.max(0,25-data.founders);
   const maxSource = Math.max(1,...data.sources.map(item=>Number(item.total)));
   const maxPage = Math.max(1,...data.pages.map(item=>Number(item.total)));
@@ -94,6 +105,8 @@ export default async function AdminPage() {
         <article className="admin-panel" style={{marginTop:24}}><header><div><span><Users/> ASSINATURAS</span><h2>Assinantes por plano</h2></div><small>ACESSOS ATIVOS</small></header><div className="admin-bars">{growth.subscribersByPlan.length?growth.subscribersByPlan.map(item=><div key={item.id}><div><b>{item.name}</b><span>{item.total}</span></div><i><em style={{width:`${(Number(item.total)/maxSubscribers)*100}%`}}/></i></div>):<Empty text="Nenhum plano configurado."/>}</div></article>
 
         <article className="admin-panel" style={{marginTop:24}}><header><div><span><Activity/> RETENÇÃO</span><h2>Retenção de alunos</h2></div><small>COORTES POR CADASTRO</small></header><div className="admin-kpis"><article><div><small>D1</small><strong>{retention.d1}%</strong><p>{retention.cohortD1} usuário(s) elegível(is)</p></div></article><article><div><small>D7</small><strong>{retention.d7}%</strong><p>{retention.cohortD7} usuário(s) elegível(is)</p></div></article><article><div><small>D15</small><strong>{retention.d15}%</strong><p>{retention.cohortD15} usuário(s) elegível(is)</p></div></article><article><div><small>D30</small><strong>{retention.d30}%</strong><p>{retention.cohortD30} usuário(s) elegível(is)</p></div></article></div></article>
+
+        <article className="admin-panel" style={{marginTop:24}}><header><div><span><TrendingUp/> APRENDIZAGEM</span><h2>Evolução média dos alunos</h2></div><small>PRIMEIRA × ÚLTIMA TENTATIVA</small></header><div className="admin-kpis"><article><div><small>MÉDIA INICIAL</small><strong>{studentProgress.averageFirstScore}%</strong><p>Primeira tentativa por disciplina</p></div></article><article><div><small>MÉDIA ATUAL</small><strong>{studentProgress.averageLatestScore}%</strong><p>Última tentativa por disciplina</p></div></article><article><div><small>EVOLUÇÃO MÉDIA</small><strong>{studentProgress.averageEvolution>0?"+":""}{studentProgress.averageEvolution} p.p.</strong><p>{studentProgress.comparablePairs} par(es) comparável(is)</p></div></article></div></article>
 
         <section className="founder-admin" id="fundadores"><div className="founder-summary"><div><span className="panel-kicker"><ShieldCheck/> CAMPANHA FUNDADORA</span><h2>{remaining>0?`${remaining} acessos anuais disponíveis`:"Vagas gratuitas preenchidas"}</h2><p>{remaining>0?"Os próximos cadastros válidos ainda recebem 12 meses gratuitos.":"Novos interessados devem ser direcionados automaticamente aos planos pagos."}</p><div className="founder-progress"><i><em style={{width:`${(data.founders/25)*100}%`}}/></i><span><b>{data.founders}</b> de 25 ocupados</span></div></div><div className="founder-actions"><a href="/admin/fundadores.csv"><ArrowDownToLine/>Exportar CSV</a><Link href="/#piloto">Ver campanha</Link></div></div>
           <div className="admin-table"><div className="admin-table-head"><span>E-mail</span><span>Situação</span><span>Cadastro</span></div>{data.recent.length?data.recent.map(lead=><div className="admin-table-row" key={lead.id}><b>{lead.email}</b><span className="founder">Fundador</span><small>{new Intl.DateTimeFormat("pt-BR",{dateStyle:"short",timeStyle:"short",timeZone:"America/Sao_Paulo"}).format(new Date(lead.created_at))}</small></div>):<Empty text="Nenhum cadastro recebido ainda."/>}</div>
@@ -116,7 +129,7 @@ export default async function AdminPage() {
           <div className="payment-foundation"><ShieldCheck/><div><small>FUNDAÇÃO MERCADO PAGO</small><h3>Credenciais ainda não configuradas</h3><p>O checkout, os Webhooks assinados e a liberação automática de acesso serão conectados depois, usando somente segredos do servidor.</p></div><span>SEM COBRANÇAS</span></div>
         </section>
 
-        <section className="admin-next"><div><CircleDollarSign/><span><small>PRÓXIMO BLOCO</small><h2>Evolução média dos alunos</h2><p>O próximo indicador mede a progressão de desempenho entre tentativas concluídas.</p></span></div><div><Link href="/admin/usuarios">Usuários</Link><Link href="/admin/questoes">Questões</Link><Link href="/admin/reportes">Reportes</Link><Link href="/admin/simulados">Simulados</Link><Link href="/admin/comunicacoes">Comunicações</Link></div></section>
+        <section className="admin-next"><div><CircleDollarSign/><span><small>PRÓXIMO BLOCO</small><h2>Qualidade das questões</h2><p>O próximo lote identifica questões mais erradas, demoradas e reportadas.</p></span></div><div><Link href="/admin/usuarios">Usuários</Link><Link href="/admin/questoes">Questões</Link><Link href="/admin/reportes">Reportes</Link><Link href="/admin/simulados">Simulados</Link><Link href="/admin/comunicacoes">Comunicações</Link></div></section>
       </section>
     </div>
   </main>;
