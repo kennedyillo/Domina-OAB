@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 110">
+  <defs>
+    <linearGradient id="lockup-gold" x1="20" y1="20" x2="70" y2="90" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e6c98d"/>
+      <stop offset="1" stop-color="#b0854a"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(20,5) scale(0.9)">
+    <path d="M32 78 L32 22 A28 28 0 0 1 32 78 Z" stroke="url(#lockup-gold)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+  <text x="115" y="68" font-family="Outfit, sans-serif" font-weight="700" font-size="38" fill="#f6f5f1">Domina <tspan fill="#cda86a">OAB</tspan></text>
+</svg>

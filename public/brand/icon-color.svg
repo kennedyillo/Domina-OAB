@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="domina-oab-gold" x1="10" y1="15" x2="65" y2="85" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e6c98d"/>
+      <stop offset="1" stop-color="#b0854a"/>
+    </linearGradient>
+  </defs>
+  <path d="M32 78 L32 22 A28 28 0 0 1 32 78 Z" stroke="url(#domina-oab-gold)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

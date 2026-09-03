@@ -1,0 +1,8 @@
+.site-header .brand-seal,.app-header .brand-seal,footer .brand-seal{
+  width:34px;height:34px;border:0!important;border-radius:0!important;background:url('/brand/icon-color.svg') center/contain no-repeat!important;box-shadow:none!important;color:transparent!important
+}
+.site-header .brand-seal:before,.app-header .brand-seal:before,footer .brand-seal:before{display:none!important}
+.site-header .brand-seal span,.app-header .brand-seal span,footer .brand-seal span{display:none!important}
+.site-header .brand-name,.app-header .brand-name,footer .brand-name{font-family:var(--do-font-display)!important;font-weight:700!important;letter-spacing:.01em!important}
+.site-header .brand-name b,.app-header .brand-name b,footer .brand-name b{color:var(--do-gold-bright)!important;font-weight:700!important}
+.site-header .brand-compact .brand-seal,.app-header .brand-compact .brand-seal,footer .brand-compact .brand-seal{width:31px;height:31px}
