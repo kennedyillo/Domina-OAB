@@ -97,7 +97,7 @@ export default function Simulado(){
   async function sendReport(){
     setReport(v=>({...v,sending:true,error:""}));
     try{
-      const response=await fetch("/api/questions/report",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({question_id:q.id,reason:report.reason,message:report.message,source:definition.slug})});
+      const response=await fetch("/api/questions/report",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({question_id:q.id,reason:report.reason,message:report.message})});
       const data=await response.json() as {error?:string};
       if(!response.ok) throw new Error(data.error||"Não foi possível enviar o reporte.");
       setReport(v=>({...v,sending:false,sent:true}));
