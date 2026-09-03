@@ -161,6 +161,41 @@ export async function signUpWithPassword(email: string, password: string, fullNa
   }));
 }
 
+export async function requestPasswordReset(email: string, redirectTo: string) {
+  const url = requiredEnv("NEXT_PUBLIC_SUPABASE_URL");
+  const response = await fetch(`${url}/auth/v1/recover?redirect_to=${encodeURIComponent(redirectTo)}`, {
+    method: "POST",
+    headers: {
+      apikey: requiredEnv("NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY"),
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({ email }),
+    cache: "no-store",
+  });
+  if (!response.ok) {
+    const detail = await response.text();
+    throw new Error(`Supabase respondeu ${response.status}: ${detail.slice(0, 600)}`);
+  }
+}
+
+export async function updatePasswordWithAccessToken(accessToken: string, password: string) {
+  const url = requiredEnv("NEXT_PUBLIC_SUPABASE_URL");
+  const response = await fetch(`${url}/auth/v1/user`, {
+    method: "PUT",
+    headers: {
+      apikey: requiredEnv("NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY"),
+      authorization: `Bearer ${accessToken}`,
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({ password }),
+    cache: "no-store",
+  });
+  if (!response.ok) {
+    const detail = await response.text();
+    throw new Error(`Supabase respondeu ${response.status}: ${detail.slice(0, 600)}`);
+  }
+}
+
 export async function resolveLoginIdentifier(identifier: string) {
   return supabaseAdminRpc<string | null>("resolve_login_identifier", { p_identifier: identifier });
 }
