@@ -34,7 +34,6 @@ export async function POST(request: Request) {
     const eventType = body?.type ?? url.searchParams.get("type");
     const paymentId = paymentIdFromRequest(url, body);
 
-    // O Mercado Pago pode enviar outros tipos de notificação.
     if (eventType && eventType !== "payment") {
       return NextResponse.json({ received: true });
     }
@@ -63,8 +62,6 @@ export async function POST(request: Request) {
       throw error;
     }
 
-    // Depois da assinatura validada, ainda buscamos o pagamento diretamente
-    // no Mercado Pago antes de conceder qualquer acesso.
     const client = new MercadoPagoConfig({ accessToken });
     const paymentClient = new Payment(client);
     const payment = await paymentClient.get({ id: String(paymentId) });
@@ -75,7 +72,7 @@ export async function POST(request: Request) {
     const plan = String(metadata.plan ?? "").trim();
     const accessDays = Number(metadata.access_days ?? 0);
 
-    if (!userId || !email || !["90d", "annual"].includes(plan)) {
+    if (!userId || !email || !["30d", "90d", "annual"].includes(plan)) {
       console.error("Pagamento Mercado Pago sem metadata válida", {
         paymentId: payment.id,
         userId,
@@ -93,6 +90,9 @@ export async function POST(request: Request) {
       Number(payment.transaction_amount ?? 0) * 100
     );
 
+    const fallbackAccessDays =
+      plan === "annual" ? 365 : plan === "90d" ? 90 : 30;
+
     await supabaseAdminRpc("process_mercadopago_payment", {
       p_provider_payment_id: providerPaymentId,
       p_user_id: userId,
@@ -102,7 +102,7 @@ export async function POST(request: Request) {
       p_payment_method: payment.payment_method_id ?? null,
       p_installments: installments,
       p_gross_amount_cents: grossAmountCents,
-      p_access_days: accessDays || (plan === "annual" ? 365 : 90),
+      p_access_days: accessDays || fallbackAccessDays,
       p_approved_at: payment.date_approved ?? null,
     });
 
