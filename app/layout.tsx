@@ -3,6 +3,7 @@ import { Inter, Outfit } from "next/font/google";
 import { AnalyticsTracker } from "@/components/analytics-tracker";
 import "./globals.css";
 import "./domina-redesign.css";
+import "./contrast-fixes.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit", display: "swap" });
