@@ -34,8 +34,24 @@ export async function POST(request:Request){
     }
     const options=Array.isArray(body.options)?body.options.map(String):[];
     if(options.length!==4) return Response.json({error:"A questão precisa ter quatro alternativas."},{status:400});
-    const result=await supabaseAdminRpc("admin_save_question_v2",{
-      p_id:body.id?Number(body.id):null,p_code:String(body.code??""),p_discipline_slug:String(body.discipline_slug??"etica-profissional"),p_topic:String(body.topic??""),p_statement:String(body.statement??""),p_options:options,p_correct_index:Number(body.correct_index),p_explanation:String(body.explanation??""),p_source_label:String(body.source_label??""),p_difficulty:String(body.difficulty??"medium"),p_status:String(body.status??"draft"),p_actor_email:admin.email,
+    const result=await supabaseAdminRpc("admin_save_question_v3",{
+      p_id:body.id?Number(body.id):null,
+      p_code:String(body.code??""),
+      p_discipline_slug:String(body.discipline_slug??"etica-profissional"),
+      p_topic:String(body.topic??""),
+      p_statement:String(body.statement??""),
+      p_options:options,
+      p_correct_index:Number(body.correct_index),
+      p_explanation:String(body.explanation??""),
+      p_source_label:String(body.source_label??""),
+      p_difficulty:String(body.difficulty??"medium"),
+      p_status:String(body.status??"draft"),
+      p_exam_name:String(body.exam_name??""),
+      p_exam_edition:String(body.exam_edition??""),
+      p_exam_phase:String(body.exam_phase??""),
+      p_subtopic:String(body.subtopic??""),
+      p_incidence:String(body.incidence??"medium"),
+      p_actor_email:admin.email,
     });
     return Response.json(result,{status:body.id?200:201});
   }catch(error){return Response.json({error:error instanceof Error?error.message:"Não foi possível salvar a questão."},{status:500});}
