@@ -13,6 +13,7 @@ type PaymentRow = { id:number; email:string; plan_name:string; status:string; pa
 type PlanRow = { id:string; name:string; billing_type:string; duration_days:number|null; price_cents:number; max_installments:number; active:boolean };
 type SubscriberPlan = { id:string; name:string; total:number };
 type GrowthMetrics = { newRegistrations:number; activeUsers:number; conversionRate:number; subscribersByPlan:SubscriberPlan[] };
+type FinancialHealth = { grossRevenue30d:number; netRevenue30d:number; cancellations30d:number; delinquentPayments:number; delinquentAmount:number; delinquencyThresholdHours:number };
 
 const configuredPlans:PlanRow[] = [
   {id:"domina-monthly",name:"Domina Mensal",billing_type:"recurring",duration_days:30,price_cents:4990,max_installments:1,active:true},
@@ -50,9 +51,21 @@ async function growthData(): Promise<GrowthMetrics> {
   };
 }
 
+async function financialHealthData(): Promise<FinancialHealth> {
+  const data = await supabaseAdminRpc<FinancialHealth>("admin_financial_health_metrics");
+  return {
+    grossRevenue30d:Number(data.grossRevenue30d ?? 0),
+    netRevenue30d:Number(data.netRevenue30d ?? 0),
+    cancellations30d:Number(data.cancellations30d ?? 0),
+    delinquentPayments:Number(data.delinquentPayments ?? 0),
+    delinquentAmount:Number(data.delinquentAmount ?? 0),
+    delinquencyThresholdHours:Number(data.delinquencyThresholdHours ?? 72),
+  };
+}
+
 export default async function AdminPage() {
   const user = await requireAdminUser("/admin");
-  const [data,growth] = await Promise.all([adminData(),growthData()]);
+  const [data,growth,financialHealth] = await Promise.all([adminData(),growthData(),financialHealthData()]);
   const remaining = Math.max(0,25-data.founders);
   const maxSource = Math.max(1,...data.sources.map(item=>Number(item.total)));
   const maxPage = Math.max(1,...data.pages.map(item=>Number(item.total)));
@@ -76,12 +89,14 @@ export default async function AdminPage() {
         </section>
 
         <section className="finance-admin" id="financeiro">
-          <div className="finance-heading"><div><span className="panel-kicker"><WalletCards/> GESTÃO FINANCEIRA</span><h2>Receita e cobranças</h2><p>Estrutura preparada para conciliação com o Mercado Pago. Nenhuma cobrança está ativa.</p></div><span className="finance-mode"><i/> AMBIENTE DE PREPARAÇÃO</span></div>
+          <div className="finance-heading"><div><span className="panel-kicker"><WalletCards/> GESTÃO FINANCEIRA</span><h2>Receita e cobranças</h2><p>Indicadores financeiros dos últimos 30 dias e acompanhamento de pendências de cobrança.</p></div><span className="finance-mode"><i/> AMBIENTE DE PREPARAÇÃO</span></div>
           <div className="finance-kpis">
             <article><small>RECEITA BRUTA · 30 DIAS</small><strong>{money(data.financial.gross)}</strong><p>{data.financial.approved} pagamentos aprovados</p></article>
             <article><small>TAXAS DE PAGAMENTO</small><strong>{money(data.financial.fees)}</strong><p>Calculadas após a conciliação</p></article>
             <article><small>RECEITA LÍQUIDA</small><strong>{money(data.financial.net)}</strong><p>Bruto menos taxas e estornos</p></article>
             <article><small>PENDENTE</small><strong>{money(data.financial.pending)}</strong><p>{data.financial.activeSubscriptions} assinaturas ativas</p></article>
+            <article><small>CANCELAMENTOS · 30 DIAS</small><strong>{financialHealth.cancellations30d}</strong><p>Assinaturas canceladas no período</p></article>
+            <article><small>INADIMPLÊNCIA</small><strong>{money(financialHealth.delinquentAmount)}</strong><p>{financialHealth.delinquentPayments} cobrança(s) pendente(s) há mais de {financialHealth.delinquencyThresholdHours}h</p></article>
           </div>
           <div className="finance-grid">
             <article className="finance-panel"><header><div><ReceiptText/><span><small>TRANSAÇÕES</small><h3>Pagamentos recentes</h3></span></div><b>Mercado Pago</b></header>{data.recentPayments.length?<div className="payment-list">{data.recentPayments.map(payment=><div key={payment.id}><span><b>{payment.email}</b><small>{payment.plan_name} · {payment.payment_method??"Método pendente"}</small></span><span><b>{money(payment.gross_amount_cents)}</b><small>{payment.installments>1?`${payment.installments} parcelas`:"À vista"}</small></span><em className={`payment-status ${payment.status}`}>{paymentLabel(payment.status)}</em></div>)}</div>:<Empty text="As transações confirmadas pelo Mercado Pago aparecerão aqui."/>}</article>
@@ -90,7 +105,7 @@ export default async function AdminPage() {
           <div className="payment-foundation"><ShieldCheck/><div><small>FUNDAÇÃO MERCADO PAGO</small><h3>Credenciais ainda não configuradas</h3><p>O checkout, os Webhooks assinados e a liberação automática de acesso serão conectados depois, usando somente segredos do servidor.</p></div><span>SEM COBRANÇAS</span></div>
         </section>
 
-        <section className="admin-next"><div><CircleDollarSign/><span><small>PRÓXIMO BLOCO</small><h2>Checkout de teste e Webhooks</h2><p>A operação acadêmica e administrativa já está preparada; o próximo bloco financeiro conecta o Mercado Pago.</p></span></div><div><Link href="/admin/usuarios">Usuários</Link><Link href="/admin/questoes">Questões</Link><Link href="/admin/reportes">Reportes</Link><Link href="/admin/simulados">Simulados</Link><Link href="/admin/comunicacoes">Comunicações</Link></div></section>
+        <section className="admin-next"><div><CircleDollarSign/><span><small>PRÓXIMO BLOCO</small><h2>Retenção e evolução dos alunos</h2><p>Com aquisição, assinantes e saúde financeira cobertos, o próximo bloco aprofunda comportamento e aprendizagem.</p></span></div><div><Link href="/admin/usuarios">Usuários</Link><Link href="/admin/questoes">Questões</Link><Link href="/admin/reportes">Reportes</Link><Link href="/admin/simulados">Simulados</Link><Link href="/admin/comunicacoes">Comunicações</Link></div></section>
       </section>
     </div>
   </main>;
