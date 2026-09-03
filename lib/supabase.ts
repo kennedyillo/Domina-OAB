@@ -17,14 +17,41 @@ function publicHeaders() {
   };
 }
 
-function adminHeaders() {
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
-  if (!key) throw new Error("Variável SUPABASE_SERVICE_ROLE_KEY não configurada.");
-  return {
+function legacyJwtRole(key: string) {
+  const parts = key.split(".");
+  if (parts.length !== 3) return null;
+  try {
+    const payload = JSON.parse(Buffer.from(parts[1], "base64url").toString("utf8")) as { role?: unknown };
+    return typeof payload.role === "string" ? payload.role : null;
+  } catch {
+    return null;
+  }
+}
+
+function adminHeaders(): Record<string, string> {
+  const key = process.env.SUPABASE_SECRET_KEY?.trim() || process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
+  if (!key) {
+    throw new Error("Chave privilegiada do Supabase não configurada. Defina SUPABASE_SECRET_KEY ou SUPABASE_SERVICE_ROLE_KEY no servidor.");
+  }
+
+  if (key.startsWith("sb_publishable_")) {
+    throw new Error("Chave Supabase inválida no backend: foi configurada uma chave publicável no lugar da chave secreta.");
+  }
+
+  const headers: Record<string, string> = {
     apikey: key,
-    authorization: `Bearer ${key}`,
     "content-type": "application/json",
   };
+
+  if (key.startsWith("sb_secret_")) return headers;
+
+  const role = legacyJwtRole(key);
+  if (role !== "service_role") {
+    throw new Error(`Chave Supabase privilegiada inválida no backend${role ? `: role ${role}` : ": formato desconhecido"}.`);
+  }
+
+  headers.authorization = `Bearer ${key}`;
+  return headers;
 }
 
 async function parseResponse<T>(response: Response): Promise<T> {
@@ -117,6 +144,27 @@ export async function signInWithPassword(email: string, password: string) {
   }));
 }
 
+export async function signUpWithPassword(email: string, password: string, fullName?: string) {
+  const url = requiredEnv("NEXT_PUBLIC_SUPABASE_URL");
+  return parseResponse<{
+    access_token?: string;
+    expires_in?: number;
+    user: { id: string; email?: string; app_metadata?: Record<string, unknown>; user_metadata?: Record<string, unknown> };
+  }>(await fetch(`${url}/auth/v1/signup`, {
+    method: "POST",
+    headers: {
+      apikey: requiredEnv("NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY"),
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({ email, password, data: fullName ? { full_name: fullName } : undefined }),
+    cache: "no-store",
+  }));
+}
+
+export async function resolveLoginIdentifier(identifier: string) {
+  return supabaseAdminRpc<string | null>("resolve_login_identifier", { p_identifier: identifier });
+}
+
 export async function getSupabaseUser() {
   const store = await cookies();
   const token = store.get(ACCESS_COOKIE)?.value;
@@ -134,6 +182,7 @@ export async function getSupabaseUser() {
   return await response.json() as {
     id: string;
     email?: string;
+    phone?: string;
     app_metadata?: Record<string, unknown>;
     user_metadata?: Record<string, unknown>;
   };

@@ -10,7 +10,7 @@ const themes = [
 
 const steps = [
   {icon:Radar,number:"01",title:"Diagnostique",copy:"Responda questões e descubra seu domínio por disciplina, tema e subtema."},
-  {icon:Target,number:"02",title:"Priorize",copy:"Veja quais pontos têm maior potencial para aproximar você dos 40 acertos."},
+  {icon:Target,number:"02",title:"Priorize",copy:"Veja quais pontos têm maior potencial para aprofundar seu domínio e consolidar resultados."},
   {icon:BookOpenCheck,number:"03",title:"Corrija",copy:"Estude a explicação certa, pratique novamente e acompanhe a evolução real."},
 ];
 
@@ -33,35 +33,35 @@ export default function Home(){return <main>
   <section className="hero" id="inicio">
     <div className="hero-copy">
       <span className="eyebrow"><span/> Inteligência de desempenho para a OAB</span>
-      <h1>Descubra o que falta para chegar aos <em>40 pontos.</em></h1>
-      <p className="hero-lead">O Domina transforma suas respostas em um diagnóstico preciso e mostra onde estudar, o que corrigir e qual ação tem maior potencial para aumentar sua nota.</p>
+      <h1>Descubra exatamente o quanto você já <em>domina</em> da prova.</h1>
+      <p className="hero-lead">O Domina transforma suas respostas em um diagnóstico preciso e mostra onde estudar, o que corrigir e qual ação tem maior potencial para fortalecer seu desempenho.</p>
       <div className="hero-actions"><a className="button" href="/simulado">Fazer diagnóstico gratuito <ArrowRight size={18}/></a><a className="text-link" href="#metodo">Conhecer o método <ChevronRight size={17}/></a></div>
       <div className="hero-proof"><span><CircleCheck size={17}/> Simulados gratuitos</span><span><CircleCheck size={17}/> Resultado imediato</span><span><CircleCheck size={17}/> Sem cartão</span></div>
     </div>
     <div className="hero-intelligence" aria-label="Exemplo do diagnóstico Domina OAB">
-      <div className="intelligence-top"><div><small>PROJEÇÃO DE PONTUAÇÃO</small><strong>34<span>/80</span></strong></div><span className="cutline"><i/>40 pontos<br/><small>nota de aprovação</small></span></div>
+      <div className="intelligence-top"><div><small>DOMÍNIO ATUAL DA PROVA</small><strong>34<span>/80 acertos projetados</span></strong></div><span className="cutline"><i/>42% de domínio<br/><small>leitura consolidada</small></span></div>
       <div className="score-track"><span/><i/></div>
-      <p className="score-distance"><b>Faltam 6 questões</b> para a aprovação</p>
+      <p className="score-distance"><b>Próximo foco:</b> consolidar os temas com maior potencial de evolução.</p>
       <div className="intelligence-divider"/>
       <div className="intelligence-heading"><div><small>DOMÍNIO POR TEMA</small><b>Ética Profissional</b></div><a href="/plataforma">Ver diagnóstico <ChevronRight size={15}/></a></div>
       <div className="intelligence-list">{themes.map(item=><div key={item.label}><div><span>{item.label}</span><b>{item.value}%</b></div><div className="data-bar"><span className={item.tone} style={{width:`${item.value}%`}}/></div></div>)}</div>
-      <div className="next-action"><span><Target size={19}/></span><div><small>MAIOR POTENCIAL DE GANHO</small><b>Revisar infrações e sanções</b></div><ArrowRight size={18}/></div>
+      <div className="next-action"><span><Target size={19}/></span><div><small>MAIOR POTENCIAL DE EVOLUÇÃO</small><b>Revisar infrações e sanções</b></div><ArrowRight size={18}/></div>
     </div>
   </section>
 
-  <section className="trust-strip"><p>Não é sobre estudar tudo novamente. É sobre agir onde <strong>sua nota pode mudar.</strong></p><div><span>80<small>questões na prova</small></span><i/><span>20<small>disciplinas</small></span><i/><span>40<small>acertos para passar</small></span></div></section>
+  <section className="trust-strip"><p>Não é sobre estudar tudo novamente. É sobre transformar evidência em <strong>domínio.</strong></p><div><span>80<small>questões na prova</small></span><i/><span>20<small>disciplinas</small></span><i/><span>40<small>acertos na regra da prova</small></span></div></section>
 
   <PilotCampaign/>
 
   <section className="method-section" id="metodo">
-    <div className="section-heading"><div><span className="eyebrow"><span/> Método Domina</span><h2>Da resposta ao<br/><strong>próximo passo.</strong></h2></div><p>Enquanto outros cursos entregam mais conteúdo, o Domina organiza a sua preparação a partir de evidências: desempenho, incidência na prova e distância da aprovação.</p></div>
+    <div className="section-heading"><div><span className="eyebrow"><span/> Método Domina</span><h2>Da resposta ao<br/><strong>próximo passo.</strong></h2></div><p>Enquanto outros cursos entregam mais conteúdo, o Domina organiza a sua preparação a partir de evidências: desempenho, incidência na prova e potencial real de evolução.</p></div>
     <div className="feature-grid">{steps.map(({icon:Icon,number,title,copy})=><article className="feature-card" key={number}><span className="feature-number">{number}</span><span className="feature-icon"><Icon size={24}/></span><h3>{title}</h3><p>{copy}</p><span className="feature-line"/></article>)}</div>
     <div className="journey"><span className="active">Diagnóstico</span><i/><span>Entenda</span><i/><span>Corrija</span><i/><span>Simule</span><i/><span>Domine</span></div>
   </section>
 
   <section className="product-section" id="diagnostico">
-    <div className="product-copy"><span className="eyebrow light"><span/> Sua preparação, mensurável</span><h2>Um painel que explica o que seus erros significam.</h2><p>Você não recebe apenas uma porcentagem. Cada sessão atualiza sua projeção, identifica padrões e reorganiza a prioridade dos temas.</p><ul><li><Check size={17}/> Projeção em relação aos 40 acertos</li><li><Check size={17}/> Domínio por disciplina, tema e subtema</li><li><Check size={17}/> Plano de ação recomendado</li><li><Check size={17}/> Evolução entre simulados</li></ul><a className="button button-light" href="/plataforma">Explorar o painel <ArrowRight size={18}/></a></div>
-    <div className="product-console"><div className="console-head"><span><i/> DIAGNÓSTICO ATUALIZADO</span><small>47º EXAME · 1ª FASE</small></div><div className="console-score"><strong>34</strong><span>projeção atual<br/><b>de 80 pontos</b></span></div><div className="console-gain"><small>MAIOR POTENCIAL DE GANHO</small><b>Ética Profissional</b><span>+6 a 8 pontos possíveis</span></div><div className="console-chart"><span style={{height:"32%"}}/><span style={{height:"44%"}}/><span style={{height:"55%"}}/><span style={{height:"68%"}}/><span style={{height:"74%"}}/><span style={{height:"85%"}}/></div></div>
+    <div className="product-copy"><span className="eyebrow light"><span/> Sua preparação, mensurável</span><h2>Um painel que explica o que seus erros significam.</h2><p>Você não recebe apenas uma porcentagem. Cada sessão atualiza sua projeção, identifica padrões e reorganiza a prioridade dos temas.</p><ul><li><Check size={17}/> Projeção de domínio e evolução</li><li><Check size={17}/> Domínio por disciplina, tema e subtema</li><li><Check size={17}/> Plano de ação recomendado</li><li><Check size={17}/> Evolução entre simulados</li></ul><a className="button button-light" href="/plataforma">Explorar o painel <ArrowRight size={18}/></a></div>
+    <div className="product-console"><div className="console-head"><span><i/> DIAGNÓSTICO ATUALIZADO</span><small>47º EXAME · 1ª FASE</small></div><div className="console-score"><strong>34</strong><span>acertos projetados<br/><b>de 80 questões</b></span></div><div className="console-gain"><small>MAIOR POTENCIAL DE EVOLUÇÃO</small><b>Ética Profissional</b><span>Prioridade recomendada agora</span></div><div className="console-chart"><span style={{height:"32%"}}/><span style={{height:"44%"}}/><span style={{height:"55%"}}/><span style={{height:"68%"}}/><span style={{height:"74%"}}/><span style={{height:"85%"}}/></div></div>
   </section>
 
   <section className="subjects-section" id="disciplinas">
@@ -84,6 +84,6 @@ export default function Home(){return <main>
     <p className="plans-note">Os preços serão cobrados somente após o lançamento comercial. Os 25 usuários fundadores não cadastram cartão e não terão renovação automática ao fim do acesso gratuito.</p>
   </section>
 
-  <section className="final-cta"><span className="eyebrow light"><span/> Sua preparação começa com evidência</span><h2>Descubra hoje o que pode mudar sua próxima nota.</h2><p>Faça o simulado gratuitamente. Se quiser transformar as respostas em histórico, diagnóstico e direção, conheça o Plano Domina.</p><div className="final-actions"><a className="button button-light" href="/simulado">Fazer simulado gratuito <ArrowRight size={18}/></a><a className="final-text-link" href="#planos">Conhecer o Plano Domina</a></div></section>
-  <footer><Brand compact/><p>Inteligência de desempenho para a aprovação na OAB.</p><span>© 2026 Domina OAB</span></footer>
+  <section className="final-cta"><span className="eyebrow light"><span/> Sua preparação começa com evidência</span><h2>Transforme cada simulado em mais domínio da prova.</h2><p>Faça o simulado gratuitamente. Se quiser transformar as respostas em histórico, diagnóstico e direção, conheça o Plano Domina.</p><div className="final-actions"><a className="button button-light" href="/simulado">Fazer simulado gratuito <ArrowRight size={18}/></a><a className="final-text-link" href="#planos">Conhecer o Plano Domina</a></div></section>
+  <footer><Brand compact/><p>Inteligência de desempenho para o domínio da OAB.</p><span>© 2026 Domina OAB</span></footer>
 </main>}
