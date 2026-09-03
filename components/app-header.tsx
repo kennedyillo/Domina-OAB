@@ -22,7 +22,7 @@ export function AppHeader({active,access="visitor"}:{active:"inicio"|"disciplina
         <span className="phase-active">1ª fase</span>
         <span className="phase-future"><LockKeyhole size={12}/>2ª fase</span>
       </div>
-      <div className="student-chip"><span>{access==="subscriber"?"DO":"V"}</span><div><b>{access==="subscriber"?"Minha conta":"Visitante"}</b><small>{access==="subscriber"?"PLANO DOMINA":"NÃO SALVA DESEMPENHO"}</small></div></div>
+      <a href="/conta" className="student-chip" style={{textDecoration:"none",color:"inherit"}}><span>{access==="subscriber"?"DO":"V"}</span><div><b>{access==="subscriber"?"Minha conta":"Visitante"}</b><small>{access==="subscriber"?"PLANO DOMINA":"NÃO SALVA DESEMPENHO"}</small></div></a>
     </div>
   </header>;
 }
