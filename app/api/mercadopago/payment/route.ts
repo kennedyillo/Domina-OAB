@@ -5,15 +5,20 @@ import { getSupabaseUser } from "@/lib/supabase";
 const accessToken = process.env.MERCADOPAGO_ACCESS_TOKEN;
 
 const PLANS = {
+  "30d": {
+    amount: 49.9,
+    days: 30,
+    description: "Domina OAB - Acesso por 30 dias",
+  },
   "90d": {
-    amount: 149.9,
+    amount: 129.9,
     days: 90,
-    description: "Domina OAB - Plano 90 dias",
+    description: "Domina OAB - Acesso por 90 dias",
   },
   annual: {
     amount: 360,
     days: 365,
-    description: "Domina OAB - Plano Anual",
+    description: "Domina OAB - Acesso por 365 dias",
   },
 } as const;
 
