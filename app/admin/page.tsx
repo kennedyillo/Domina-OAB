@@ -1,7 +1,7 @@
 import { Brand } from "@/components/app-header";
 import { requireAdminUser } from "@/lib/admin-access";
 import { supabaseAdminRpc } from "@/lib/supabase";
-import { Activity, ArrowDownToLine, BarChart3, BookOpenCheck, CircleDollarSign, ClipboardCheck, CreditCard, Flag, Gauge, LayoutDashboard, LogOut, Mail, MousePointerClick, ReceiptText, ShieldCheck, TicketCheck, TrendingUp, Users, WalletCards } from "lucide-react";
+import { Activity, ArrowDownToLine, BarChart3, BookOpenCheck, CircleDollarSign, ClipboardCheck, CreditCard, Flag, Gauge, LayoutDashboard, LogOut, Mail, MousePointerClick, ReceiptText, ShieldCheck, TicketCheck, TrendingUp, UserPlus, Users, WalletCards } from "lucide-react";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
@@ -11,6 +11,7 @@ type Source = { source:string; total:number };
 type PageRow = { path:string; total:number };
 type PaymentRow = { id:number; email:string; plan_name:string; status:string; payment_method:string|null; installments:number; gross_amount_cents:number; created_at:string };
 type PlanRow = { id:string; name:string; billing_type:string; duration_days:number|null; price_cents:number; max_installments:number; active:boolean };
+type GrowthMetrics = { newRegistrations:number; conversionRate:number };
 
 const configuredPlans:PlanRow[] = [
   {id:"domina-monthly",name:"Domina Mensal",billing_type:"recurring",duration_days:30,price_cents:4990,max_installments:1,active:true},
@@ -38,9 +39,17 @@ async function adminData(): Promise<AdminDashboard> {
   };
 }
 
+async function growthData(): Promise<GrowthMetrics> {
+  const data = await supabaseAdminRpc<GrowthMetrics>("admin_growth_metrics");
+  return {
+    newRegistrations:Number(data.newRegistrations ?? 0),
+    conversionRate:Number(data.conversionRate ?? 0),
+  };
+}
+
 export default async function AdminPage() {
   const user = await requireAdminUser("/admin");
-  const data = await adminData();
+  const [data,growth] = await Promise.all([adminData(),growthData()]);
   const remaining = Math.max(0,25-data.founders);
   const maxSource = Math.max(1,...data.sources.map(item=>Number(item.total)));
   const maxPage = Math.max(1,...data.pages.map(item=>Number(item.total)));
@@ -52,7 +61,7 @@ export default async function AdminPage() {
 
       <section className="admin-content" id="visao"><div className="admin-title"><div><span className="eyebrow"><span/> Operação em tempo real</span><h1>Visão geral</h1><p>Dados dos últimos 30 dias e situação atual da campanha fundadora.</p></div><span className="admin-updated"><Activity/>Atualizado agora</span></div>
 
-        <div className="admin-kpis"><article><span><MousePointerClick/></span><div><small>VISUALIZAÇÕES</small><strong>{data.pageViews}</strong><p>{data.sessions} sessões identificadas</p></div></article><article><span><ClipboardCheck/></span><div><small>SIMULADOS INICIADOS</small><strong>{data.started}</strong><p>{data.completed} concluídos</p></div></article><article><span><Gauge/></span><div><small>TAXA DE CONCLUSÃO</small><strong>{data.completionRate}%</strong><p>Início até resultado final</p></div></article><article><span><Mail/></span><div><small>CADASTROS</small><strong>{data.leads}</strong><p>{data.founders} acessos fundadores</p></div></article></div>
+        <div className="admin-kpis"><article><span><MousePointerClick/></span><div><small>VISUALIZAÇÕES</small><strong>{data.pageViews}</strong><p>{data.sessions} sessões identificadas</p></div></article><article><span><ClipboardCheck/></span><div><small>SIMULADOS INICIADOS</small><strong>{data.started}</strong><p>{data.completed} concluídos</p></div></article><article><span><Gauge/></span><div><small>TAXA DE CONCLUSÃO</small><strong>{data.completionRate}%</strong><p>Início até resultado final</p></div></article><article><span><Mail/></span><div><small>CADASTROS</small><strong>{data.leads}</strong><p>{data.founders} acessos fundadores</p></div></article><article><span><UserPlus/></span><div><small>NOVOS CADASTROS</small><strong>{growth.newRegistrations}</strong><p>Contas criadas nos últimos 30 dias</p></div></article><article><span><TrendingUp/></span><div><small>TAXA DE CONVERSÃO</small><strong>{growth.conversionRate}%</strong><p>Sessões que viraram cadastro em 30 dias</p></div></article></div>
 
         <div className="admin-primary-grid" id="analytics"><article className="admin-panel traffic-panel"><header><div><span><TrendingUp/> AQUISIÇÃO</span><h2>Origem do tráfego</h2></div><small>ÚLTIMOS 30 DIAS</small></header><div className="admin-bars">{data.sources.length?data.sources.map(item=><div key={item.source}><div><b>{item.source}</b><span>{item.total}</span></div><i><em style={{width:`${(Number(item.total)/maxSource)*100}%`}}/></i></div>):<Empty text="Os dados aparecerão após os primeiros acessos."/>}</div></article><article className="admin-panel pages-panel"><header><div><span><BarChart3/> CONTEÚDO</span><h2>Páginas mais acessadas</h2></div><small>VISUALIZAÇÕES</small></header><div className="admin-bars">{data.pages.length?data.pages.map(item=><div key={item.path}><div><b>{item.path}</b><span>{item.total}</span></div><i><em style={{width:`${(Number(item.total)/maxPage)*100}%`}}/></i></div>):<Empty text="Nenhuma visualização registrada ainda."/>}</div></article></div>
 
