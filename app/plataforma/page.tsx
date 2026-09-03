@@ -1,6 +1,24 @@
 import { AppHeader } from "@/components/app-header";
 import { AlertTriangle, ArrowRight, BarChart3, BookOpenCheck, BrainCircuit, CalendarDays, CheckCircle2, Clock3, Eye, Lightbulb, Radar, ShieldCheck, Target, TrendingUp } from "lucide-react";
 import Link from "next/link";
+import { getSupabaseUser, supabaseAdminSelect } from "@/lib/supabase";
+
+export const dynamic = "force-dynamic";
+
+async function resolveAccess(): Promise<"visitor" | "subscriber"> {
+  const user = await getSupabaseUser();
+  if (!user?.id) return "visitor";
+
+  try {
+    const rows = await supabaseAdminSelect<{ id: number }[]>(
+      `entitlements?user_id=eq.${encodeURIComponent(user.id)}&status=eq.active&ends_at=gt.${encodeURIComponent(new Date().toISOString())}&select=id&limit=1`
+    );
+    return rows.length > 0 ? "subscriber" : "visitor";
+  } catch {
+    // Falha ao consultar entitlement não deve derrubar a página; assume visitante.
+    return "visitor";
+  }
+}
 
 const disciplines = [
   {name:"Ética Profissional",score:72,correct:"6/8",tone:"good",gain:"+2"},
@@ -35,7 +53,9 @@ const plan = [
   {day:"Sexta",title:"Simulado dirigido",meta:"20 questões · 48 min",type:"Validar evolução"},
 ];
 
-export default function Plataforma(){return <main className="app-surface"><AppHeader active="inicio"/><div className="app-container diagnosis-demo">
+export default async function Plataforma(){
+  const access = await resolveAccess();
+  return <main className="app-surface"><AppHeader active="inicio" access={access}/><div className="app-container diagnosis-demo">
   <section className="demo-disclaimer"><div><Eye size={18}/><span><b>Demonstração fictícia</b> Os dados abaixo exemplificam o diagnóstico entregue aos assinantes. Eles não representam o seu desempenho.</span></div><Link href="/simulado">Fazer um simulado gratuito <ArrowRight size={15}/></Link></section>
 
   <section className="workspace-intro diagnosis-title"><div><span className="eyebrow"><span/> 47º exame · 1ª fase</span><h1>Diagnóstico de desempenho</h1><p>Perfil demonstrativo · Simulado completo de 80 questões · 31 de agosto de 2026</p></div><div className="report-status"><ShieldCheck/><div><strong>Análise concluída</strong><span>80 respostas processadas</span></div></div></section>
