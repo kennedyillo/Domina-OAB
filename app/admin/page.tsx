@@ -11,7 +11,8 @@ type Source = { source:string; total:number };
 type PageRow = { path:string; total:number };
 type PaymentRow = { id:number; email:string; plan_name:string; status:string; payment_method:string|null; installments:number; gross_amount_cents:number; created_at:string };
 type PlanRow = { id:string; name:string; billing_type:string; duration_days:number|null; price_cents:number; max_installments:number; active:boolean };
-type GrowthMetrics = { newRegistrations:number; conversionRate:number };
+type SubscriberPlan = { id:string; name:string; total:number };
+type GrowthMetrics = { newRegistrations:number; activeUsers:number; conversionRate:number; subscribersByPlan:SubscriberPlan[] };
 
 const configuredPlans:PlanRow[] = [
   {id:"domina-monthly",name:"Domina Mensal",billing_type:"recurring",duration_days:30,price_cents:4990,max_installments:1,active:true},
@@ -43,7 +44,9 @@ async function growthData(): Promise<GrowthMetrics> {
   const data = await supabaseAdminRpc<GrowthMetrics>("admin_growth_metrics");
   return {
     newRegistrations:Number(data.newRegistrations ?? 0),
+    activeUsers:Number(data.activeUsers ?? 0),
     conversionRate:Number(data.conversionRate ?? 0),
+    subscribersByPlan:data.subscribersByPlan ?? [],
   };
 }
 
@@ -53,6 +56,7 @@ export default async function AdminPage() {
   const remaining = Math.max(0,25-data.founders);
   const maxSource = Math.max(1,...data.sources.map(item=>Number(item.total)));
   const maxPage = Math.max(1,...data.pages.map(item=>Number(item.total)));
+  const maxSubscribers = Math.max(1,...growth.subscribersByPlan.map(item=>Number(item.total)));
 
   return <main className="admin-surface">
     <header className="admin-header"><Brand compact/><div><span className="admin-environment"><i/> PAINEL ADMINISTRATIVO</span><a href="/api/auth/logout"><LogOut size={15}/>Sair</a></div></header>
@@ -61,9 +65,11 @@ export default async function AdminPage() {
 
       <section className="admin-content" id="visao"><div className="admin-title"><div><span className="eyebrow"><span/> Operação em tempo real</span><h1>Visão geral</h1><p>Dados dos últimos 30 dias e situação atual da campanha fundadora.</p></div><span className="admin-updated"><Activity/>Atualizado agora</span></div>
 
-        <div className="admin-kpis"><article><span><MousePointerClick/></span><div><small>VISUALIZAÇÕES</small><strong>{data.pageViews}</strong><p>{data.sessions} sessões identificadas</p></div></article><article><span><ClipboardCheck/></span><div><small>SIMULADOS INICIADOS</small><strong>{data.started}</strong><p>{data.completed} concluídos</p></div></article><article><span><Gauge/></span><div><small>TAXA DE CONCLUSÃO</small><strong>{data.completionRate}%</strong><p>Início até resultado final</p></div></article><article><span><Mail/></span><div><small>CADASTROS</small><strong>{data.leads}</strong><p>{data.founders} acessos fundadores</p></div></article><article><span><UserPlus/></span><div><small>NOVOS CADASTROS</small><strong>{growth.newRegistrations}</strong><p>Contas criadas nos últimos 30 dias</p></div></article><article><span><TrendingUp/></span><div><small>TAXA DE CONVERSÃO</small><strong>{growth.conversionRate}%</strong><p>Sessões que viraram cadastro em 30 dias</p></div></article></div>
+        <div className="admin-kpis"><article><span><MousePointerClick/></span><div><small>VISUALIZAÇÕES</small><strong>{data.pageViews}</strong><p>{data.sessions} sessões identificadas</p></div></article><article><span><ClipboardCheck/></span><div><small>SIMULADOS INICIADOS</small><strong>{data.started}</strong><p>{data.completed} concluídos</p></div></article><article><span><Gauge/></span><div><small>TAXA DE CONCLUSÃO</small><strong>{data.completionRate}%</strong><p>Início até resultado final</p></div></article><article><span><Mail/></span><div><small>CADASTROS</small><strong>{data.leads}</strong><p>{data.founders} acessos fundadores</p></div></article><article><span><UserPlus/></span><div><small>NOVOS CADASTROS</small><strong>{growth.newRegistrations}</strong><p>Contas criadas nos últimos 30 dias</p></div></article><article><span><Users/></span><div><small>USUÁRIOS ATIVOS</small><strong>{growth.activeUsers}</strong><p>Login realizado nos últimos 30 dias</p></div></article><article><span><TrendingUp/></span><div><small>TAXA DE CONVERSÃO</small><strong>{growth.conversionRate}%</strong><p>Sessões que viraram cadastro em 30 dias</p></div></article></div>
 
         <div className="admin-primary-grid" id="analytics"><article className="admin-panel traffic-panel"><header><div><span><TrendingUp/> AQUISIÇÃO</span><h2>Origem do tráfego</h2></div><small>ÚLTIMOS 30 DIAS</small></header><div className="admin-bars">{data.sources.length?data.sources.map(item=><div key={item.source}><div><b>{item.source}</b><span>{item.total}</span></div><i><em style={{width:`${(Number(item.total)/maxSource)*100}%`}}/></i></div>):<Empty text="Os dados aparecerão após os primeiros acessos."/>}</div></article><article className="admin-panel pages-panel"><header><div><span><BarChart3/> CONTEÚDO</span><h2>Páginas mais acessadas</h2></div><small>VISUALIZAÇÕES</small></header><div className="admin-bars">{data.pages.length?data.pages.map(item=><div key={item.path}><div><b>{item.path}</b><span>{item.total}</span></div><i><em style={{width:`${(Number(item.total)/maxPage)*100}%`}}/></i></div>):<Empty text="Nenhuma visualização registrada ainda."/>}</div></article></div>
+
+        <article className="admin-panel" style={{marginTop:24}}><header><div><span><Users/> ASSINATURAS</span><h2>Assinantes por plano</h2></div><small>ACESSOS ATIVOS</small></header><div className="admin-bars">{growth.subscribersByPlan.length?growth.subscribersByPlan.map(item=><div key={item.id}><div><b>{item.name}</b><span>{item.total}</span></div><i><em style={{width:`${(Number(item.total)/maxSubscribers)*100}%`}}/></i></div>):<Empty text="Nenhum plano configurado."/>}</div></article>
 
         <section className="founder-admin" id="fundadores"><div className="founder-summary"><div><span className="panel-kicker"><ShieldCheck/> CAMPANHA FUNDADORA</span><h2>{remaining>0?`${remaining} acessos anuais disponíveis`:"Vagas gratuitas preenchidas"}</h2><p>{remaining>0?"Os próximos cadastros válidos ainda recebem 12 meses gratuitos.":"Novos interessados devem ser direcionados automaticamente aos planos pagos."}</p><div className="founder-progress"><i><em style={{width:`${(data.founders/25)*100}%`}}/></i><span><b>{data.founders}</b> de 25 ocupados</span></div></div><div className="founder-actions"><a href="/admin/fundadores.csv"><ArrowDownToLine/>Exportar CSV</a><Link href="/#piloto">Ver campanha</Link></div></div>
           <div className="admin-table"><div className="admin-table-head"><span>E-mail</span><span>Situação</span><span>Cadastro</span></div>{data.recent.length?data.recent.map(lead=><div className="admin-table-row" key={lead.id}><b>{lead.email}</b><span className="founder">Fundador</span><small>{new Intl.DateTimeFormat("pt-BR",{dateStyle:"short",timeStyle:"short",timeZone:"America/Sao_Paulo"}).format(new Date(lead.created_at))}</small></div>):<Empty text="Nenhum cadastro recebido ainda."/>}</div>
