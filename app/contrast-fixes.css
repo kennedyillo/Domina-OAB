@@ -1,0 +1,167 @@
+/*
+ * Camada de reforço de contraste.
+ * Importada depois do tema aprovado para neutralizar superfícies claras
+ * remanescentes do CSS legado sem tocar em admin, dados ou lógica.
+ */
+
+/* Home: formulário da campanha piloto */
+.pilot-campaign .pilot-form label>div{
+  background:rgba(5,6,15,.56)!important;
+  border:1px solid var(--do-line)!important;
+  border-radius:9px;
+  overflow:hidden;
+}
+.pilot-campaign .pilot-form label>div>svg{color:var(--do-slate)!important}
+.pilot-campaign .pilot-form input{
+  background:transparent!important;
+  color:var(--do-white)!important;
+}
+.pilot-campaign .pilot-form input::placeholder{color:var(--do-slate)!important;opacity:1}
+.pilot-campaign .hero-proof,
+.plans-note,
+main>footer,
+main>footer p,
+main>footer span{color:var(--do-slate)!important}
+
+/* Área do aluno: textos pequenos que estavam abaixo do contraste útil */
+.app-surface .student-chip small,
+.app-surface .report-status span,
+.app-surface .catalog-kpis span,
+.app-surface .diagnosis-panel header>span,
+.app-surface .table-head,
+.app-surface .table-row small,
+.app-surface .pattern-row small,
+.app-surface .admin-kpis small,
+.app-surface .admin-panel small{
+  color:var(--do-slate)!important;
+}
+
+/* Plataforma: diagnóstico fictício */
+.app-surface .approval-distance>div{color:var(--do-slate)!important}
+.app-surface .approval-distance>div b{color:var(--do-gold-bright)!important}
+.app-surface .evolution-card>div:first-child,
+.app-surface .time-card>div:first-child{color:var(--do-gold-bright)!important}
+.app-surface .evolution-card small,
+.app-surface .time-card small{color:var(--do-slate)!important}
+.app-surface .time-card b{color:var(--do-white)!important}
+.app-surface .mini-evolution{border-color:var(--do-line)!important}
+.app-surface .mini-evolution i{background:linear-gradient(var(--do-gold-bright),var(--do-crimson))!important}
+.app-surface .strength-card>div strong{color:var(--do-gold-bright)!important}
+.app-surface .strength-card>div span,
+.app-surface .strength-card p,
+.app-surface .risk-card p{color:var(--do-slate)!important}
+.app-surface .theme-list>div>strong{color:var(--do-gold-bright)!important}
+.app-surface .theme-list span.good,
+.app-surface .theme-list span.medium{
+  background:rgba(205,168,106,.12)!important;
+  color:var(--do-gold-bright)!important;
+}
+.app-surface .theme-list span.critical{
+  background:rgba(165,48,74,.22)!important;
+  color:var(--do-white)!important;
+}
+.app-surface .plan-row small{color:var(--do-gold)!important}
+.app-surface .plan-row p{color:var(--do-slate)!important}
+
+/* Evita que o footer global da home contamine footers internos do diagnóstico */
+.app-surface .diagnosis-panel>footer{
+  padding:14px 23px!important;
+  background:rgba(205,168,106,.07)!important;
+  color:var(--do-slate)!important;
+  border-top:1px solid var(--do-line-soft)!important;
+}
+.app-surface .diagnosis-panel>footer p{color:var(--do-slate)!important}
+.app-surface .diagnosis-panel>footer p b{color:var(--do-white)!important}
+.app-surface .diagnosis-panel>footer svg{color:var(--do-gold-bright)!important}
+
+/* Simulado: painel lateral */
+.app-surface .sprint-score{
+  background:rgba(255,255,255,.035)!important;
+  border:1px solid var(--do-line)!important;
+  border-top:3px solid var(--do-gold)!important;
+  border-radius:14px;
+}
+.app-surface .sprint-score>div:before{background:var(--do-panel)!important}
+.app-surface .sprint-score strong{color:var(--do-white)!important}
+.app-surface .sprint-score span{color:var(--do-gold-bright)!important}
+.app-surface .sprint-score p{color:var(--do-slate)!important}
+.app-surface .sprint-score p b{color:var(--do-white)!important}
+.app-surface .mastery-mini>div>div{color:var(--do-slate)!important}
+.app-surface .mastery-mini b{color:var(--do-gold-bright)!important}
+.app-surface .mastery-mini i{background:rgba(255,255,255,.08)!important}
+.app-surface .mastery-mini .good,
+.app-surface .mastery-mini .medium{background:var(--do-gold)!important}
+.app-surface .mastery-mini .critical{background:var(--do-crimson-bright)!important}
+.app-surface .plan-link{border-color:var(--do-line)!important}
+
+/* Simulado: feedback e paginação */
+.app-surface .answer-feedback p{color:var(--do-slate)!important}
+.app-surface .answer-feedback p b{color:var(--do-white)!important}
+.app-surface .answer-feedback.is-correct>div{color:var(--do-gold-bright)!important}
+.app-surface .answer-feedback.is-wrong>div{color:var(--do-white)!important}
+.app-surface .practice-footer>div button{
+  background:rgba(255,255,255,.035)!important;
+  border-color:var(--do-line)!important;
+  color:var(--do-slate)!important;
+}
+.app-surface .practice-footer>div button.current{
+  border-color:var(--do-gold)!important;
+  color:var(--do-gold-bright)!important;
+}
+.app-surface .practice-footer>div button.answered{
+  background:rgba(205,168,106,.15)!important;
+  border-color:rgba(205,168,106,.45)!important;
+  color:var(--do-gold-bright)!important;
+}
+.app-surface .practice-footer>span{color:var(--do-slate)!important}
+
+/* Simulado: modal de reporte ainda usa inline styles legados */
+.app-surface article.question-surface>div[style]{
+  background:var(--do-panel-2)!important;
+  border-color:var(--do-line)!important;
+  color:var(--do-white)!important;
+  border-radius:12px;
+}
+.app-surface article.question-surface>div[style] strong{color:var(--do-white)!important}
+.app-surface article.question-surface>div[style] p{color:var(--do-slate)!important}
+.app-surface article.question-surface>div[style] select,
+.app-surface article.question-surface>div[style] textarea{
+  background:#080b1a!important;
+  border:1px solid var(--do-line)!important;
+  border-radius:8px;
+  color:var(--do-white)!important;
+  outline:none;
+}
+.app-surface article.question-surface>div[style] select:focus,
+.app-surface article.question-surface>div[style] textarea:focus{border-color:var(--do-gold)!important}
+.app-surface article.question-surface>div[style] select option{background:#fff;color:#151922}
+.app-surface article.question-surface>div[style] button:not(.button){
+  background:transparent!important;
+  color:var(--do-slate)!important;
+}
+
+/* Simulado: estado de resultado, inclusive loading/erro */
+.app-surface .result-kicker{color:var(--do-gold)!important}
+.app-surface .result-card h1{color:var(--do-white)!important}
+.app-surface .result-breakdown b{color:var(--do-white)!important}
+.app-surface .result-breakdown .right{
+  background:rgba(205,168,106,.14)!important;
+  color:var(--do-gold-bright)!important;
+}
+.app-surface .result-breakdown .wrong{
+  background:rgba(165,48,74,.22)!important;
+  color:var(--do-white)!important;
+}
+.app-surface .result-actions>button{
+  background:transparent!important;
+  color:var(--do-slate)!important;
+}
+.app-surface .result-actions>button:hover{color:var(--do-white)!important}
+.app-surface .result-card>small{color:var(--do-slate)!important}
+
+/* Diagnóstico real do aluno: neutraliza divisórias claras do CSS legado */
+.app-surface .admin-panel [style*="border-bottom"]{border-bottom-color:var(--do-line-soft)!important}
+
+@media(max-width:600px){
+  .app-surface .diagnosis-panel>footer{padding:14px!important}
+}
