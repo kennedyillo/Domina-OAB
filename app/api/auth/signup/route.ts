@@ -13,7 +13,7 @@ export async function POST(request: Request) {
 
   try {
     const result = await signUpWithPassword(email, password, fullName || undefined);
-    const response = NextResponse.redirect(new URL("/ativar-fundador", request.url), 303);
+    const response = NextResponse.redirect(new URL("/conta?created=1", request.url), 303);
     if (result.access_token && result.expires_in) {
       response.cookies.set(supabaseAccessCookie, result.access_token, {
         httpOnly: true,

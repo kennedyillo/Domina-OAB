@@ -20,17 +20,12 @@ export async function POST(request: Request) {
       p_phone: phone,
       p_full_name: fullName || null,
     });
-    await supabaseAdminRpc("admin_set_communication_preferences", {
-      p_user_id: user.id,
-      p_marketing_opt_in: true,
-      p_study_reminders: false,
-    });
     return NextResponse.redirect(new URL("/plataforma?founder=active", request.url), 303);
   } catch (error) {
     const message = error instanceof Error ? error.message : "activation_failed";
     const code = message.includes("cpf_already_in_use") ? "cpf"
       : message.includes("phone_already_in_use") ? "phone"
-      : message.includes("founder_reservation_not_found") ? "reservation"
+      : message.includes("founder_slots_full") ? "full"
       : "1";
     return NextResponse.redirect(new URL(`/ativar-fundador?error=${code}`, request.url), 303);
   }
