@@ -1,6 +1,6 @@
 # Ética Profissional — 1ª fase OAB
 
-> Status editorial: lote 1, revisão jurídica antes de publicação pública.
+> Status editorial: lotes 1 a 4 (~70 questões autorais/demonstrativas em `draft`, cobrindo os 12 temas da disciplina), revisão jurídica antes de publicação pública.
 
 ## Objetivo da disciplina
 
