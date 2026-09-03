@@ -25,9 +25,17 @@ export async function GET(request: Request) {
   if (!admin) return Response.json({ error: "Acesso negado." }, { status: 403 });
 
   const url = new URL(request.url);
+  const userId=url.searchParams.get("user_id")?.trim();
+  if(userId){
+    const detail=await supabaseAdminRpc("admin_user_detail",{p_user_id:userId});
+    return Response.json({detail});
+  }
   const query = url.searchParams.get("q")?.trim() || null;
-  const users = await supabaseAdminRpc<AdminUserRow[]>("admin_users", { p_query: query });
-  return Response.json({ users });
+  const [users,plans] = await Promise.all([
+    supabaseAdminRpc<AdminUserRow[]>("admin_users", { p_query: query }),
+    supabaseAdminRpc("admin_commercial_plans"),
+  ]);
+  return Response.json({ users,plans });
 }
 
 export async function POST(request: Request) {
@@ -36,8 +44,9 @@ export async function POST(request: Request) {
 
   const body = await request.json() as {
     user_id?: string;
-    action?: "block" | "unblock" | "cancel_account" | "cancel_access" | "extend_access";
+    action?: "block" | "unblock" | "cancel_account" | "cancel_access" | "extend_access" | "grant_access";
     days?: number;
+    plan_id?:string;
   };
 
   if (!body.user_id || !body.action) {
@@ -59,6 +68,9 @@ export async function POST(request: Request) {
         return Response.json({ error: "Informe entre 1 e 730 dias." }, { status: 400 });
       }
       await supabaseAdminRpc("admin_extend_access", { p_user_id: body.user_id, p_days: days });
+    } else if(body.action==="grant_access"){
+      if(!body.plan_id) return Response.json({error:"Selecione um plano."},{status:400});
+      await supabaseAdminRpc("admin_grant_access",{p_user_id:body.user_id,p_plan_id:body.plan_id,p_actor_email:admin.email});
     }
 
     return Response.json({ ok: true });
