@@ -6,13 +6,15 @@ const accessToken = process.env.MERCADOPAGO_ACCESS_TOKEN;
 
 const PLANS = {
   "90d": {
-    amount: 149.9,
+    amount: 129.9,
     days: 90,
+    maxInstallments: 1,
     description: "Domina OAB - Plano 90 dias",
   },
   annual: {
     amount: 360,
     days: 365,
+    maxInstallments: 12,
     description: "Domina OAB - Plano Anual",
   },
 } as const;
@@ -48,6 +50,14 @@ export async function POST(request: Request) {
     }
 
     const selectedPlan = PLANS[plan as PlanId];
+    const installments = Math.max(1, Number(formData.installments ?? 1));
+
+    if (!Number.isInteger(installments) || installments > selectedPlan.maxInstallments) {
+      return NextResponse.json(
+        { error: `Parcelamento inválido para este plano. Máximo: ${selectedPlan.maxInstallments}x.` },
+        { status: 400 }
+      );
+    }
 
     const client = new MercadoPagoConfig({ accessToken });
     const paymentClient = new Payment(client);
@@ -55,6 +65,7 @@ export async function POST(request: Request) {
     const payment = await paymentClient.create({
       body: {
         ...formData,
+        installments,
         transaction_amount: selectedPlan.amount,
         description: selectedPlan.description,
         metadata: {
