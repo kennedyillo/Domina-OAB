@@ -1,5 +1,12 @@
 import { getSupabaseUser,supabaseAdminRpc } from "@/lib/supabase";
 
+export async function GET(){
+ const user=await getSupabaseUser();
+ if(!user?.id) return Response.json({error:"Faça login para ver suas preferências."},{status:401});
+ const preferences=await supabaseAdminRpc("my_communication_preferences",{p_user_id:user.id});
+ return Response.json({preferences});
+}
+
 export async function POST(request:Request){
  const user=await getSupabaseUser();
  if(!user?.id) return Response.json({error:"Faça login para alterar suas preferências."},{status:401});
