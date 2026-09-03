@@ -15,7 +15,7 @@ type Props = {
 };
 
 export default function MercadoPagoCheckout({ plan }: Props) {
-  const amount = plan === "annual" ? 360 : 149.9;
+  const amount = plan === "annual" ? 360 : 129.9;
 
   const initialization = {
     amount,
