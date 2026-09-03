@@ -26,7 +26,7 @@ export default function Home(){return <main>
   <header className="site-header">
     <Brand/>
     <nav aria-label="Navegação principal"><a href="#metodo">Método</a><a href="#diagnostico">Diagnóstico</a><a href="#disciplinas">1ª fase</a><a href="#planos">Planos</a></nav>
-    <div className="header-actions"><a href="/plataforma">Entrar</a><a className="button button-small" href="/simulado">Começar diagnóstico</a></div>
+    <div className="header-actions"><a href="/entrar">Entrar</a><a className="button button-small" href="/simulado">Começar diagnóstico</a></div>
     <button className="menu-button" aria-label="Abrir menu"><Menu/></button>
   </header>
 
