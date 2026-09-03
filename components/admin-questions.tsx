@@ -25,6 +25,7 @@ export function AdminQuestions(){
    <form onSubmit={save} style={{display:"grid",gap:12}}>
     <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(160px,1fr))",gap:10}}>
      <input required placeholder="Código ex. ETICA-001" value={form.code} onChange={e=>setForm({...form,code:e.target.value})}/>
+     <input required placeholder="Disciplina (slug)" value={form.discipline_slug} onChange={e=>setForm({...form,discipline_slug:e.target.value})}/>
      <input placeholder="Exame" value={form.exam_name} onChange={e=>setForm({...form,exam_name:e.target.value})}/>
      <input placeholder="Edição ex. 44º Exame" value={form.exam_edition} onChange={e=>setForm({...form,exam_edition:e.target.value})}/>
      <input placeholder="Fase ex. 1ª fase" value={form.exam_phase} onChange={e=>setForm({...form,exam_phase:e.target.value})}/>
