@@ -15,3 +15,7 @@ Plataforma de preparação para a 1ª fase da OAB, com simulados, desempenho, di
 
 - Brevo: estrutura pronta, integração adiada.
 - Mercado Pago: integração externa e validação final pendentes.
+
+## Conteúdo e simulados
+
+O banco acadêmico é organizado por disciplina, tema e questão. Os simulados podem usar pesos de incidência histórica por tema: assuntos mais recorrentes nas provas anteriores da OAB/FGV recebem maior probabilidade de aparecer, sem excluir temas menos frequentes. A distribuição é probabilística e os pesos podem ser recalibrados conforme novas provas oficiais forem classificadas.
