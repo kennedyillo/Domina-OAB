@@ -16,13 +16,14 @@ export async function POST(request:Request){
   if(!admin) return Response.json({error:"Acesso negado."},{status:403});
   try{
     const body=await request.json() as Record<string,unknown>;
-    const result=await supabaseAdminRpc("admin_save_simulation_definition",{
+    const result=await supabaseAdminRpc("admin_save_simulation_definition_v2",{
       p_id:body.id?Number(body.id):null,
       p_slug:String(body.slug??""),
       p_name:String(body.name??""),
       p_description:String(body.description??""),
       p_discipline_slug:String(body.discipline_slug??""),
       p_topic_ids:Array.isArray(body.topic_ids)?body.topic_ids.map(Number):[],
+      p_question_ids:Array.isArray(body.question_ids)?body.question_ids.map(Number):[],
       p_question_count:Number(body.question_count??0),
       p_time_limit_minutes:body.time_limit_minutes===null||body.time_limit_minutes===""?null:Number(body.time_limit_minutes),
       p_randomize_questions:Boolean(body.randomize_questions),
