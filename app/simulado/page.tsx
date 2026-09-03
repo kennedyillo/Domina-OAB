@@ -30,6 +30,7 @@ export default function Simulado(){
   const [report,setReport]=useState<ReportState>(initialReport);
   const started=useRef(false);
   const finishing=useRef(false);
+  const questionStartedAt=useRef(Date.now());
 
   async function loadSimulation(){
     setLoading(true);setLoadError("");setFinished(false);setTimedOut(false);setVerified({});setCurrent(0);setReport(initialReport);started.current=false;finishing.current=false;
@@ -44,6 +45,7 @@ export default function Simulado(){
   }
 
   useEffect(()=>{void loadSimulation();},[]);
+  useEffect(()=>{questionStartedAt.current=Date.now();},[current,questions.length,finished]);
   useEffect(()=>{
     if(timeLeft===null||finished||loading) return;
     const timer=window.setInterval(()=>setTimeLeft(value=>{
@@ -71,9 +73,10 @@ export default function Simulado(){
   async function verify(){
     const option=answers[current];
     if(option===null) return;
+    const responseTimeMs=Math.max(0,Math.min(3600000,Math.round(Date.now()-questionStartedAt.current)));
     setVerifying(true);
     try{
-      const response=await fetch("/api/simulations",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({action:"answer",attempt_id:attemptId,question_id:q.id,selected_index:option,option_order:q.option_order})});
+      const response=await fetch("/api/simulations",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({action:"answer",attempt_id:attemptId,question_id:q.id,selected_index:option,option_order:q.option_order,response_time_ms:responseTimeMs})});
       const data=await response.json() as Verification&{error?:string;expired?:boolean};
       if(!response.ok){if(data.expired){setTimedOut(true);setFinished(true);}throw new Error(data.error||"Não foi possível verificar a resposta.");}
       setVerified(values=>({...values,[q.id]:data}));
