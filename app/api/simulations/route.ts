@@ -24,6 +24,7 @@ export async function POST(request:Request){
       question_id?:number;
       selected_index?:number;
       option_order?:number[];
+      response_time_ms?:number;
     };
     if(body.action==="answer"){
       const result=await supabaseAdminRpc("verify_simulation_answer",{
@@ -33,6 +34,14 @@ export async function POST(request:Request){
         p_selected_index:Number(body.selected_index),
         p_option_order:Array.isArray(body.option_order)?body.option_order.map(Number):null,
       });
+      if(user?.id&&body.attempt_id&&Number.isFinite(body.response_time_ms)){
+        await supabaseAdminRpc("record_simulation_answer_timing",{
+          p_user_id:user.id,
+          p_attempt_id:Number(body.attempt_id),
+          p_question_id:Number(body.question_id),
+          p_response_time_ms:Math.max(0,Math.min(3600000,Math.round(Number(body.response_time_ms)))),
+        });
+      }
       return Response.json(result);
     }
     if(body.action==="finish"){
