@@ -10,23 +10,43 @@ const blank={id:null as number|null,code:"",discipline_slug:"etica-profissional"
 
 export function AdminQuestions(){
  const [items,setItems]=useState<Q[]>([]),[query,setQuery]=useState(""),[status,setStatus]=useState(""),[loading,setLoading]=useState(true),[busy,setBusy]=useState(false),[error,setError]=useState(""),[form,setForm]=useState(blank),[history,setHistory]=useState<Record<number,Version[]>>({});
+ const [topics,setTopics]=useState<{id:number;slug:string;name:string}[]>([]);
+ const [topicMode,setTopicMode]=useState<"select"|"new">("select");
+ async function loadTopics(disciplineSlug:string){try{const r=await fetch(`/api/admin/topics?discipline_slug=${encodeURIComponent(disciplineSlug)}`,{cache:"no-store"});const d=await r.json();if(r.ok)setTopics(d.topics||[]);}catch{/* mantém lista anterior em caso de falha */}}
  async function load(){setLoading(true);setError("");try{const r=await fetch(`/api/admin/questions?q=${encodeURIComponent(query)}&status=${encodeURIComponent(status)}`,{cache:"no-store"});const d=await r.json();if(!r.ok)throw new Error(d.error);setItems(d.questions||[]);}catch(e){setError(e instanceof Error?e.message:"Erro ao carregar questões.");}finally{setLoading(false);}}
- useEffect(()=>{void load();},[]);
- async function save(e:React.FormEvent){e.preventDefault();setBusy(true);setError("");try{const r=await fetch("/api/admin/questions",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(form)});const d=await r.json();if(!r.ok)throw new Error(d.error);setForm(blank);await load();}catch(e){setError(e instanceof Error?e.message:"Erro ao salvar questão.");}finally{setBusy(false);}}
+ useEffect(()=>{const init=async()=>{await load();await loadTopics(form.discipline_slug);};void init();},[]);
+ async function save(e:React.FormEvent){e.preventDefault();setBusy(true);setError("");try{const r=await fetch("/api/admin/questions",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(form)});const d=await r.json();if(!r.ok)throw new Error(d.error);setForm(blank);setTopicMode("select");await load();await loadTopics(blank.discipline_slug);}catch(e){setError(e instanceof Error?e.message:"Erro ao salvar questão.");}finally{setBusy(false);}}
  async function setQuestionStatus(id:number,next:Status){setBusy(true);setError("");try{const r=await fetch("/api/admin/questions",{method:"PATCH",headers:{"content-type":"application/json"},body:JSON.stringify({id,status:next})});const d=await r.json();if(!r.ok)throw new Error(d.error);await load();}catch(e){setError(e instanceof Error?e.message:"Erro ao atualizar questão.");}finally{setBusy(false);}}
  async function duplicate(id:number){setBusy(true);try{const r=await fetch("/api/admin/questions",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({action:"duplicate",id})});const d=await r.json();if(!r.ok)throw new Error(d.error);await load();}catch(e){setError(e instanceof Error?e.message:"Erro ao duplicar questão.");}finally{setBusy(false);}}
  async function importBatch(){const raw=window.prompt("Cole um array JSON de questões. Máximo: 500 itens.","[");if(!raw)return;setBusy(true);setError("");try{const items=JSON.parse(raw);if(!Array.isArray(items))throw new Error("O conteúdo precisa ser um array JSON.");const r=await fetch("/api/admin/questions",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({action:"import",items})});const d=await r.json();if(!r.ok)throw new Error(d.error);window.alert(`Importadas: ${d.imported??0}. Falhas: ${d.failed??0}.`);await load();}catch(e){setError(e instanceof Error?e.message:"Erro na importação.");}finally{setBusy(false);}}
  async function showHistory(id:number){if(history[id]){setHistory(current=>{const next={...current};delete next[id];return next;});return;}try{const r=await fetch(`/api/admin/questions?history_id=${id}`,{cache:"no-store"});const d=await r.json();if(!r.ok)throw new Error(d.error);setHistory(current=>({...current,[id]:d.versions||[]}));}catch(e){setError(e instanceof Error?e.message:"Erro ao carregar histórico.");}}
- function edit(q:Q){setForm({id:q.id,code:q.code,discipline_slug:q.discipline_slug,topic:q.topic||"",statement:q.statement,options:q.options,correct_index:q.correct_index,explanation:q.explanation,source_label:q.source_label||"",difficulty:q.difficulty,status:q.status});window.scrollTo({top:0,behavior:"smooth"});}
+ function edit(q:Q){setForm({id:q.id,code:q.code,discipline_slug:q.discipline_slug,topic:q.topic||"",statement:q.statement,options:q.options,correct_index:q.correct_index,explanation:q.explanation,source_label:q.source_label||"",difficulty:q.difficulty,status:q.status});setTopicMode(q.topic&&topics.some(t=>t.name===q.topic)?"select":"new");window.scrollTo({top:0,behavior:"smooth"});}
  return <div style={{display:"grid",gap:24}}>
   <section className="admin-panel"><header><div><span><FilePlus2/> CONTEÚDO</span><h2>{form.id?"Editar questão":"Nova questão"}</h2></div><div style={{display:"flex",gap:8}}><button type="button" onClick={()=>void importBatch()} disabled={busy}><Upload size={15}/>Importar lote</button><small>4 ALTERNATIVAS</small></div></header>
    <form onSubmit={save} style={{display:"grid",gap:12}}>
-    <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:10}}><input required placeholder="Código ex. ETICA-001" value={form.code} onChange={e=>setForm({...form,code:e.target.value})}/><input required placeholder="Tema" value={form.topic} onChange={e=>setForm({...form,topic:e.target.value})}/><select value={form.difficulty} onChange={e=>setForm({...form,difficulty:e.target.value as Q["difficulty"]})}><option value="easy">Fácil</option><option value="medium">Média</option><option value="hard">Difícil</option></select></div>
+    <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:10}}>
+     <input required placeholder="Código ex. ETICA-001" value={form.code} onChange={e=>setForm({...form,code:e.target.value})}/>
+     {topicMode==="select"?
+      <select required value={form.topic} onChange={e=>{if(e.target.value==="__new__"){setTopicMode("new");setForm({...form,topic:""});}else{setForm({...form,topic:e.target.value});}}}>
+       <option value="" disabled>Selecione o tema</option>
+       {topics.map(t=><option key={t.id} value={t.name}>{t.name}</option>)}
+       <option value="__new__">+ Novo tema…</option>
+      </select>
+      :
+      <div style={{display:"flex",gap:6}}>
+       <input required autoFocus placeholder="Nome do novo tema" value={form.topic} onChange={e=>setForm({...form,topic:e.target.value})}/>
+       <button type="button" title="Escolher um tema existente" onClick={()=>{setTopicMode("select");setForm({...form,topic:topics[0]?.name??""});}}>×</button>
+      </div>
+     }
+     <label style={{display:"grid",gap:4,fontSize:12,fontWeight:700}}>Dificuldade
+      <select value={form.difficulty} onChange={e=>setForm({...form,difficulty:e.target.value as Q["difficulty"]})}><option value="easy">Fácil</option><option value="medium">Média</option><option value="hard">Difícil</option></select>
+     </label>
+    </div>
     <textarea required rows={3} placeholder="Enunciado" value={form.statement} onChange={e=>setForm({...form,statement:e.target.value})}/>
     {form.options.map((o,i)=><div key={i} style={{display:"grid",gridTemplateColumns:"44px 1fr",gap:8,alignItems:"center"}}><label style={{fontWeight:800}}><input type="radio" name="correct" checked={form.correct_index===i} onChange={()=>setForm({...form,correct_index:i})}/> {String.fromCharCode(65+i)}</label><input required placeholder={`Alternativa ${String.fromCharCode(65+i)}`} value={o} onChange={e=>{const options=[...form.options];options[i]=e.target.value;setForm({...form,options});}}/></div>)}
     <textarea required rows={3} placeholder="Explicação / fundamentação" value={form.explanation} onChange={e=>setForm({...form,explanation:e.target.value})}/>
     <div style={{display:"grid",gridTemplateColumns:"1fr 200px",gap:10}}><input placeholder="Fonte / observação" value={form.source_label} onChange={e=>setForm({...form,source_label:e.target.value})}/><select value={form.status} onChange={e=>setForm({...form,status:e.target.value as Status})}><option value="draft">Rascunho</option><option value="reviewing">Em revisão</option><option value="published">Publicada</option><option value="suspended">Suspensa</option><option value="archived">Arquivada</option></select></div>
-    <div style={{display:"flex",gap:8}}><button className="button" disabled={busy}>{busy?<LoaderCircle className="spin" size={16}/>:<CheckCircle2 size={16}/>}Salvar questão</button>{form.id&&<button type="button" onClick={()=>setForm(blank)}>Cancelar edição</button>}</div>
+    <div style={{display:"flex",gap:8}}><button className="button" disabled={busy}>{busy?<LoaderCircle className="spin" size={16}/>:<CheckCircle2 size={16}/>}Salvar questão</button>{form.id&&<button type="button" onClick={()=>{setForm(blank);setTopicMode("select");}}>Cancelar edição</button>}</div>
    </form>
   </section>
   <section className="admin-panel"><header><div><span><Search/> BANCO</span><h2>Questões cadastradas</h2></div><small>{items.length} RESULTADOS</small></header>
