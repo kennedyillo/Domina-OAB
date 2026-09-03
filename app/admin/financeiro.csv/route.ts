@@ -26,5 +26,6 @@ export async function GET(request:Request){
  for(const row of data.revenueByPlan??[]) rows.push(["Plano",row.planName,String(row.payments),brl(row.gross),brl(row.net)]);
  for(const row of data.receivables??[]) rows.push(["Recebível",row.date,String(row.count),brl(row.amount)]);
  const csv="\ufeff"+rows.map(row=>row.map(cell).join(";")).join("\n");
- return new Response(csv,{headers:{"content-type":"text/csv; charset=utf-8","content-disposition":`attachment; filename="domina-oab-financeiro-${days}d.csv"`,`cache-control":"no-store"}});
+ const filename=`domina-oab-financeiro-${days}d.csv`;
+ return new Response(csv,{headers:{"content-type":"text/csv; charset=utf-8","content-disposition":`attachment; filename="${filename}"`,"cache-control":"no-store"}});
 }
