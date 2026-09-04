@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Ban, CalendarPlus, CheckCircle2, LoaderCircle, Search, ShieldCheck, UserRoundCheck, XCircle } from "lucide-react";
+import { Ban, CalendarPlus, CheckCircle2, History, LoaderCircle, Search, ShieldCheck, UserRoundCheck, XCircle } from "lucide-react";
 
 type UserRow = {
   user_id: string;
@@ -96,12 +96,15 @@ export function AdminUsers({canManage=false}:{canManage?:boolean}) {
             <div><small style={{color:"#7b8189"}}>ACESSO</small><p style={{margin:"6px 0",fontSize:12}}>{user.active_plan || "Sem plano ativo"}</p><p style={{margin:0,fontSize:11}}>{user.access_ends_at?`Expira em ${new Intl.DateTimeFormat("pt-BR").format(new Date(user.access_ends_at))} · ${user.days_remaining ?? 0} dias restantes`:"Sem validade ativa"}</p><p style={{margin:"5px 0 0",fontSize:11}}>Fundador: {founderLabel(user.founder_status)}</p></div>
             <div><span className={`payment-status ${user.account_status}`}>{accountLabel(user.account_status)}</span></div>
           </div>
-          {canManage&&<div style={{display:"flex",gap:8,flexWrap:"wrap",marginTop:16,paddingTop:14,borderTop:"1px solid #eee8df"}}>
-            {user.account_status==="blocked" ? <button className="button button-small" disabled={Boolean(busy)} onClick={()=>void act(user.user_id,"unblock")}><CheckCircle2 size={15}/>Desbloquear</button> : <button className="button button-small" disabled={Boolean(busy)} onClick={()=>void act(user.user_id,"block")}><Ban size={15}/>Bloquear</button>}
-            {user.active_plan && <button className="button button-small" disabled={Boolean(busy)} onClick={()=>{const days=Number(window.prompt("Quantos dias deseja acrescentar?", "30")); if(Number.isInteger(days)&&days>0) void act(user.user_id,"extend_access",days);}}><CalendarPlus size={15}/>Estender acesso</button>}
-            {user.active_plan && <button className="button button-small" disabled={Boolean(busy)} onClick={()=>{if(window.confirm("Cancelar o acesso ativo deste usuário?")) void act(user.user_id,"cancel_access");}}><XCircle size={15}/>Cancelar acesso</button>}
-            {user.account_status!=="cancelled" && <button className="button button-small" disabled={Boolean(busy)} onClick={()=>{if(window.confirm("Cancelar a conta deste usuário?")) void act(user.user_id,"cancel_account");}}><XCircle size={15}/>Cancelar conta</button>}
-          </div>}
+          <div style={{display:"flex",gap:8,flexWrap:"wrap",marginTop:16,paddingTop:14,borderTop:"1px solid #eee8df"}}>
+            <a className="button button-small" href={`/admin/usuarios/${encodeURIComponent(user.user_id)}`}><History size={15}/>Ver histórico</a>
+            {canManage&&<>
+              {user.account_status==="blocked" ? <button className="button button-small" disabled={Boolean(busy)} onClick={()=>void act(user.user_id,"unblock")}><CheckCircle2 size={15}/>Desbloquear</button> : <button className="button button-small" disabled={Boolean(busy)} onClick={()=>void act(user.user_id,"block")}><Ban size={15}/>Bloquear</button>}
+              {user.active_plan && <button className="button button-small" disabled={Boolean(busy)} onClick={()=>{const days=Number(window.prompt("Quantos dias deseja acrescentar?", "30")); if(Number.isInteger(days)&&days>0) void act(user.user_id,"extend_access",days);}}><CalendarPlus size={15}/>Estender acesso</button>}
+              {user.active_plan && <button className="button button-small" disabled={Boolean(busy)} onClick={()=>{if(window.confirm("Cancelar o acesso ativo deste usuário?")) void act(user.user_id,"cancel_access");}}><XCircle size={15}/>Cancelar acesso</button>}
+              {user.account_status!=="cancelled" && <button className="button button-small" disabled={Boolean(busy)} onClick={()=>{if(window.confirm("Cancelar a conta deste usuário?")) void act(user.user_id,"cancel_account");}}><XCircle size={15}/>Cancelar conta</button>}
+            </>}
+          </div>
         </article>)}
       </div>}
     </section>
