@@ -1,4 +1,4 @@
-import { getAdminUser } from "@/lib/admin-access";
+import { adminCan, getAdminUser } from "@/lib/admin-access";
 import { supabaseAdminRpc } from "@/lib/supabase";
 
 type AdminUserRow = {
@@ -20,9 +20,13 @@ type AdminUserRow = {
   days_remaining: number | null;
 };
 
+function forbidden() {
+  return Response.json({ error: "Acesso negado." }, { status: 403 });
+}
+
 export async function GET(request: Request) {
   const admin = await getAdminUser();
-  if (!admin) return Response.json({ error: "Acesso negado." }, { status: 403 });
+  if (!admin || !adminCan(admin.role, "users:view")) return forbidden();
 
   const url = new URL(request.url);
   const query = url.searchParams.get("q")?.trim() || null;
@@ -32,7 +36,7 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
   const admin = await getAdminUser();
-  if (!admin) return Response.json({ error: "Acesso negado." }, { status: 403 });
+  if (!admin || !adminCan(admin.role, "users:manage")) return forbidden();
 
   const body = await request.json() as {
     user_id?: string;
