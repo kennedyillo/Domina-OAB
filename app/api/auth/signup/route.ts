@@ -10,17 +10,25 @@ export async function POST(request: Request) {
   const fullName = String(form.get("full_name") ?? "").trim();
   const rawPlan = String(form.get("plan") ?? "").trim();
   const plan = VALID_PLANS.has(rawPlan) ? rawPlan : "";
+  const founder = !plan && String(form.get("founder") ?? "") === "1";
+
+  const signupErrorTarget = () => {
+    if (plan) return `/cadastro?error=1&plan=${encodeURIComponent(plan)}`;
+    if (founder) return `/cadastro?error=1&founder=1&email=${encodeURIComponent(email)}`;
+    return "/cadastro?error=1";
+  };
 
   if (!email || !email.includes("@") || password.length < 6) {
-    const target = plan ? `/cadastro?error=1&plan=${encodeURIComponent(plan)}` : "/cadastro?error=1";
-    return NextResponse.redirect(new URL(target, request.url), 303);
+    return NextResponse.redirect(new URL(signupErrorTarget(), request.url), 303);
   }
 
   try {
     const result = await signUpWithPassword(email, password, fullName || undefined);
     const target = plan
       ? `/api/mercadopago/checkout?plan=${encodeURIComponent(plan)}`
-      : "/conta?created=1";
+      : founder
+        ? "/ativar-fundador"
+        : "/conta?created=1";
     const response = NextResponse.redirect(new URL(target, request.url), 303);
     if (result.access_token && result.expires_in) {
       response.cookies.set(supabaseAccessCookie, result.access_token, {
@@ -33,7 +41,6 @@ export async function POST(request: Request) {
     }
     return response;
   } catch {
-    const target = plan ? `/cadastro?error=1&plan=${encodeURIComponent(plan)}` : "/cadastro?error=1";
-    return NextResponse.redirect(new URL(target, request.url), 303);
+    return NextResponse.redirect(new URL(signupErrorTarget(), request.url), 303);
   }
 }
