@@ -36,4 +36,4 @@ Esses arquivos **não foram reaplicados em produção** durante a reconciliaçã
 
 As funções privilegiadas relacionadas a este lote também foram conferidas no banco atual: as ACLs efetivas permitem execução apenas por `postgres` e `service_role`, sem `anon` ou `authenticated`.
 
-O PR #23 não deve ser mergeado integralmente. Código/UI útil deve ser portado seletivamente e adaptado ao RBAC atual. A página de analytics é tratada separadamente no PR #68.
+O PR #23 não deve ser mergeado integralmente. Código/UI útil deve ser portado seletivamente e adaptado ao RBAC atual. O analytics filtrável foi portado no PR #68 e o histórico individual de usuários no PR #70.
