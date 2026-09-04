@@ -1,7 +1,7 @@
 import { AppHeader } from "@/components/app-header";
 import { getSupabaseUser, supabaseAdminSelect } from "@/lib/supabase";
 import { redirect } from "next/navigation";
-import { CalendarClock, Mail, ShieldCheck, LogOut, Gift, CreditCard } from "lucide-react";
+import { CalendarClock, Mail, ShieldCheck, LogOut, Gift, CreditCard, BellRing } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
@@ -39,6 +39,12 @@ export default async function ContaPage({searchParams}:{searchParams:Promise<{cr
       <section style={{background:"#0f1f38",border:"1px solid #1f3355",borderRadius:14,padding:24,marginBottom:20}}>
         <h2 style={{fontSize:16,margin:"0 0 14px",display:"flex",alignItems:"center",gap:8}}><ShieldCheck size={18}/> Plano</h2>
         {entitlement?<div style={{display:"grid",gap:8}}><p style={{margin:0,fontSize:18,fontWeight:700}}>{plan?.name??entitlement.plan_id}</p>{plan&&plan.price_cents>0&&<p style={{margin:0,color:"#8a9ab0"}}>{formatPrice(plan.price_cents)}</p>}<p style={{margin:0,color:"#8a9ab0",display:"flex",alignItems:"center",gap:6}}><CalendarClock size={14}/> Acesso até {formatDate(entitlement.ends_at)}</p></div>:<div><p style={{margin:"0 0 16px",color:"#8a9ab0"}}>Nenhum plano ativo. Os simulados gratuitos continuam disponíveis, mas o desempenho não é salvo.</p><div style={{display:"flex",gap:12,flexWrap:"wrap"}}><a href="/ativar-fundador">Acesso fundador</a><a href="/#planos">Conhecer planos</a></div></div>}
+      </section>
+
+      <section style={{background:"#0f1f38",border:"1px solid #1f3355",borderRadius:14,padding:24,marginBottom:20}}>
+        <h2 style={{fontSize:16,margin:"0 0 8px",display:"flex",alignItems:"center",gap:8}}><BellRing size={18}/> Comunicações</h2>
+        <p style={{margin:"0 0 14px",color:"#8a9ab0"}}>Marketing e lembretes de estudo são opcionais e podem ser alterados a qualquer momento.</p>
+        <a href="/preferencias" className="button button-light">Gerenciar preferências</a>
       </section>
 
       <a href="/api/auth/logout" style={{display:"inline-flex",alignItems:"center",gap:8,padding:"12px 18px",borderRadius:10,border:"1px solid #3a4a63",color:"#e8edf3",textDecoration:"none",fontWeight:700}}><LogOut size={16}/> Sair da conta</a>
