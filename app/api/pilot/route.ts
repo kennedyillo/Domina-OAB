@@ -21,6 +21,7 @@ type FounderResult = {
   closed?: boolean;
   error?: string;
   inserted?: boolean;
+  marketing_opt_in?: boolean;
 };
 
 export async function GET() {
@@ -36,16 +37,15 @@ export async function POST(request: Request) {
   try {
     const body = (await request.json()) as { email?: unknown; consent?: unknown };
     const email = normalizeEmail(body.email);
+    const marketingOptIn = body.consent === true;
 
     if (!validEmail(email)) {
       return Response.json({ error: "Informe um e-mail válido." }, { status: 400 });
     }
-    if (body.consent !== true) {
-      return Response.json({ error: "É necessário aceitar o envio das comunicações." }, { status: 400 });
-    }
 
-    const result = await supabaseAdminRpc<FounderResult>("register_founder_server", {
+    const result = await supabaseAdminRpc<FounderResult>("register_founder_server_v2", {
       p_email: email,
+      p_marketing_opt_in: marketingOptIn,
       p_consent_version: "2026-09",
       p_client_ip: clientIp(request),
     });
@@ -54,7 +54,11 @@ export async function POST(request: Request) {
       return Response.json({ error: result.error ?? "As vagas gratuitas foram preenchidas.", closed:true, remaining:0 }, { status:409 });
     }
 
-    return Response.json({ status: result.status ?? "founder", remaining: result.remaining }, { status: result.inserted ? 201 : 200 });
+    return Response.json({
+      status: result.status ?? "founder",
+      remaining: result.remaining,
+      marketing_opt_in: result.marketing_opt_in ?? marketingOptIn,
+    }, { status: result.inserted ? 201 : 200 });
   } catch (error) {
     const message = error instanceof Error ? error.message : "";
     if (message.includes("rate_limit_exceeded")) {

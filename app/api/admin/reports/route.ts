@@ -1,9 +1,14 @@
-import { getAdminUser } from "@/lib/admin-access";
+import { adminCan, getAdminUser } from "@/lib/admin-access";
 import { supabaseAdminRpc } from "@/lib/supabase";
+
+function forbidden(){return Response.json({error:"Acesso negado."},{status:403});}
+function canManageReports(role:Parameters<typeof adminCan>[0]){
+  return adminCan(role,"support:manage")||adminCan(role,"content:edit")||adminCan(role,"legal:review");
+}
 
 export async function GET(request:Request){
   const admin=await getAdminUser();
-  if(!admin) return Response.json({error:"Acesso negado."},{status:403});
+  if(!admin||!adminCan(admin.role,"reports:view")) return forbidden();
   const url=new URL(request.url);
   const status=url.searchParams.get("status")?.trim()||null;
   const reports=await supabaseAdminRpc("admin_reports",{p_status:status});
@@ -12,7 +17,7 @@ export async function GET(request:Request){
 
 export async function PATCH(request:Request){
   const admin=await getAdminUser();
-  if(!admin) return Response.json({error:"Acesso negado."},{status:403});
+  if(!admin||!canManageReports(admin.role)) return forbidden();
   try{
     const body=await request.json() as {
       id?:number;

@@ -1,9 +1,11 @@
-import { getAdminUser } from "@/lib/admin-access";
+import { adminCan, getAdminUser } from "@/lib/admin-access";
 import { supabaseAdminRpc } from "@/lib/supabase";
+
+function forbidden(){return Response.json({error:"Acesso negado."},{status:403});}
 
 export async function GET(){
   const admin=await getAdminUser();
-  if(!admin) return Response.json({error:"Acesso negado."},{status:403});
+  if(!admin||!adminCan(admin.role,"content:view")) return forbidden();
   const [analytics,definitions]=await Promise.all([
     supabaseAdminRpc("admin_simulations"),
     supabaseAdminRpc("admin_simulation_definitions"),
@@ -13,10 +15,10 @@ export async function GET(){
 
 export async function POST(request:Request){
   const admin=await getAdminUser();
-  if(!admin) return Response.json({error:"Acesso negado."},{status:403});
+  if(!admin||!adminCan(admin.role,"content:edit")) return forbidden();
   try{
     const body=await request.json() as Record<string,unknown>;
-    const result=await supabaseAdminRpc("admin_save_simulation_definition",{
+    const result=await supabaseAdminRpc("admin_save_simulation_definition_v3",{
       p_id:body.id?Number(body.id):null,
       p_slug:String(body.slug??""),
       p_name:String(body.name??""),
@@ -27,6 +29,7 @@ export async function POST(request:Request){
       p_time_limit_minutes:body.time_limit_minutes===null||body.time_limit_minutes===""?null:Number(body.time_limit_minutes),
       p_randomize_questions:Boolean(body.randomize_questions),
       p_randomize_options:Boolean(body.randomize_options),
+      p_use_incidence_weights:body.use_incidence_weights!==false,
       p_status:String(body.status??"draft"),
       p_actor_email:admin.email,
     });
@@ -38,7 +41,7 @@ export async function POST(request:Request){
 
 export async function PATCH(request:Request){
   const admin=await getAdminUser();
-  if(!admin) return Response.json({error:"Acesso negado."},{status:403});
+  if(!admin||!adminCan(admin.role,"content:edit")) return forbidden();
   try{
     const body=await request.json() as {id?:number;status?:string};
     const id=Number(body.id);

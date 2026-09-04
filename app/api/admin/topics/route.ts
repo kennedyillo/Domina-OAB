@@ -1,9 +1,9 @@
-import { getAdminUser } from "@/lib/admin-access";
+import { adminCan, getAdminUser } from "@/lib/admin-access";
 import { supabaseAdminSelect } from "@/lib/supabase";
 
 export async function GET(request: Request) {
   const admin = await getAdminUser();
-  if (!admin) return Response.json({ error: "Acesso negado." }, { status: 403 });
+  if (!admin || !adminCan(admin.role,"content:view")) return Response.json({ error: "Acesso negado." }, { status: 403 });
 
   const url = new URL(request.url);
   const disciplineSlug = url.searchParams.get("discipline_slug")?.trim() || "etica-profissional";
@@ -27,4 +27,3 @@ export async function GET(request: Request) {
     );
   }
 }
-
