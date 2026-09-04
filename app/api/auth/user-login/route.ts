@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     const memberships = await supabaseAdminSelect<AdminMembership[]>(
       `admin_members?select=active&user_id=eq.${encodeURIComponent(session.user.id)}&active=eq.true&limit=1`,
     );
-    const target = memberships.length > 0 && returnTo === "/plataforma" ? "/admin" : returnTo;
+    const target = memberships.length > 0 ? "/admin" : returnTo;
     const response = NextResponse.redirect(new URL(target, request.url), 303);
     response.cookies.set(supabaseAccessCookie, session.access_token, {
       httpOnly: true,
