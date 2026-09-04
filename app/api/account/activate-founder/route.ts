@@ -13,7 +13,7 @@ export async function POST(request: Request) {
   const phone = String(form.get("phone") ?? "").trim();
 
   try {
-    await supabaseAdminRpc("activate_founder_access", {
+    await supabaseAdminRpc("activate_founder_access_v2", {
       p_user_id: user.id,
       p_email: user.email,
       p_cpf: cpf,
