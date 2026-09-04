@@ -1,6 +1,12 @@
 import { NextResponse } from "next/server";
 import { requestPasswordReset } from "@/lib/supabase";
 
+function neutralResponse(request:Request){
+  const response=NextResponse.redirect(new URL("/recuperar-senha?sent=1",request.url),303);
+  response.headers.set("Cache-Control","no-store");
+  return response;
+}
+
 export async function POST(request: Request) {
   const form=await request.formData();
   const email=String(form.get("email")??"").trim().toLowerCase();
@@ -14,8 +20,9 @@ export async function POST(request: Request) {
 
   try{
     await requestPasswordReset(email,redirectTo);
-    return NextResponse.redirect(new URL("/recuperar-senha?sent=1",request.url),303);
   }catch{
-    return NextResponse.redirect(new URL("/recuperar-senha?error=1",request.url),303);
+    // Resposta deliberadamente neutra: não revela se a conta existe,
+    // se o provedor aplicou rate limit ou se não enviou uma mensagem.
   }
+  return neutralResponse(request);
 }
