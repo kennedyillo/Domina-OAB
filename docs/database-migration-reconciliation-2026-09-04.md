@@ -34,4 +34,6 @@ Foram restaurados no repositório os 17 arquivos ausentes usando **os mesmos nú
 
 Esses arquivos **não foram reaplicados em produção** durante a reconciliação. As versões já constam como aplicadas no histórico do Supabase.
 
+As funções privilegiadas relacionadas a este lote também foram conferidas no banco atual: as ACLs efetivas permitem execução apenas por `postgres` e `service_role`, sem `anon` ou `authenticated`.
+
 O PR #23 não deve ser mergeado integralmente. Código/UI útil deve ser portado seletivamente e adaptado ao RBAC atual. A página de analytics é tratada separadamente no PR #68.
