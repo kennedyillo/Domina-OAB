@@ -22,7 +22,7 @@ type UserRow = {
   days_remaining: number | null;
 };
 
-export function AdminUsers() {
+export function AdminUsers({canManage=false}:{canManage?:boolean}) {
   const [query, setQuery] = useState("");
   const [users, setUsers] = useState<UserRow[]>([]);
   const [loading, setLoading] = useState(true);
@@ -47,6 +47,7 @@ export function AdminUsers() {
   useEffect(() => { void load(""); }, []);
 
   async function act(userId: string, action: string, days?: number) {
+    if(!canManage) return;
     setBusy(`${userId}:${action}`);
     setError("");
     try {
@@ -81,7 +82,7 @@ export function AdminUsers() {
     </div>
 
     <section className="admin-panel" style={{marginTop:24}}>
-      <header><div><span><Search/> IDENTIDADE</span><h2>Usuários e acessos</h2></div><small>CPF · E-MAIL · TELEFONE</small></header>
+      <header><div><span><Search/> IDENTIDADE</span><h2>Usuários e acessos</h2></div><small>{canManage?"CONSULTA E GESTÃO":"SOMENTE CONSULTA"}</small></header>
       <form onSubmit={(e)=>{e.preventDefault(); void load();}} style={{display:"flex",gap:10,marginBottom:20}}>
         <input value={query} onChange={(e)=>setQuery(e.target.value)} placeholder="Buscar por nome, CPF, e-mail ou telefone" style={{flex:1,padding:"12px 14px",border:"1px solid #ddd8ce",background:"#fff"}}/>
         <button className="button" disabled={loading}>{loading?<LoaderCircle className="spin" size={17}/>:<Search size={17}/>}Buscar</button>
@@ -95,12 +96,12 @@ export function AdminUsers() {
             <div><small style={{color:"#7b8189"}}>ACESSO</small><p style={{margin:"6px 0",fontSize:12}}>{user.active_plan || "Sem plano ativo"}</p><p style={{margin:0,fontSize:11}}>{user.access_ends_at?`Expira em ${new Intl.DateTimeFormat("pt-BR").format(new Date(user.access_ends_at))} · ${user.days_remaining ?? 0} dias restantes`:"Sem validade ativa"}</p><p style={{margin:"5px 0 0",fontSize:11}}>Fundador: {founderLabel(user.founder_status)}</p></div>
             <div><span className={`payment-status ${user.account_status}`}>{accountLabel(user.account_status)}</span></div>
           </div>
-          <div style={{display:"flex",gap:8,flexWrap:"wrap",marginTop:16,paddingTop:14,borderTop:"1px solid #eee8df"}}>
+          {canManage&&<div style={{display:"flex",gap:8,flexWrap:"wrap",marginTop:16,paddingTop:14,borderTop:"1px solid #eee8df"}}>
             {user.account_status==="blocked" ? <button className="button button-small" disabled={Boolean(busy)} onClick={()=>void act(user.user_id,"unblock")}><CheckCircle2 size={15}/>Desbloquear</button> : <button className="button button-small" disabled={Boolean(busy)} onClick={()=>void act(user.user_id,"block")}><Ban size={15}/>Bloquear</button>}
             {user.active_plan && <button className="button button-small" disabled={Boolean(busy)} onClick={()=>{const days=Number(window.prompt("Quantos dias deseja acrescentar?", "30")); if(Number.isInteger(days)&&days>0) void act(user.user_id,"extend_access",days);}}><CalendarPlus size={15}/>Estender acesso</button>}
             {user.active_plan && <button className="button button-small" disabled={Boolean(busy)} onClick={()=>{if(window.confirm("Cancelar o acesso ativo deste usuário?")) void act(user.user_id,"cancel_access");}}><XCircle size={15}/>Cancelar acesso</button>}
             {user.account_status!=="cancelled" && <button className="button button-small" disabled={Boolean(busy)} onClick={()=>{if(window.confirm("Cancelar a conta deste usuário?")) void act(user.user_id,"cancel_account");}}><XCircle size={15}/>Cancelar conta</button>}
-          </div>
+          </div>}
         </article>)}
       </div>}
     </section>
