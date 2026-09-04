@@ -16,7 +16,7 @@ export async function POST(request:Request){
   if(!admin) return Response.json({error:"Acesso negado."},{status:403});
   try{
     const body=await request.json() as Record<string,unknown>;
-    const result=await supabaseAdminRpc("admin_save_simulation_definition",{
+    const result=await supabaseAdminRpc("admin_save_simulation_definition_v3",{
       p_id:body.id?Number(body.id):null,
       p_slug:String(body.slug??""),
       p_name:String(body.name??""),
@@ -27,6 +27,7 @@ export async function POST(request:Request){
       p_time_limit_minutes:body.time_limit_minutes===null||body.time_limit_minutes===""?null:Number(body.time_limit_minutes),
       p_randomize_questions:Boolean(body.randomize_questions),
       p_randomize_options:Boolean(body.randomize_options),
+      p_use_incidence_weights:body.use_incidence_weights!==false,
       p_status:String(body.status??"draft"),
       p_actor_email:admin.email,
     });
