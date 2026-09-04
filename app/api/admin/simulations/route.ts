@@ -1,9 +1,11 @@
-import { getAdminUser } from "@/lib/admin-access";
+import { adminCan, getAdminUser } from "@/lib/admin-access";
 import { supabaseAdminRpc } from "@/lib/supabase";
+
+function forbidden(){return Response.json({error:"Acesso negado."},{status:403});}
 
 export async function GET(){
   const admin=await getAdminUser();
-  if(!admin) return Response.json({error:"Acesso negado."},{status:403});
+  if(!admin||!adminCan(admin.role,"content:view")) return forbidden();
   const [analytics,definitions]=await Promise.all([
     supabaseAdminRpc("admin_simulations"),
     supabaseAdminRpc("admin_simulation_definitions"),
@@ -13,7 +15,7 @@ export async function GET(){
 
 export async function POST(request:Request){
   const admin=await getAdminUser();
-  if(!admin) return Response.json({error:"Acesso negado."},{status:403});
+  if(!admin||!adminCan(admin.role,"content:edit")) return forbidden();
   try{
     const body=await request.json() as Record<string,unknown>;
     const result=await supabaseAdminRpc("admin_save_simulation_definition_v3",{
@@ -39,7 +41,7 @@ export async function POST(request:Request){
 
 export async function PATCH(request:Request){
   const admin=await getAdminUser();
-  if(!admin) return Response.json({error:"Acesso negado."},{status:403});
+  if(!admin||!adminCan(admin.role,"content:edit")) return forbidden();
   try{
     const body=await request.json() as {id?:number;status?:string};
     const id=Number(body.id);
