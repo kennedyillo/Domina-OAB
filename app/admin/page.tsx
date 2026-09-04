@@ -13,8 +13,8 @@ type PaymentRow = { id:number; email:string; plan_name:string; status:string; pa
 type PlanRow = { id:string; name:string; billing_type:string; duration_days:number|null; price_cents:number; max_installments:number; active:boolean };
 
 const configuredPlans:PlanRow[] = [
-  {id:"domina-30",name:"Domina 30 dias",billing_type:"one_time",duration_days:30,price_cents:4990,max_installments:1,active:true},
-  {id:"domina-90",name:"Domina 90 dias",billing_type:"one_time",duration_days:90,price_cents:12990,max_installments:1,active:true},
+  {id:"domina-monthly",name:"Domina 30 dias",billing_type:"one_time",duration_days:30,price_cents:4990,max_installments:1,active:true},
+  {id:"domina-90",name:"Domina 90 dias",billing_type:"one_time",duration_days:90,price_cents:12990,max_installments:3,active:true},
   {id:"domina-annual",name:"Domina Anual",billing_type:"one_time",duration_days:365,price_cents:36000,max_installments:12,active:true},
   {id:"founder-annual",name:"Acesso Fundador",billing_type:"promotional",duration_days:365,price_cents:0,max_installments:1,active:true},
 ];
