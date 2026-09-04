@@ -1,167 +1,174 @@
 # Ética Profissional — 1ª fase OAB
 
-> Status editorial: lotes 1 a 4 (~70 questões autorais/demonstrativas em `draft`, cobrindo os 12 temas da disciplina), revisão jurídica antes de publicação pública.
+> Status editorial em 04/09/2026: **81 questões autorais revisadas e publicadas**, distribuídas em 14 temas. A incidência temática possui primeira calibração empírica baseada nos 41º a 46º Exames de Ordem Unificados, caderno Tipo 1.
 
 ## Objetivo da disciplina
 
-Ética Profissional reúne as regras do Estatuto da Advocacia e da OAB, do Regulamento Geral, do Código de Ética e Disciplina e dos provimentos do Conselho Federal que disciplinam o exercício da advocacia. Na 1ª fase, a cobrança costuma privilegiar situações práticas: inscrição, prerrogativas, mandato, honorários, incompatibilidades, infrações, sanções, publicidade e organização da OAB.
+Ética Profissional reúne as regras do Estatuto da Advocacia e da OAB, do Regulamento Geral, do Código de Ética e Disciplina e dos provimentos do Conselho Federal que disciplinam o exercício da advocacia. Na 1ª fase, a cobrança costuma privilegiar situações práticas: inscrição, prerrogativas, mandato, honorários, incompatibilidades, responsabilidade profissional, relação de emprego, infrações, sanções, publicidade e organização da OAB.
 
 ## Proporção dos temas nos simulados
 
-Os simulados do Domina OAB não distribuem os temas de maneira puramente uniforme. Cada tema possui um peso de incidência histórica, calibrado a partir da classificação de provas anteriores da OAB/FGV. Temas mais recorrentes recebem maior probabilidade de aparecer, sem excluir assuntos de menor incidência.
+Os simulados do Domina OAB usam ponderação por incidência histórica. A primeira base empírica classifica 48 questões oficiais de Ética dos 41º ao 46º EOU; 47 entram no cálculo, pois uma questão do 43º EOU foi anulada oficialmente.
 
-A ponderação é probabilística: cada tentativa continua variando, mas, ao longo de várias sessões, a distribuição tende a refletir os pesos históricos cadastrados. Os pesos ficam no banco e podem ser recalibrados conforme novas provas forem classificadas.
+O peso não é aplicado cegamente a cada questão autoral. O runtime normaliza o peso pelo número de questões publicadas do tema, evitando que um assunto apareça mais apenas porque possui um banco autoral maior.
 
-### Calibração inicial de Ética
+### Incidência observada — EOU 41 a 46
 
-**Prioridade muito alta**
-- Direitos e prerrogativas
-- Incompatibilidades e impedimentos
+- Direitos e prerrogativas — 8 ocorrências.
+- Infrações e sanções disciplinares — 8.
+- Incompatibilidades e impedimentos — 6.
+- Atos privativos da advocacia — 4.
+- Sociedade de advogados — 4.
+- Honorários advocatícios — 3.
+- Publicidade e marketing jurídico — 3.
+- Sigilo profissional — 3.
+- Advogado empregado — 2.
+- Inscrição na OAB — 2.
+- Responsabilidade profissional do advogado — 2.
+- Órgãos da OAB — 1.
+- Princípios fundamentais — 1.
+- Mandato e renúncia — 0 no recorte, preservado com piso técnico no sorteio.
 
-**Prioridade alta**
-- Honorários advocatícios
-- Infrações e sanções disciplinares
-- Publicidade e marketing jurídico
-
-**Prioridade média**
-- Inscrição na OAB
-- Sociedade de advogados
-- Mandato e renúncia
-- Sigilo profissional
-
-**Prioridade complementar**
-- Atos privativos da advocacia
-- Órgãos da OAB
-
-Esses níveis são pesos editoriais iniciais, não uma promessa de percentual fixo da próxima prova. O objetivo é aproximar progressivamente os simulados da distribuição observada nas provas oficiais.
+A amostra serve para ponderação do estudo e dos simulados, não como promessa de distribuição fixa da próxima prova.
 
 ## Fontes normativas principais
 
+- Constituição Federal, especialmente art. 133.
 - Lei nº 8.906/1994 — Estatuto da Advocacia e da OAB.
 - Regulamento Geral do Estatuto da Advocacia e da OAB.
-- Código de Ética e Disciplina da OAB, aprovado pela Resolução CFOAB nº 02/2015 e alterações posteriores.
+- Código de Ética e Disciplina da OAB, Resolução CFOAB nº 02/2015 e alterações posteriores.
 - Provimento CFOAB nº 205/2021 — publicidade e informação da advocacia.
-- Constituição Federal, especialmente art. 133.
+- Jurisprudência vinculada ao Estatuto quando necessária para atualização das prerrogativas e incompatibilidades.
 
 ## 1. Advocacia e atos privativos
 
-A advocacia é indispensável à administração da Justiça. O Estatuto considera privativas da advocacia, em regra, a postulação perante os órgãos do Poder Judiciário e os juizados especiais, além das atividades de consultoria, assessoria e direção jurídicas.
+A advocacia é indispensável à administração da Justiça. O Estatuto considera privativas da advocacia, em regra, a postulação perante órgãos jurisdicionais e as atividades de consultoria, assessoria e direção jurídicas, observadas as exceções legais.
 
-A análise de questões deve sempre observar as exceções legais. Um exemplo clássico é o habeas corpus, cuja impetração não depende de advogado.
+O habeas corpus é exemplo clássico de ato cuja impetração não exige advogado.
 
 ### Atenção FGV
 
-A banca costuma trocar uma regra geral por uma exceção. Quando o enunciado disser que determinada atividade “sempre” exige advogado, procure primeiro saber se existe exceção expressa.
+Quando a alternativa usar termos absolutos como “sempre” ou “somente”, verifique primeiro se o Estatuto contém exceção expressa.
 
 ## 2. Inscrição nos quadros da OAB
 
-A inscrição como advogado exige o atendimento dos requisitos do Estatuto, entre eles capacidade civil, diploma ou certidão de graduação em Direito, aprovação no Exame de Ordem, ausência de atividade incompatível, idoneidade moral e prestação de compromisso perante o Conselho.
+A inscrição como advogado exige capacidade civil, diploma ou certidão de graduação em Direito, título de eleitor e quitação do serviço militar quando aplicável, aprovação no Exame de Ordem, ausência de atividade incompatível, idoneidade moral e compromisso perante o Conselho.
 
-A inscrição principal é feita no Conselho Seccional em cujo território o advogado pretende estabelecer seu domicílio profissional. A atuação habitual em outra seccional pode gerar a necessidade de inscrição suplementar, nos termos do Estatuto.
-
-### Atenção FGV
-
-Não confunda inscrição principal, suplementar, transferência e licenciamento. A banca adora pegar quatro institutos parecidos e fingir que são irmãos gêmeos.
+Diploma estrangeiro exige revalidação, além dos demais requisitos. Inscrição principal, suplementar, transferência, licenciamento e cancelamento possuem pressupostos diferentes.
 
 ## 3. Direitos e prerrogativas
 
-As prerrogativas não são privilégios pessoais. Elas existem para assegurar o exercício independente da defesa e a adequada prestação do serviço jurídico.
+As prerrogativas existem para assegurar defesa independente e prestação adequada do serviço jurídico. O núcleo está no art. 7º do Estatuto.
 
-Entre os temas frequentemente explorados estão comunicação com clientes presos, acesso a autos e investigações nos limites legais, inviolabilidade do escritório e dos instrumentos de trabalho, uso da palavra e proteção da independência profissional.
-
-A leitura deve ser feita diretamente à luz do art. 7º do Estatuto e de suas alterações legislativas.
+Entre os pontos recorrentes estão comunicação reservada com clientes presos, ingresso em delegacias e prisões, acesso a autos e investigações, inviolabilidade do escritório e dos instrumentos de trabalho, acesso direto a magistrados, prisão ligada ao exercício profissional e proteção da independência técnica.
 
 ## 4. Mandato, substabelecimento e renúncia
 
-O advogado atua, em regra, mediante mandato. Em situação de urgência, pode atuar sem procuração, obrigando-se a apresentá-la no prazo legal.
+O advogado atua, em regra, mediante mandato. Em situação de urgência pode atuar sem procuração, devendo apresentá-la no prazo legal.
 
-A renúncia ao mandato deve ser comunicada ao cliente. Após a comunicação, o advogado continua representando o mandante durante o período legal necessário para evitar prejuízo, salvo substituição anterior.
+A renúncia deve ser comunicada ao cliente e não encerra imediatamente toda responsabilidade processual: o advogado continua a representação pelo prazo legal, salvo substituição anterior.
 
-O substabelecimento pode ocorrer com ou sem reserva de poderes, produzindo efeitos distintos na relação profissional.
+No substabelecimento, diferencie reserva e ausência de reserva de poderes e observe o dever de comunicação ou conhecimento do cliente previsto no Código de Ética.
 
 ## 5. Relação com o cliente
 
-A relação profissional exige independência, informação adequada, lealdade e clareza sobre os limites da atuação contratada. O advogado não deve permitir que interesses de terceiros interfiram indevidamente na orientação jurídica prestada ao cliente.
+A relação profissional exige independência, informação adequada, lealdade, clareza sobre o escopo do trabalho e prevenção de conflito de interesses.
 
-Também deve evitar conflito de interesses e avaliar, antes de aceitar uma causa, se a nova atuação é compatível com deveres assumidos perante clientes atuais ou anteriores.
+O advogado não deve permitir que interesses do cliente, do empregador ou de terceiros eliminem sua liberdade técnica.
 
 ## 6. Sigilo profissional
 
-O sigilo profissional protege informações conhecidas em razão do exercício da advocacia. Ele alcança, inclusive, informações obtidas em consulta, ainda que o advogado não venha a ser formalmente contratado.
+O sigilo protege fatos conhecidos em razão da profissão, inclusive em consulta preliminar e após o término da relação profissional.
 
-O advogado tem proteção normativa para não revelar fatos cobertos pelo sigilo e, nos limites legais, pode recusar-se a depor sobre circunstâncias conhecidas em razão da profissão.
-
-### Atenção FGV
-
-O erro típico é imaginar que só existe sigilo depois da assinatura de contrato ou do ajuizamento da ação. O dever nasce da relação profissional e da natureza da informação, não da existência de uma pasta com etiqueta bonita.
+O Código de Ética presume confidenciais as comunicações entre advogado e cliente e admite quebra apenas em circunstâncias excepcionais de justa causa, como grave ameaça à vida ou à honra e defesa própria do advogado.
 
 ## 7. Honorários advocatícios
 
-Os honorários podem ser convencionados, arbitrados judicialmente ou decorrer da sucumbência. O contrato deve ser claro quanto ao objeto, à forma de remuneração e às despesas.
+Os honorários podem ser convencionados, arbitrados judicialmente ou decorrer da sucumbência. O contrato deve delimitar objeto, remuneração, despesas e extensão do patrocínio.
 
-Os honorários de sucumbência pertencem ao advogado, que possui direito autônomo para executar a decisão que os fixar, observada a legislação aplicável.
-
-A contratação por êxito é admitida dentro dos limites éticos. A remuneração não pode transformar a advocacia em atividade mercantil nem retirar do cliente, de forma abusiva, o resultado econômico da demanda.
+Os honorários de sucumbência pertencem ao advogado. O Estatuto também disciplina destaque de honorários contratuais, acordo celebrado pelo cliente, prescrição da cobrança e cobrança por substabelecido.
 
 ## 8. Sociedade de advogados
 
-Advogados podem constituir sociedade de advocacia e sociedade unipessoal de advocacia, observadas as regras do Estatuto e do Regulamento Geral.
+Sociedade de advocacia e sociedade unipessoal seguem regime próprio. Registro, denominação, participação societária e responsabilidade não se confundem com sociedade empresária comum.
 
-A estrutura societária da advocacia não se confunde com sociedade empresária comum. Denominação, registro, responsabilidade profissional e participação societária seguem disciplina própria.
+A personalidade jurídica decorre do registro aprovado no Conselho Seccional competente. A razão social e a composição devem respeitar os limites do Estatuto.
 
 ## 9. Incompatibilidades e impedimentos
 
-Incompatibilidade significa proibição total do exercício da advocacia enquanto persistir a situação prevista em lei. Impedimento é proibição parcial, limitada a determinadas pessoas, órgãos ou situações.
+Incompatibilidade gera proibição total do exercício da advocacia enquanto persistir a situação legal. Impedimento gera proibição parcial.
 
-### Atenção FGV
-
-Se o personagem do enunciado ocupa cargo público, não conclua automaticamente que está impedido. Primeiro determine se a hipótese legal é de incompatibilidade total ou impedimento parcial.
+A análise deve considerar a função efetivamente exercida e as exceções atuais do Estatuto, inclusive docentes de cursos jurídicos, cargos de direção sem poder decisório relevante e regimes próprios da advocacia pública.
 
 ## 10. Infrações e sanções disciplinares
 
-O Estatuto prevê infrações disciplinares e sanções próprias. As sanções disciplinares incluem censura, suspensão, exclusão e multa, aplicadas conforme a infração e os requisitos legais.
+As sanções disciplinares incluem censura, suspensão, exclusão e multa. A correspondência entre conduta e sanção, reincidência, reabilitação, prescrição e requisitos de aplicação são pontos frequentes de prova.
 
-Questões costumam cobrar a correspondência entre determinada conduta e a sanção cabível, além de circunstâncias agravantes, atenuantes, reabilitação e efeitos da reincidência.
+A exclusão exige o quórum qualificado previsto no art. 38 do Estatuto.
 
-A exclusão depende do procedimento e do quórum qualificado previstos no Estatuto.
+## 11. Processo disciplinar e órgãos da OAB
 
-## 11. Processo disciplinar
-
-O processo disciplinar deve respeitar contraditório, ampla defesa e as regras de competência e procedimento previstas na legislação da OAB.
-
-É importante separar competência do Tribunal de Ética e Disciplina, competências dos Conselhos Seccionais e hipóteses de atuação do Conselho Federal.
+O processo disciplinar observa contraditório, ampla defesa e regras próprias de competência. É essencial distinguir atribuições do Tribunal de Ética e Disciplina, Conselho Seccional, Conselho Federal, Subseções e Caixas de Assistência.
 
 ## 12. Publicidade e marketing jurídico
 
-A publicidade profissional é permitida dentro dos limites éticos. O Provimento nº 205/2021 admite marketing jurídico e produção de conteúdo informativo, desde que não haja captação indevida de clientela, mercantilização da profissão ou promessa de resultado.
+A publicidade profissional deve ser informativa e sóbria. Marketing jurídico e impulsionamento são admitidos dentro dos limites do Provimento nº 205/2021, sem captação indevida, mercantilização ou promessa de resultado.
 
-São pontos recorrentes: impulsionamento, redes sociais, participação em conteúdo informativo, anúncios, identificação profissional e limites de linguagem comercial.
+Preços, descontos, rankings pagos, honrarias compradas, grupos de mensagens e divulgação conjunta com atividade estranha à advocacia exigem atenção especial.
 
-### Regra de prova
+## 13. Advogado empregado
 
-Pergunte: a comunicação informa ou tenta transformar serviço jurídico em produto de prateleira? Quanto mais a conduta se aproxima de captação indevida, promoção de resultados ou mercantilização, maior a chance de incompatibilidade ética.
+A relação de emprego **não retira a isenção técnica nem reduz a independência profissional** do advogado. O vínculo empregatício cria subordinação trabalhista, mas não autoriza o empregador a impor conclusão jurídica contrária à consciência técnica do profissional. Fundamento principal: art. 18 do Estatuto.
 
-## 13. Órgãos da OAB
+O advogado empregado também não é obrigado a prestar serviços profissionais de interesse pessoal do empregador que estejam fora da relação de emprego.
 
-A estrutura institucional inclui Conselho Federal, Conselhos Seccionais, Subseções e Caixas de Assistência dos Advogados, com competências próprias.
+A redação atual do art. 18 admite três regimes de trabalho:
 
-Questões de prova frequentemente pedem qual órgão é competente para determinado ato, julgamento, inscrição, fiscalização ou recurso.
+- exclusivamente presencial;
+- não presencial, teletrabalho ou trabalho a distância;
+- misto.
 
-## 14. Estratégia de revisão
+Durante o vínculo, as partes podem alterar o regime por acordo individual simples.
 
-Prioridade de memorização:
+Para advogado empregado que presta serviço para empresas, o art. 20 estabelece jornada de até 8 horas contínuas e 40 horas semanais. Horas que excedem a jornada normal recebem adicional não inferior a 100%, e o trabalho entre 20h e 5h recebe adicional noturno de 25%.
+
+Nas causas em que for parte o empregador, ou pessoa por ele representada, os honorários de sucumbência são devidos aos advogados empregados. Quando o advogado é empregado de sociedade de advogados, a partilha segue o acordo aplicável.
+
+### Atenção FGV
+
+Não use a antiga regra de 4 horas diárias e 20 semanais como regra geral atual. O art. 20 foi alterado pela Lei nº 14.365/2022.
+
+## 14. Responsabilidade profissional do advogado
+
+O art. 32 do Estatuto estabelece responsabilidade pelos atos praticados com **dolo ou culpa** no exercício profissional. Portanto, não se trata de responsabilidade objetiva automática pelo simples resultado desfavorável da causa.
+
+Na lide temerária, a responsabilidade solidária com o cliente exige dois elementos importantes:
+
+1. coligação entre advogado e cliente para lesar a parte contrária;
+2. apuração dessa circunstância em ação própria.
+
+A simples improcedência da ação, erro de tese ou conduta isolada do cliente não torna automaticamente o advogado solidariamente responsável.
+
+Nas sociedades de advogados, além da sociedade, o sócio responde subsidiária e ilimitadamente pelos danos causados aos clientes por ação ou omissão no exercício da advocacia, sem prejuízo da responsabilidade disciplinar, conforme art. 17.
+
+### Atenção FGV
+
+Separe responsabilidade civil, responsabilidade disciplinar e lide temerária. Elas podem se relacionar, mas não possuem os mesmos requisitos nem são automaticamente excludentes entre si.
+
+## 15. Estratégia de revisão
+
+Priorize:
 
 1. prerrogativas do art. 7º;
-2. incompatibilidades e impedimentos;
-3. honorários;
-4. infrações e sanções;
-5. publicidade e Provimento nº 205/2021;
-6. inscrição e licenciamento;
-7. mandato, substabelecimento e renúncia;
-8. sigilo profissional;
-9. sociedade de advogados;
-10. competências dos órgãos da OAB.
+2. infrações e sanções;
+3. incompatibilidades e impedimentos;
+4. atos privativos e sociedades;
+5. honorários, publicidade e sigilo;
+6. advogado empregado e responsabilidade profissional;
+7. inscrição, órgãos da OAB, princípios, mandato e renúncia.
+
+A ordem considera a primeira calibração empírica dos EOU 41 a 46 e deve ser recalibrada quando a base histórica for ampliada.
 
 ## Controle editorial
 
-Este material é destinado a estudo para a 1ª fase. Antes da publicação, cada bloco deve ser confrontado com a edição vigente do Estatuto da Advocacia e da OAB, Regulamento Geral, Código de Ética e Disciplina e provimentos aplicáveis. Alterações legislativas posteriores devem gerar revisão do conteúdo e das questões relacionadas.
+Este material foi confrontado com a redação vigente do Estatuto da Advocacia e da OAB, o Código de Ética e as normas citadas na data de revisão. Alterações legislativas ou jurisprudenciais posteriores devem gerar nova revisão do conteúdo e das questões relacionadas.
