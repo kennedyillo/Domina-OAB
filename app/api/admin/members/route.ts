@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { adminCan, getAdminUser, type AdminRole } from "@/lib/admin-access";
 import { writeAdminAudit } from "@/lib/admin-audit";
-import { supabaseAdminSelect, supabaseAdminUpdate } from "@/lib/supabase";
+import { supabaseAdminInsert, supabaseAdminSelect, supabaseAdminUpdate } from "@/lib/supabase";
 
 const roles: AdminRole[] = ["owner", "administrator", "editor", "legal_reviewer", "support"];
 
@@ -17,6 +17,10 @@ function forbidden() {
   return NextResponse.json({ error: "Acesso negado." }, { status: 403 });
 }
 
+function validRole(role: unknown): role is AdminRole {
+  return typeof role === "string" && roles.includes(role as AdminRole);
+}
+
 export async function GET() {
   const actor = await getAdminUser();
   if (!actor || !adminCan(actor.role, "roles:manage")) return forbidden();
@@ -26,6 +30,47 @@ export async function GET() {
   );
 
   return NextResponse.json({ members }, { headers: { "cache-control": "no-store" } });
+}
+
+export async function POST(request: Request) {
+  const actor = await getAdminUser();
+  if (!actor || !adminCan(actor.role, "roles:manage")) return forbidden();
+
+  const body = await request.json().catch(() => null) as { user_id?: string; role?: AdminRole } | null;
+  const userId = body?.user_id?.trim();
+  const role = body?.role;
+  if (!userId || !validRole(role)) {
+    return NextResponse.json({ error: "Dados inválidos." }, { status: 400 });
+  }
+
+  const existing = await supabaseAdminSelect<AdminMemberRow[]>(
+    `admin_members?select=user_id,role,active,created_at,updated_at&user_id=eq.${encodeURIComponent(userId)}&limit=1`,
+  );
+  if (existing[0]) return NextResponse.json({ error: "Este usuário já possui associação administrativa." }, { status: 409 });
+
+  const users = await supabaseAdminSelect<Array<{ user_id:string }>>(
+    `user_profiles?select=user_id&user_id=eq.${encodeURIComponent(userId)}&limit=1`,
+  );
+  if (!users[0]) return NextResponse.json({ error: "Usuário não encontrado." }, { status: 404 });
+
+  await supabaseAdminInsert("admin_members", { user_id:userId, role, active:true });
+  const createdRows = await supabaseAdminSelect<AdminMemberRow[]>(
+    `admin_members?select=user_id,role,active,created_at,updated_at&user_id=eq.${encodeURIComponent(userId)}&limit=1`,
+  );
+  const created = createdRows[0];
+  if (!created) return NextResponse.json({ error: "Associação não criada." }, { status: 500 });
+
+  await writeAdminAudit({
+    actor,
+    action: "admin_member.created",
+    resourceType: "admin_member",
+    resourceId: userId,
+    before: null,
+    after: created,
+    requestId: request.headers.get("x-vercel-id") ?? request.headers.get("x-request-id"),
+  });
+
+  return NextResponse.json({ member: created }, { status:201, headers: { "cache-control": "no-store" } });
 }
 
 export async function PATCH(request: Request) {
@@ -42,7 +87,7 @@ export async function PATCH(request: Request) {
   const role = body?.role;
   const active = body?.active;
 
-  if (!userId || !role || !roles.includes(role) || typeof active !== "boolean") {
+  if (!userId || !validRole(role) || typeof active !== "boolean") {
     return NextResponse.json({ error: "Dados inválidos." }, { status: 400 });
   }
 
