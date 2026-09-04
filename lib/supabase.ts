@@ -178,6 +178,24 @@ export async function requestPasswordReset(email: string, redirectTo: string) {
   }
 }
 
+export async function verifyRecoveryTokenHash(tokenHash: string) {
+  const url = requiredEnv("NEXT_PUBLIC_SUPABASE_URL");
+  return parseResponse<{
+    access_token: string;
+    refresh_token?: string;
+    expires_in: number;
+    user?: { id: string; email?: string };
+  }>(await fetch(`${url}/auth/v1/verify`, {
+    method: "POST",
+    headers: {
+      apikey: requiredEnv("NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY"),
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({ token_hash: tokenHash, type: "recovery" }),
+    cache: "no-store",
+  }));
+}
+
 export async function updatePasswordWithAccessToken(accessToken: string, password: string) {
   const url = requiredEnv("NEXT_PUBLIC_SUPABASE_URL");
   const response = await fetch(`${url}/auth/v1/user`, {
