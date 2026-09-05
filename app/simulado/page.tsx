@@ -30,9 +30,10 @@ export default function Simulado(){
   const [report,setReport]=useState<ReportState>(initialReport);
   const started=useRef(false);
   const finishing=useRef(false);
+  const completionTracked=useRef(false);
 
   async function loadSimulation(){
-    setLoading(true);setLoadError("");setFinished(false);setTimedOut(false);setVerified({});setCurrent(0);setReport(initialReport);started.current=false;finishing.current=false;
+    setLoading(true);setLoadError("");setFinished(false);setTimedOut(false);setVerified({});setCurrent(0);setReport(initialReport);started.current=false;finishing.current=false;completionTracked.current=false;
     try{
       const slug=new URL(window.location.href).searchParams.get("slug")||"simulado-etica";
       const response=await fetch(`/api/simulations?slug=${encodeURIComponent(slug)}`,{cache:"no-store"});
@@ -41,6 +42,12 @@ export default function Simulado(){
       setDefinition(data.definition);setSaved(Boolean(data.saved));setAttemptId(data.attempt_id??null);setQuestions(data.questions||[]);setAnswers(Array(data.questions?.length||0).fill(null));
       setTimeLeft(data.definition.time_limit_minutes?data.definition.time_limit_minutes*60:null);
     }catch(e){setLoadError(e instanceof Error?e.message:"Erro ao carregar simulado.");setQuestions([]);}finally{setLoading(false);}
+  }
+
+  function trackCompletedOnce(){
+    if(completionTracked.current) return;
+    completionTracked.current=true;
+    trackAnalytics("simulado_completed");
   }
 
   useEffect(()=>{void loadSimulation();},[]);
@@ -75,7 +82,10 @@ export default function Simulado(){
     try{
       const response=await fetch("/api/simulations",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({action:"answer",attempt_id:attemptId,question_id:q.id,selected_index:option,option_order:q.option_order})});
       const data=await response.json() as Verification&{error?:string;expired?:boolean};
-      if(!response.ok){if(data.expired){setTimedOut(true);setFinished(true);}throw new Error(data.error||"Não foi possível verificar a resposta.");}
+      if(!response.ok){
+        if(data.expired){setTimedOut(true);setFinished(true);trackCompletedOnce();}
+        throw new Error(data.error||"Não foi possível verificar a resposta.");
+      }
       setVerified(values=>({...values,[q.id]:data}));
     }catch(e){if(!(e instanceof Error&&e.message.includes("tempo"))) setLoadError(e instanceof Error?e.message:"Erro ao verificar resposta.");}finally{setVerifying(false);}
   }
@@ -85,9 +95,18 @@ export default function Simulado(){
     finishing.current=true;
     if(byTimeout) setTimedOut(true);
     try{
-      if(attemptId) await fetch("/api/simulations",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({action:"finish",attempt_id:attemptId})});
+      if(attemptId){
+        const response=await fetch("/api/simulations",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({action:"finish",attempt_id:attemptId})});
+        const data=await response.json() as {error?:string};
+        if(!response.ok) throw new Error(data.error||"Não foi possível concluir o simulado.");
+      }
+      trackCompletedOnce();
+      setFinished(true);
+    }catch(e){
+      if(byTimeout) setTimeLeft(null);
+      setLoadError(e instanceof Error?e.message:"Não foi possível concluir o simulado.");
     }finally{
-      trackAnalytics("simulado_completed");setFinished(true);finishing.current=false;
+      finishing.current=false;
     }
   }
 
