@@ -2,9 +2,11 @@ import { NextResponse } from "next/server";
 import { clientIp } from "@/lib/public-api-security";
 import { resolveLoginIdentifier, signInWithPassword, supabaseAccessCookie, supabaseAdminRpc, supabaseAdminSelect } from "@/lib/supabase";
 
+const MAX_FORM_BYTES=8*1024;
+
 function safeReturnTo(value: FormDataEntryValue | null) {
   const text = typeof value === "string" ? value : "/plataforma";
-  return text.startsWith("/") && !text.startsWith("//") ? text : "/plataforma";
+  return text.length<=2048&&text.startsWith("/")&&!text.startsWith("//") ? text : "/plataforma";
 }
 
 type AdminMembership = { active: boolean };
@@ -18,7 +20,16 @@ async function recordAttempt(ip:string,identifier:string,succeeded:boolean){
   });
 }
 
+function errorRedirect(request:Request){
+  const response=NextResponse.redirect(new URL("/entrar?error=1",request.url),303);
+  response.headers.set("Cache-Control","no-store");
+  return response;
+}
+
 export async function POST(request: Request) {
+  const rawBody=await request.clone().arrayBuffer();
+  if(rawBody.byteLength>MAX_FORM_BYTES)return errorRedirect(request);
+
   const form = await request.formData();
   const identifier = String(form.get("identifier") ?? "").trim();
   const normalizedIdentifier=identifier.toLowerCase().slice(0,320);
@@ -26,9 +37,7 @@ export async function POST(request: Request) {
   const returnTo = safeReturnTo(form.get("return_to"));
   const ip=clientIp(request);
 
-  if (!normalizedIdentifier || !password || password.length>1024) {
-    return NextResponse.redirect(new URL("/entrar?error=1", request.url), 303);
-  }
+  if (!normalizedIdentifier || !password || password.length>1024) return errorRedirect(request);
 
   try {
     const rate=await supabaseAdminRpc<RateCheck>("admin_login_rate_check",{
@@ -36,16 +45,15 @@ export async function POST(request: Request) {
       p_email:normalizedIdentifier,
     });
     if(rate.allowed===false){
-      const response=NextResponse.redirect(new URL("/entrar?error=1",request.url),303);
+      const response=errorRedirect(request);
       response.headers.set("Retry-After",String(Math.max(60,Math.min(1800,Number(rate.retry_after_seconds)||300))));
-      response.headers.set("Cache-Control","no-store");
       return response;
     }
 
-    const email = await resolveLoginIdentifier(identifier);
+    const email = await resolveLoginIdentifier(normalizedIdentifier);
     if (!email) {
       await recordAttempt(ip,normalizedIdentifier,false);
-      return NextResponse.redirect(new URL("/entrar?error=1", request.url), 303);
+      return errorRedirect(request);
     }
 
     const session = await signInWithPassword(email, password);
@@ -66,6 +74,6 @@ export async function POST(request: Request) {
     return response;
   } catch {
     try{await recordAttempt(ip,normalizedIdentifier,false);}catch{}
-    return NextResponse.redirect(new URL("/entrar?error=1", request.url), 303);
+    return errorRedirect(request);
   }
 }
