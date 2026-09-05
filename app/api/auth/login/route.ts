@@ -2,9 +2,11 @@ import { NextResponse } from "next/server";
 import { getAdminMembershipByUserId } from "@/lib/admin-access";
 import { signInWithPassword, supabaseAccessCookie, supabaseAdminRpc } from "@/lib/supabase";
 
+const MAX_FORM_BYTES=8*1024;
+
 function safeReturnTo(value: FormDataEntryValue | null) {
   const text = typeof value === "string" ? value : "/admin";
-  return text.startsWith("/") && !text.startsWith("//") ? text : "/admin";
+  return text.length<=2048&&text.startsWith("/")&&!text.startsWith("//") ? text : "/admin";
 }
 
 function clientIp(request: Request) {
@@ -25,16 +27,24 @@ async function recordAttempt(ip: string, email: string, succeeded: boolean) {
   });
 }
 
+function errorRedirect(request:Request,code="1",retry?:number){
+  const response=NextResponse.redirect(new URL(`/admin/login?error=${code}${retry?`&retry=${retry}`:""}`,request.url),303);
+  if(retry)response.headers.set("Retry-After",String(retry));
+  response.headers.set("Cache-Control","no-store");
+  return response;
+}
+
 export async function POST(request: Request) {
+  const rawBody=await request.clone().arrayBuffer();
+  if(rawBody.byteLength>MAX_FORM_BYTES)return errorRedirect(request);
+
   const form = await request.formData();
-  const email = String(form.get("email") ?? "").trim().toLowerCase();
+  const email = String(form.get("email") ?? "").trim().toLowerCase().slice(0,254);
   const password = String(form.get("password") ?? "");
   const returnTo = safeReturnTo(form.get("return_to"));
   const ip = clientIp(request);
 
-  if (!email || !password) {
-    return NextResponse.redirect(new URL("/admin/login?error=1", request.url), 303);
-  }
+  if (!email || !password || password.length>1024) return errorRedirect(request);
 
   try {
     const rate = await supabaseAdminRpc<RateCheck>("admin_login_rate_check", {
@@ -44,16 +54,14 @@ export async function POST(request: Request) {
 
     if (rate.allowed === false) {
       const retry = Math.max(60, Math.min(1800, Number(rate.retry_after_seconds) || 300));
-      const response = NextResponse.redirect(new URL(`/admin/login?error=rate&retry=${retry}`, request.url), 303);
-      response.headers.set("Retry-After", String(retry));
-      return response;
+      return errorRedirect(request,"rate",retry);
     }
 
     const session = await signInWithPassword(email, password);
     const membership = await getAdminMembershipByUserId(session.user.id);
     if (!session.user.email || !membership?.active) {
       await recordAttempt(ip, email, false);
-      return NextResponse.redirect(new URL("/admin/login?error=1", request.url), 303);
+      return errorRedirect(request);
     }
 
     await recordAttempt(ip, email, true);
@@ -74,6 +82,6 @@ export async function POST(request: Request) {
     } catch {
       // Never expose rate-limit storage failures to the client.
     }
-    return NextResponse.redirect(new URL("/admin/login?error=1", request.url), 303);
+    return errorRedirect(request);
   }
 }
