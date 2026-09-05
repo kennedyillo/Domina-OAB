@@ -1,4 +1,5 @@
 import { adminCan, getAdminUser } from "@/lib/admin-access";
+import { readJsonWithLimit } from "@/lib/public-api-security";
 import { supabaseAdminRpc } from "@/lib/supabase";
 
 type AdminUserRow = {
@@ -20,54 +21,61 @@ type AdminUserRow = {
   days_remaining: number | null;
 };
 
-function forbidden() {
-  return Response.json({ error: "Acesso negado." }, { status: 403 });
+type UserAction="block"|"unblock"|"cancel_account"|"cancel_access"|"extend_access";
+const ACTIONS=new Set<UserAction>(["block","unblock","cancel_account","cancel_access","extend_access"]);
+const UUID_RE=/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+function json(body:Record<string,unknown>,status=200){
+  return Response.json(body,{status,headers:{"Cache-Control":"no-store"}});
 }
+
+function forbidden(){return json({error:"Acesso negado."},403);}
 
 export async function GET(request: Request) {
   const admin = await getAdminUser();
   if (!admin || !adminCan(admin.role, "users:view")) return forbidden();
 
   const url = new URL(request.url);
-  const query = url.searchParams.get("q")?.trim() || null;
+  const query = url.searchParams.get("q")?.trim().slice(0,200) || null;
   const users = await supabaseAdminRpc<AdminUserRow[]>("admin_users", { p_query: query });
-  return Response.json({ users });
+  return json({ users });
 }
 
 export async function POST(request: Request) {
   const admin = await getAdminUser();
   if (!admin || !adminCan(admin.role, "users:manage")) return forbidden();
 
-  const body = await request.json() as {
-    user_id?: string;
-    action?: "block" | "unblock" | "cancel_account" | "cancel_access" | "extend_access";
-    days?: number;
-  };
+  let body:{user_id?:unknown;action?:unknown;days?:unknown};
+  try{body=await readJsonWithLimit<typeof body>(request,4*1024);}catch(error){
+    const tooLarge=error instanceof Error&&error.message==="payload_too_large";
+    return json({error:tooLarge?"Payload excede o limite permitido.":"Dados inválidos."},tooLarge?413:400);
+  }
 
-  if (!body.user_id || !body.action) {
-    return Response.json({ error: "Ação inválida." }, { status: 400 });
+  const userId=typeof body.user_id==="string"?body.user_id.trim():"";
+  const action=typeof body.action==="string"&&ACTIONS.has(body.action as UserAction)?body.action as UserAction:null;
+  if(!UUID_RE.test(userId)||!action)return json({error:"Ação inválida."},400);
+
+  let days:number|null=null;
+  if(action==="extend_access"){
+    days=Number(body.days??0);
+    if(!Number.isInteger(days)||days<1||days>730)return json({error:"Informe entre 1 e 730 dias."},400);
   }
 
   try {
-    if (body.action === "block") {
-      await supabaseAdminRpc<void>("admin_set_account_status", { p_user_id: body.user_id, p_status: "blocked" });
-    } else if (body.action === "unblock") {
-      await supabaseAdminRpc<void>("admin_set_account_status", { p_user_id: body.user_id, p_status: "active" });
-    } else if (body.action === "cancel_account") {
-      await supabaseAdminRpc<void>("admin_set_account_status", { p_user_id: body.user_id, p_status: "cancelled" });
-    } else if (body.action === "cancel_access") {
-      await supabaseAdminRpc<void>("admin_cancel_access", { p_user_id: body.user_id });
-    } else if (body.action === "extend_access") {
-      const days = Number(body.days ?? 0);
-      if (!Number.isInteger(days) || days < 1 || days > 730) {
-        return Response.json({ error: "Informe entre 1 e 730 dias." }, { status: 400 });
-      }
-      await supabaseAdminRpc("admin_extend_access", { p_user_id: body.user_id, p_days: days });
-    }
-
-    return Response.json({ ok: true });
+    await supabaseAdminRpc("admin_manage_user_v2",{
+      p_user_id:userId,
+      p_action:action,
+      p_days:days,
+      p_actor_user_id:admin.id,
+      p_actor_role:admin.role,
+      p_request_id:request.headers.get("x-vercel-id")??request.headers.get("x-request-id"),
+    });
+    return json({ok:true});
   } catch (error) {
-    const message = error instanceof Error ? error.message : "Não foi possível concluir a ação.";
-    return Response.json({ error: message }, { status: 500 });
+    const message=error instanceof Error?error.message:"";
+    if(message.includes("user_not_found"))return json({error:"Usuário não encontrado."},404);
+    if(message.includes("active_access_not_found"))return json({error:"O usuário não possui acesso ativo para estender."},409);
+    if(message.includes("actor_not_authorized"))return forbidden();
+    return json({error:"Não foi possível concluir a ação agora."},500);
   }
 }
