@@ -10,6 +10,7 @@ function safeReturnTo(value: FormDataEntryValue | null) {
 }
 
 type AdminMembership = { active: boolean };
+type AccountRow={account_status:"active"|"blocked"|"cancelled"};
 type RateCheck = { allowed?: boolean; retry_after_seconds?: number };
 
 async function recordAttempt(ip:string,identifier:string,succeeded:boolean){
@@ -60,6 +61,20 @@ export async function POST(request: Request) {
     const memberships = await supabaseAdminSelect<AdminMembership[]>(
       `admin_members?select=active&user_id=eq.${encodeURIComponent(session.user.id)}&active=eq.true&limit=1`,
     );
+
+    // Papel administrativo e status da conta de aluno são domínios separados.
+    // Um admin ativo continua podendo acessar /admin; uma conta comum bloqueada/cancelada
+    // não recebe cookie de sessão da aplicação mesmo que a senha no Auth esteja correta.
+    if(memberships.length===0){
+      const profiles=await supabaseAdminSelect<AccountRow[]>(
+        `user_profiles?select=account_status&user_id=eq.${encodeURIComponent(session.user.id)}&limit=1`,
+      );
+      if(profiles[0]&&profiles[0].account_status!=="active"){
+        await recordAttempt(ip,normalizedIdentifier,false);
+        return errorRedirect(request);
+      }
+    }
+
     await recordAttempt(ip,normalizedIdentifier,true);
     const target = memberships.length > 0 ? "/admin" : returnTo;
     const response = NextResponse.redirect(new URL(target, request.url), 303);
