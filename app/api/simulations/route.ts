@@ -80,6 +80,7 @@ export async function POST(request:Request){
         p_selected_index:selectedIndex,
         p_option_order:guestOrder,
       });
+      if(result.expired===true)return noStore({error:"O tempo do simulado terminou.",expired:true,answer_locked:true},409);
       return noStore(result);
     }
 
