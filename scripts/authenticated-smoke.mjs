@@ -51,9 +51,14 @@ async function login(page, identifier, label) {
 async function logout(page) {
   await page.goto(`${BASE}/conta`, { waitUntil: 'networkidle' });
   await Promise.all([
-    page.waitForURL('**/entrar', { timeout: 15000 }),
+    page.waitForURL(url => url.pathname === '/', { timeout: 15000 }),
     page.getByRole('link', { name: 'Sair da conta' }).click(),
   ]);
+  await page.goto(`${BASE}/conta`, { waitUntil: 'networkidle' });
+  if (!page.url().includes('/entrar?return_to=%2Fconta') && !page.url().includes('/entrar?return_to=/conta')) {
+    throw new Error(`Logout não encerrou a sessão: ${page.url()}`);
+  }
+  log('logout encerrou sessão e guard de /conta redirecionou para login');
 }
 
 const browser = await chromium.launch({ headless: true });
@@ -62,7 +67,6 @@ const page = await context.newPage();
 page.on('console', msg => { if (msg.type() === 'error') console.log(`BROWSER_ERROR: ${msg.text()}`); });
 
 try {
-  // 1. Cadastro novo em navegador.
   await page.goto(`${BASE}/cadastro`, { waitUntil: 'networkidle' });
   await page.getByLabel('Nome completo').fill(NAME);
   await page.getByLabel('E-mail').fill(PRIMARY_EMAIL);
@@ -78,7 +82,6 @@ try {
   await shot(page, '01-cadastro-conta-mobile');
   log('cadastro novo + /conta com nome/e-mail corretos');
 
-  // 2. Preferências: defaults, persistência e opt-out.
   await page.goto(`${BASE}/preferencias`, { waitUntil: 'networkidle' });
   const marketing = page.getByRole('checkbox').nth(0);
   const reminders = page.getByRole('checkbox').nth(1);
@@ -99,7 +102,6 @@ try {
   await shot(page, '02-preferencias');
   log('/preferencias carrega, salva, persiste e cancela corretamente');
 
-  // 3. Vincular CPF/telefone pela ativação founder.
   await page.goto(`${BASE}/ativar-fundador`, { waitUntil: 'networkidle' });
   await page.getByLabel('Nome completo').fill(NAME);
   await page.getByLabel('CPF').fill(CPF1);
@@ -115,7 +117,6 @@ try {
   await shot(page, '03-conta-founder');
   log('CPF/telefone vinculados + founder ativo + /conta correto');
 
-  // 4. Logout/login por e-mail, CPF, telefone e novamente e-mail.
   await logout(page);
   await login(page, PRIMARY_EMAIL, 'e-mail');
   await logout(page);
@@ -127,7 +128,6 @@ try {
   await shot(page, '04-login-final');
   log('logout + login novamente');
 
-  // 5. Duplicidade de e-mail em novo contexto.
   await logout(page);
   const dupContext = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const dupPage = await dupContext.newPage();
@@ -143,7 +143,6 @@ try {
   await shot(dupPage, '05-duplicidade-email');
   log('duplicidade de e-mail exibe erro visual sem enumerar conta');
 
-  // 6. Segunda conta QA para mensagens explícitas de CPF/telefone duplicados.
   await dupPage.goto(`${BASE}/cadastro`, { waitUntil: 'networkidle' });
   await dupPage.getByLabel('Nome completo').fill(SECOND_NAME);
   await dupPage.getByLabel('E-mail').fill(SECONDARY_EMAIL);
