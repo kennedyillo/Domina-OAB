@@ -1,0 +1,42 @@
+name: Authenticated Smoke QA
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/authenticated-smoke.mjs'
+      - '.github/workflows/authenticated-smoke-qa.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  authenticated-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Run authenticated browser smoke against production
+        env:
+          BASE_URL: https://www.dominaoab.com.br
+        run: node scripts/authenticated-smoke.mjs
+
+      - name: Upload smoke screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: authenticated-smoke-screenshots
+          path: artifacts/auth-smoke/*.png
+          if-no-files-found: ignore
+          retention-days: 7
