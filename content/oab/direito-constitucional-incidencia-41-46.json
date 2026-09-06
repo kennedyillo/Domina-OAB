@@ -1,0 +1,61 @@
+{
+  "discipline_slug": "direito-constitucional",
+  "sample": "41º a 46º Exames de Ordem Unificados, caderno Tipo 1",
+  "classification_method": "tema jurídico predominante; classificação editorial Domina OAB, sem reprodução de enunciados",
+  "total_observations": 36,
+  "summary": {
+    "direitos-e-remedios-constitucionais": 9,
+    "controle-de-constitucionalidade": 6,
+    "federacao-competencias-e-intervencao": 6,
+    "poderes-e-processo-legislativo": 5,
+    "poder-judiciario-e-competencias": 3,
+    "administracao-controle-externo-e-precatorios": 3,
+    "principios-e-objetivos-fundamentais": 1,
+    "teoria-da-constituicao": 1,
+    "nacionalidade": 1,
+    "ordem-social-e-saude": 1
+  },
+  "observations": [
+    {"exam":"41º EOU","question":11,"topic":"controle-de-constitucionalidade","subtopic":"súmula vinculante e cancelamento"},
+    {"exam":"41º EOU","question":12,"topic":"direitos-e-remedios-constitucionais","subtopic":"terras indígenas e inalienabilidade"},
+    {"exam":"41º EOU","question":13,"topic":"direitos-e-remedios-constitucionais","subtopic":"garantias da pessoa presa"},
+    {"exam":"41º EOU","question":14,"topic":"direitos-e-remedios-constitucionais","subtopic":"direito de petição sem taxa"},
+    {"exam":"41º EOU","question":15,"topic":"controle-de-constitucionalidade","subtopic":"controle preventivo de PEC"},
+    {"exam":"41º EOU","question":16,"topic":"poder-judiciario-e-competencias","subtopic":"recurso extraordinário e Constituição estadual"},
+
+    {"exam":"42º EOU","question":11,"topic":"poderes-e-processo-legislativo","subtopic":"veto presidencial e PEC"},
+    {"exam":"42º EOU","question":12,"topic":"poder-judiciario-e-competencias","subtopic":"CNJ e decisão jurisdicional"},
+    {"exam":"42º EOU","question":13,"topic":"federacao-competencias-e-intervencao","subtopic":"forma federativa e cláusula pétrea"},
+    {"exam":"42º EOU","question":14,"topic":"federacao-competencias-e-intervencao","subtopic":"intervenção federal e dívida fundada"},
+    {"exam":"42º EOU","question":15,"topic":"poderes-e-processo-legislativo","subtopic":"subsídio de deputados estaduais"},
+    {"exam":"42º EOU","question":16,"topic":"direitos-e-remedios-constitucionais","subtopic":"liberdade profissional e expressão artística"},
+
+    {"exam":"43º EOU","question":11,"topic":"direitos-e-remedios-constitucionais","subtopic":"ação popular e competência"},
+    {"exam":"43º EOU","question":12,"topic":"administracao-controle-externo-e-precatorios","subtopic":"superpreferência em precatórios"},
+    {"exam":"43º EOU","question":13,"topic":"principios-e-objetivos-fundamentais","subtopic":"redução das desigualdades regionais"},
+    {"exam":"43º EOU","question":14,"topic":"poderes-e-processo-legislativo","subtopic":"comissões parlamentares e convocação"},
+    {"exam":"43º EOU","question":15,"topic":"direitos-e-remedios-constitucionais","subtopic":"inviolabilidade domiciliar"},
+    {"exam":"43º EOU","question":16,"topic":"controle-de-constitucionalidade","subtopic":"decreto autônomo e controle concentrado"},
+
+    {"exam":"44º EOU","question":11,"topic":"ordem-social-e-saude","subtopic":"saúde e participação privada"},
+    {"exam":"44º EOU","question":12,"topic":"poder-judiciario-e-competencias","subtopic":"competência e sociedade de economia mista federal"},
+    {"exam":"44º EOU","question":13,"topic":"controle-de-constitucionalidade","subtopic":"ADCT como parâmetro de controle"},
+    {"exam":"44º EOU","question":14,"topic":"poderes-e-processo-legislativo","subtopic":"emenda parlamentar e iniciativa reservada"},
+    {"exam":"44º EOU","question":15,"topic":"teoria-da-constituicao","subtopic":"hierarquia entre normas constitucionais originárias"},
+    {"exam":"44º EOU","question":16,"topic":"direitos-e-remedios-constitucionais","subtopic":"requisição administrativa e indenização"},
+
+    {"exam":"45º EOU","question":11,"topic":"direitos-e-remedios-constitucionais","subtopic":"igualdade material e ações afirmativas"},
+    {"exam":"45º EOU","question":12,"topic":"federacao-competencias-e-intervencao","subtopic":"competência municipal"},
+    {"exam":"45º EOU","question":13,"topic":"administracao-controle-externo-e-precatorios","subtopic":"superpreferência em precatórios"},
+    {"exam":"45º EOU","question":14,"topic":"federacao-competencias-e-intervencao","subtopic":"competência residual dos Estados"},
+    {"exam":"45º EOU","question":15,"topic":"controle-de-constitucionalidade","subtopic":"ADPF e norma pré-constitucional"},
+    {"exam":"45º EOU","question":16,"topic":"nacionalidade","subtopic":"perda da nacionalidade após EC 131/2023"},
+
+    {"exam":"46º EOU","question":11,"topic":"direitos-e-remedios-constitucionais","subtopic":"habeas data"},
+    {"exam":"46º EOU","question":12,"topic":"federacao-competencias-e-intervencao","subtopic":"participação em recursos naturais"},
+    {"exam":"46º EOU","question":13,"topic":"controle-de-constitucionalidade","subtopic":"efeito vinculante da ADI e legislador"},
+    {"exam":"46º EOU","question":14,"topic":"federacao-competencias-e-intervencao","subtopic":"intervenção estadual em Município"},
+    {"exam":"46º EOU","question":15,"topic":"administracao-controle-externo-e-precatorios","subtopic":"decisão de Tribunal de Contas como título executivo"},
+    {"exam":"46º EOU","question":16,"topic":"poderes-e-processo-legislativo","subtopic":"subsídios municipais"}
+  ]
+}
