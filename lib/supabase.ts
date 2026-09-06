@@ -109,6 +109,19 @@ export async function supabaseAdminInsert(table: string, body: Record<string, un
   }
 }
 
+export async function supabaseAdminUpsert<T>(table: string, body: Record<string, unknown>, onConflict: string) {
+  const url = requiredEnv("NEXT_PUBLIC_SUPABASE_URL");
+  return parseResponse<T>(await fetch(`${url}/rest/v1/${table}?on_conflict=${encodeURIComponent(onConflict)}`, {
+    method: "POST",
+    headers: {
+      ...adminHeaders(),
+      prefer: "resolution=merge-duplicates,return=representation",
+    },
+    body: JSON.stringify(body),
+    cache: "no-store",
+  }));
+}
+
 export async function supabaseAdminUpdate<T>(path: string, body: Record<string, unknown>) {
   const url = requiredEnv("NEXT_PUBLIC_SUPABASE_URL");
   return parseResponse<T>(await fetch(`${url}/rest/v1/${path}`, {
