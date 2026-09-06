@@ -26,7 +26,9 @@ export async function POST(request: Request) {
 
   const configuredOrigin=process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/,"");
   const origin=configuredOrigin||new URL(request.url).origin;
-  const redirectTo=`${origin}/redefinir-senha`;
+  // O fluxo SSR troca o token_hash por sessão em /auth/confirm e só então
+  // redireciona o usuário autenticado para /redefinir-senha.
+  const redirectTo=`${origin}/auth/confirm`;
 
   try{
     await requestPasswordReset(email,redirectTo);
