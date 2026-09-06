@@ -1,0 +1,58 @@
+{
+  "discipline_slug": "processo-penal",
+  "sample": "41º a 46º Exames de Ordem Unificados, caderno Tipo 1",
+  "classification_method": "tema jurídico predominante; classificação editorial Domina OAB, sem reprodução de enunciados",
+  "total_observations": 36,
+  "summary": {
+    "investigacao-prova-busca-acesso-cadeia-custodia": 8,
+    "acao-penal-decadencia-violencia-domestica": 8,
+    "recursos-procedimento-correlacao": 7,
+    "prisao-flagrante-habeas-corpus": 5,
+    "tribunal-do-juri": 4,
+    "execucao-penal-lei-mais-benefica": 3,
+    "acao-civil-ex-delicto": 1
+  },
+  "observations": [
+    {"exam":"41º EOU","question":63,"topic":"recursos-procedimento-correlacao","subtopic":"apelação no procedimento comum e apresentação das razões"},
+    {"exam":"41º EOU","question":64,"topic":"recursos-procedimento-correlacao","subtopic":"sistema acusatório"},
+    {"exam":"41º EOU","question":65,"topic":"tribunal-do-juri","subtopic":"apelação no Júri e decisão manifestamente contrária à prova"},
+    {"exam":"41º EOU","question":66,"topic":"acao-penal-decadencia-violencia-domestica","subtopic":"perdão do ofendido, indivisibilidade e disponibilidade"},
+    {"exam":"41º EOU","question":67,"topic":"prisao-flagrante-habeas-corpus","subtopic":"flagrante próprio"},
+    {"exam":"41º EOU","question":68,"topic":"execucao-penal-lei-mais-benefica","subtopic":"lei penal mais benéfica após trânsito em julgado"},
+
+    {"exam":"42º EOU","question":63,"topic":"recursos-procedimento-correlacao","subtopic":"efeito extensivo de recurso de corréu"},
+    {"exam":"42º EOU","question":64,"topic":"prisao-flagrante-habeas-corpus","subtopic":"prisão preventiva de ofício e fundamentação"},
+    {"exam":"42º EOU","question":65,"topic":"prisao-flagrante-habeas-corpus","subtopic":"habeas corpus concedido de ofício"},
+    {"exam":"42º EOU","question":66,"topic":"tribunal-do-juri","subtopic":"pronúncia e excesso de linguagem"},
+    {"exam":"42º EOU","question":67,"topic":"investigacao-prova-busca-acesso-cadeia-custodia","subtopic":"ingresso domiciliar em flagrante e acesso a dados de celular"},
+    {"exam":"42º EOU","question":68,"topic":"acao-civil-ex-delicto","subtopic":"execução civil decorrente da condenação penal"},
+
+    {"exam":"43º EOU","question":63,"topic":"execucao-penal-lei-mais-benefica","subtopic":"novo crime na execução e regressão de regime"},
+    {"exam":"43º EOU","question":64,"topic":"acao-penal-decadencia-violencia-domestica","subtopic":"extinção da punibilidade e preclusão"},
+    {"exam":"43º EOU","question":65,"topic":"tribunal-do-juri","subtopic":"limites da apelação do Júri"},
+    {"exam":"43º EOU","question":66,"topic":"acao-penal-decadencia-violencia-domestica","subtopic":"injúria discriminatória e titularidade da ação penal"},
+    {"exam":"43º EOU","question":67,"topic":"acao-penal-decadencia-violencia-domestica","subtopic":"violência doméstica, ANPP e sursis processual"},
+    {"exam":"43º EOU","question":68,"topic":"investigacao-prova-busca-acesso-cadeia-custodia","subtopic":"sigilo profissional e testemunha psiquiatra"},
+
+    {"exam":"44º EOU","question":63,"topic":"recursos-procedimento-correlacao","subtopic":"recurso contra rejeição de queixa-crime"},
+    {"exam":"44º EOU","question":64,"topic":"acao-penal-decadencia-violencia-domestica","subtopic":"ação penal e competência em violência doméstica contra indígena"},
+    {"exam":"44º EOU","question":65,"topic":"prisao-flagrante-habeas-corpus","subtopic":"prisão temporária e prazo"},
+    {"exam":"44º EOU","question":66,"topic":"investigacao-prova-busca-acesso-cadeia-custodia","subtopic":"qualificadora dependente de perícia"},
+    {"exam":"44º EOU","question":67,"topic":"recursos-procedimento-correlacao","subtopic":"juiz substituto, identidade física e nulidade"},
+    {"exam":"44º EOU","question":68,"topic":"investigacao-prova-busca-acesso-cadeia-custodia","subtopic":"diligência para obtenção de imagens em alegações finais"},
+
+    {"exam":"45º EOU","question":63,"topic":"investigacao-prova-busca-acesso-cadeia-custodia","subtopic":"busca eletrônica, encontro fortuito e prova de crime diverso"},
+    {"exam":"45º EOU","question":64,"topic":"execucao-penal-lei-mais-benefica","subtopic":"indulto e recurso em execução"},
+    {"exam":"45º EOU","question":65,"topic":"acao-penal-decadencia-violencia-domestica","subtopic":"injúria em violência doméstica e representação"},
+    {"exam":"45º EOU","question":66,"topic":"acao-penal-decadencia-violencia-domestica","subtopic":"medida protetiva em favor de criança"},
+    {"exam":"45º EOU","question":67,"topic":"investigacao-prova-busca-acesso-cadeia-custodia","subtopic":"quebra da cadeia de custódia"},
+    {"exam":"45º EOU","question":68,"topic":"tribunal-do-juri","subtopic":"desaforamento"},
+
+    {"exam":"46º EOU","question":63,"topic":"recursos-procedimento-correlacao","subtopic":"resposta à acusação e corréu colaborador"},
+    {"exam":"46º EOU","question":64,"topic":"recursos-procedimento-correlacao","subtopic":"correlação entre acusação e sentença"},
+    {"exam":"46º EOU","question":65,"topic":"investigacao-prova-busca-acesso-cadeia-custodia","subtopic":"acesso da defesa ao inquérito e diligências documentadas"},
+    {"exam":"46º EOU","question":66,"topic":"acao-penal-decadencia-violencia-domestica","subtopic":"decadência e pluralidade de ofendidos"},
+    {"exam":"46º EOU","question":67,"topic":"recursos-procedimento-correlacao","subtopic":"recurso contra rejeição de queixa no JECRIM"},
+    {"exam":"46º EOU","question":68,"topic":"prisao-flagrante-habeas-corpus","subtopic":"flagrante, desclassificação e competência federal"}
+  ]
+}
