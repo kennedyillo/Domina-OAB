@@ -1,0 +1,27 @@
+name: Content Validation
+
+on:
+  pull_request:
+    paths:
+      - "content/oab/**"
+      - "scripts/validate-oab-content.mjs"
+      - ".github/workflows/content-validation.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate academic content
+        run: node scripts/validate-oab-content.mjs
