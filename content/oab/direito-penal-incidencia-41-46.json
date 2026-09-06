@@ -1,0 +1,57 @@
+{
+  "discipline_slug": "direito-penal",
+  "sample": "41º a 46º Exames de Ordem Unificados, caderno Tipo 1",
+  "classification_method": "tema jurídico predominante; classificação editorial Domina OAB, sem reprodução de enunciados",
+  "total_observations": 36,
+  "summary": {
+    "teoria-delito-iter-erro-culpabilidade-causalidade": 17,
+    "aplicacao-lei-penal-tempo-espaco": 6,
+    "penas-execucao-extincao-punibilidade": 5,
+    "crimes-pessoa-dignidade-sexual": 4,
+    "concurso-pessoas": 2,
+    "crimes-patrimoniais-legislacao-especial": 2
+  },
+  "observations": [
+    {"exam":"41º EOU","question":57,"topic":"crimes-pessoa-dignidade-sexual","subtopic":"perseguição, representação e retratação"},
+    {"exam":"41º EOU","question":58,"topic":"teoria-delito-iter-erro-culpabilidade-causalidade","subtopic":"culpabilidade e individualização de conduta em falta coletiva"},
+    {"exam":"41º EOU","question":59,"topic":"teoria-delito-iter-erro-culpabilidade-causalidade","subtopic":"causa superveniente relativamente independente e desistência voluntária"},
+    {"exam":"41º EOU","question":60,"topic":"teoria-delito-iter-erro-culpabilidade-causalidade","subtopic":"crime impossível, tentativa e corrupção de menores"},
+    {"exam":"41º EOU","question":61,"topic":"penas-execucao-extincao-punibilidade","subtopic":"regime inicial, reincidência e substituição da pena"},
+    {"exam":"41º EOU","question":62,"topic":"penas-execucao-extincao-punibilidade","subtopic":"prescrição e redução por idade do agente"},
+
+    {"exam":"42º EOU","question":57,"topic":"aplicacao-lei-penal-tempo-espaco","subtopic":"extraterritorialidade condicionada e brasileiro no exterior"},
+    {"exam":"42º EOU","question":58,"topic":"crimes-pessoa-dignidade-sexual","subtopic":"importunação sexual e ação penal"},
+    {"exam":"42º EOU","question":59,"topic":"teoria-delito-iter-erro-culpabilidade-causalidade","subtopic":"erro de proibição em divulgação de cena sexual"},
+    {"exam":"42º EOU","question":60,"topic":"teoria-delito-iter-erro-culpabilidade-causalidade","subtopic":"obediência hierárquica e inexigibilidade de conduta diversa"},
+    {"exam":"42º EOU","question":61,"topic":"teoria-delito-iter-erro-culpabilidade-causalidade","subtopic":"mandante, execução do homicídio e desistência do executor"},
+    {"exam":"42º EOU","question":62,"topic":"aplicacao-lei-penal-tempo-espaco","subtopic":"sucessão de leis penais e lex mitior"},
+
+    {"exam":"43º EOU","question":57,"topic":"crimes-patrimoniais-legislacao-especial","subtopic":"dano contra patrimônio público e distinção de terrorismo"},
+    {"exam":"43º EOU","question":58,"topic":"penas-execucao-extincao-punibilidade","subtopic":"substituição da pena, reincidência e violência à pessoa"},
+    {"exam":"43º EOU","question":59,"topic":"aplicacao-lei-penal-tempo-espaco","subtopic":"extraterritorialidade por personalidade ativa"},
+    {"exam":"43º EOU","question":60,"topic":"teoria-delito-iter-erro-culpabilidade-causalidade","subtopic":"erro de tipo sobre objeto alheio"},
+    {"exam":"43º EOU","question":61,"topic":"concurso-pessoas","subtopic":"cooperação dolosamente distinta e excesso do coautor"},
+    {"exam":"43º EOU","question":62,"topic":"teoria-delito-iter-erro-culpabilidade-causalidade","subtopic":"nexo causal e causa superveniente"},
+
+    {"exam":"44º EOU","question":57,"topic":"crimes-pessoa-dignidade-sexual","subtopic":"importunação sexual"},
+    {"exam":"44º EOU","question":58,"topic":"penas-execucao-extincao-punibilidade","subtopic":"injúria, perdão do ofendido e efeitos no concurso de querelados"},
+    {"exam":"44º EOU","question":59,"topic":"teoria-delito-iter-erro-culpabilidade-causalidade","subtopic":"corrupção de menores e erro sobre idade do comparsa"},
+    {"exam":"44º EOU","question":60,"topic":"teoria-delito-iter-erro-culpabilidade-causalidade","subtopic":"arrependimento posterior"},
+    {"exam":"44º EOU","question":61,"topic":"aplicacao-lei-penal-tempo-espaco","subtopic":"extraterritorialidade condicionada em crime contra brasileiro"},
+    {"exam":"44º EOU","question":62,"topic":"teoria-delito-iter-erro-culpabilidade-causalidade","subtopic":"arrependimento eficaz e atos já praticados"},
+
+    {"exam":"45º EOU","question":57,"topic":"aplicacao-lei-penal-tempo-espaco","subtopic":"territorialidade e aeronave privada brasileira no exterior"},
+    {"exam":"45º EOU","question":58,"topic":"teoria-delito-iter-erro-culpabilidade-causalidade","subtopic":"conflito aparente de normas e subsidiariedade"},
+    {"exam":"45º EOU","question":59,"topic":"teoria-delito-iter-erro-culpabilidade-causalidade","subtopic":"desistência voluntária antes da subtração"},
+    {"exam":"45º EOU","question":60,"topic":"aplicacao-lei-penal-tempo-espaco","subtopic":"lei penal no tempo em crime permanente"},
+    {"exam":"45º EOU","question":61,"topic":"teoria-delito-iter-erro-culpabilidade-causalidade","subtopic":"erro de tipo essencial invencível"},
+    {"exam":"45º EOU","question":62,"topic":"teoria-delito-iter-erro-culpabilidade-causalidade","subtopic":"inexigibilidade de conduta diversa"},
+
+    {"exam":"46º EOU","question":57,"topic":"crimes-pessoa-dignidade-sexual","subtopic":"estupro tentado e causa de diminuição da tentativa"},
+    {"exam":"46º EOU","question":58,"topic":"teoria-delito-iter-erro-culpabilidade-causalidade","subtopic":"desistência voluntária e atos já praticados"},
+    {"exam":"46º EOU","question":59,"topic":"concurso-pessoas","subtopic":"participação material em homicídio"},
+    {"exam":"46º EOU","question":60,"topic":"teoria-delito-iter-erro-culpabilidade-causalidade","subtopic":"dolo eventual"},
+    {"exam":"46º EOU","question":61,"topic":"penas-execucao-extincao-punibilidade","subtopic":"remição por estudo a distância"},
+    {"exam":"46º EOU","question":62,"topic":"crimes-patrimoniais-legislacao-especial","subtopic":"tráfico como tipo misto alternativo e princípio da alternatividade"}
+  ]
+}
