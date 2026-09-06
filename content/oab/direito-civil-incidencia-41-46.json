@@ -1,0 +1,58 @@
+{
+  "discipline_slug": "direito-civil",
+  "sample": "41º a 46º Exames de Ordem Unificados, caderno Tipo 1",
+  "classification_method": "tema jurídico predominante; classificação editorial Domina OAB, sem reprodução de enunciados",
+  "total_observations": 36,
+  "summary": {
+    "negocio-juridico-e-contratos": 8,
+    "sucessoes": 6,
+    "pessoas-e-familia": 6,
+    "direitos-reais": 5,
+    "obrigacoes": 4,
+    "responsabilidade-civil": 4,
+    "protecao-de-dados-e-personalidade": 3
+  },
+  "observations": [
+    {"exam":"41º EOU","question":37,"topic":"negocio-juridico-e-contratos","subtopic":"forma da compra e venda imobiliária e conversão do negócio"},
+    {"exam":"41º EOU","question":38,"topic":"obrigacoes","subtopic":"cessão de crédito e eficácia perante o devedor"},
+    {"exam":"41º EOU","question":39,"topic":"sucessoes","subtopic":"renúncia de herança em prejuízo de credor"},
+    {"exam":"41º EOU","question":40,"topic":"pessoas-e-familia","subtopic":"presunção de filiação e prosseguimento da ação pelos herdeiros"},
+    {"exam":"41º EOU","question":41,"topic":"negocio-juridico-e-contratos","subtopic":"fiança e benefício de ordem"},
+    {"exam":"41º EOU","question":42,"topic":"direitos-reais","subtopic":"direito de superfície e preferência"},
+
+    {"exam":"42º EOU","question":37,"topic":"responsabilidade-civil","subtopic":"abuso de direito na cobrança de dívida e responsabilidade"},
+    {"exam":"42º EOU","question":38,"topic":"negocio-juridico-e-contratos","subtopic":"locação residencial e denúncia vazia"},
+    {"exam":"42º EOU","question":39,"topic":"pessoas-e-familia","subtopic":"parentalidade socioafetiva e multiparentalidade"},
+    {"exam":"42º EOU","question":40,"topic":"obrigacoes","subtopic":"pluralidade de devedores e adimplemento de prestação indivisível"},
+    {"exam":"42º EOU","question":41,"topic":"sucessoes","subtopic":"doação, colação e reserva de usufruto"},
+    {"exam":"42º EOU","question":42,"topic":"direitos-reais","subtopic":"direitos de vizinhança e limitações construtivas"},
+
+    {"exam":"43º EOU","question":37,"topic":"responsabilidade-civil","subtopic":"prescrição da reparação civil e sucessão"},
+    {"exam":"43º EOU","question":38,"topic":"obrigacoes","subtopic":"cláusula penal moratória e redução equitativa"},
+    {"exam":"43º EOU","question":39,"topic":"protecao-de-dados-e-personalidade","subtopic":"LGPD e tratamento por pessoa natural para fins particulares"},
+    {"exam":"43º EOU","question":40,"topic":"sucessoes","subtopic":"sucessão na união estável"},
+    {"exam":"43º EOU","question":41,"topic":"responsabilidade-civil","subtopic":"responsabilidade por coisas lançadas ou caídas de prédio"},
+    {"exam":"43º EOU","question":42,"topic":"direitos-reais","subtopic":"usucapião especial urbana e ônus real anterior"},
+
+    {"exam":"44º EOU","question":37,"topic":"pessoas-e-familia","subtopic":"tutela testamentária de menores"},
+    {"exam":"44º EOU","question":38,"topic":"protecao-de-dados-e-personalidade","subtopic":"LGPD e conservação após término do tratamento"},
+    {"exam":"44º EOU","question":39,"topic":"negocio-juridico-e-contratos","subtopic":"simulação e nulidade do negócio jurídico"},
+    {"exam":"44º EOU","question":40,"topic":"sucessoes","subtopic":"substituição testamentária e direito de acrescer"},
+    {"exam":"44º EOU","question":41,"topic":"pessoas-e-familia","subtopic":"presunção de paternidade após dissolução do casamento"},
+    {"exam":"44º EOU","question":42,"topic":"direitos-reais","subtopic":"direito real de laje e uso do subsolo"},
+
+    {"exam":"45º EOU","question":37,"topic":"negocio-juridico-e-contratos","subtopic":"condição suspensiva em contrato"},
+    {"exam":"45º EOU","question":38,"topic":"obrigacoes","subtopic":"solidariedade, morte do devedor e responsabilidade dos herdeiros"},
+    {"exam":"45º EOU","question":39,"topic":"responsabilidade-civil","subtopic":"dano moral, dano estético e transporte gratuito"},
+    {"exam":"45º EOU","question":40,"topic":"sucessoes","subtopic":"doação de ascendente a descendente e dispensa de colação"},
+    {"exam":"45º EOU","question":41,"topic":"protecao-de-dados-e-personalidade","subtopic":"LGPD, dados de saúde e compartilhamento"},
+    {"exam":"45º EOU","question":42,"topic":"direitos-reais","subtopic":"servidão aparente e aquisição por usucapião"},
+
+    {"exam":"46º EOU","question":37,"topic":"pessoas-e-familia","subtopic":"capacidade civil e emancipação"},
+    {"exam":"46º EOU","question":38,"topic":"pessoas-e-familia","subtopic":"regime de bens, pessoa maior de 70 anos e causa suspensiva"},
+    {"exam":"46º EOU","question":39,"topic":"sucessoes","subtopic":"indignidade sucessória e legitimidade para exclusão"},
+    {"exam":"46º EOU","question":40,"topic":"negocio-juridico-e-contratos","subtopic":"forma solene na compra e venda de imóvel"},
+    {"exam":"46º EOU","question":41,"topic":"negocio-juridico-e-contratos","subtopic":"preempção ou preferência convencional"},
+    {"exam":"46º EOU","question":42,"topic":"negocio-juridico-e-contratos","subtopic":"mandato e incapacidade superveniente"}
+  ]
+}
