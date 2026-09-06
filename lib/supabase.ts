@@ -171,6 +171,7 @@ export async function signUpWithPassword(email: string, password: string, fullNa
     },
     body: JSON.stringify({ email, password, data: fullName ? { full_name: fullName } : undefined }),
     cache: "no-store",
+    signal: AbortSignal.timeout(10_000),
   }));
 }
 
