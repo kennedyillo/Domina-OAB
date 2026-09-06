@@ -1,0 +1,642 @@
+[
+  {
+    "code": "DCIV-L1-001",
+    "discipline_slug": "direito-civil",
+    "topic": "Pessoas e família",
+    "statement": "Helena tem 17 anos e, com autorização de seus pais, contraiu casamento civil regularmente celebrado. Meses depois, pretende celebrar sozinha contrato de prestação de serviços. Sobre sua capacidade civil, assinale a afirmativa correta.",
+    "options": [
+      "Helena é civilmente capaz, pois o casamento produz emancipação antes dos 18 anos.",
+      "Helena permanece relativamente incapaz até completar 18 anos, apesar do casamento.",
+      "Helena somente será capaz se obtiver sentença judicial específica de emancipação.",
+      "Helena somente poderá praticar atos patrimoniais se houver assistência de ambos os pais."
+    ],
+    "correct_index": 0,
+    "explanation": "O casamento é causa legal de emancipação e faz cessar a incapacidade do menor nas hipóteses do art. 5º, parágrafo único, II, do Código Civil. Não é necessária nova sentença para cada ato posterior.",
+    "source_label": "Autoral | Código Civil, art. 5º, parágrafo único, II",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Emancipação pelo casamento",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-002",
+    "discipline_slug": "direito-civil",
+    "topic": "Pessoas e família",
+    "statement": "Renato tem 17 anos e foi aprovado no vestibular, matriculando-se no primeiro semestre de Engenharia. Ele sustenta que a matrícula em curso superior o tornou plenamente capaz. À luz do Código Civil, a conclusão correta é:",
+    "options": [
+      "a matrícula em instituição de ensino superior é causa automática de emancipação.",
+      "a mera matrícula não emancipa; a hipótese legal relaciona-se à colação de grau em curso de ensino superior.",
+      "qualquer aprovação em vestibular emancipa o menor se o curso tiver duração igual ou superior a quatro anos.",
+      "a matrícula somente emancipa se a universidade for pública."
+    ],
+    "correct_index": 1,
+    "explanation": "O Código Civil prevê como causa de emancipação a colação de grau em curso de ensino superior, não a simples matrícula ou ingresso na universidade. Fundamento: art. 5º, parágrafo único, IV.",
+    "source_label": "Autoral | Código Civil, art. 5º, parágrafo único, IV",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Emancipação e ensino superior",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-003",
+    "discipline_slug": "direito-civil",
+    "topic": "Pessoas e família",
+    "statement": "Antônio, de 74 anos, e Beatriz pretendem se casar e desejam adotar o regime da comunhão parcial de bens. Considerando a interpretação fixada pelo STF no Tema 1.236, assinale a afirmativa correta.",
+    "options": [
+      "A idade de Antônio impede de forma absoluta qualquer escolha de regime diferente da separação de bens.",
+      "A escolha somente seria possível mediante autorização prévia dos herdeiros necessários de Antônio.",
+      "O regime previsto no art. 1.641, II, pode ser afastado por expressa manifestação de vontade das partes mediante escritura pública.",
+      "A escolha somente seria possível em união estável, permanecendo inderrogável a separação no casamento."
+    ],
+    "correct_index": 2,
+    "explanation": "O STF fixou no Tema 1.236 que, em casamento ou união estável envolvendo pessoa maior de 70 anos, a separação prevista no art. 1.641, II, pode ser afastada por manifestação expressa das partes mediante escritura pública.",
+    "source_label": "Autoral | STF Tema 1.236 | Código Civil, art. 1.641, II",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Regime de bens de pessoa maior de 70 anos",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-004",
+    "discipline_slug": "direito-civil",
+    "topic": "Pessoas e família",
+    "statement": "Em ação de guarda, pai e mãe estão aptos ao exercício do poder familiar, mas surgem elementos concretos de risco de violência doméstica praticada pelo pai contra a mãe e a criança. À luz da redação atual do Código Civil, assinale a correta.",
+    "options": [
+      "A guarda compartilhada é obrigatória em qualquer situação quando ambos os genitores forem juridicamente capazes.",
+      "O risco de violência é irrelevante para a modalidade de guarda e somente produz efeitos na esfera penal.",
+      "O juiz deve impor guarda compartilhada e discutir eventual violência apenas depois de seis meses de convivência.",
+      "Elementos que evidenciem probabilidade de risco de violência doméstica ou familiar afastam a aplicação automática da guarda compartilhada."
+    ],
+    "correct_index": 3,
+    "explanation": "A Lei nº 14.713/2023 alterou o art. 1.584, § 2º, do Código Civil para excepcionar a guarda compartilhada quando houver elementos que evidenciem probabilidade de risco de violência doméstica ou familiar.",
+    "source_label": "Autoral | Código Civil, art. 1.584, §2º | Lei 14.713/2023",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Guarda compartilhada e violência doméstica",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-005",
+    "discipline_slug": "direito-civil",
+    "topic": "Negócio jurídico e contratos",
+    "statement": "Duas pessoas celebram instrumento particular de compra e venda definitiva de imóvel cujo valor supera trinta vezes o maior salário mínimo vigente no País, inexistindo lei especial que dispense solenidade. Sobre a validade formal, assinale a correta.",
+    "options": [
+      "A escritura pública é essencial à validade do negócio que visa transferir direito real sobre imóvel nessa faixa de valor, salvo disposição legal em contrário.",
+      "O instrumento particular é sempre suficiente desde que assinado por duas testemunhas.",
+      "A escritura pública é mera exigência probatória e nunca interfere na validade do negócio imobiliário.",
+      "A forma escrita pode ser dispensada se o preço tiver sido integralmente pago."
+    ],
+    "correct_index": 0,
+    "explanation": "O art. 108 do Código Civil exige escritura pública para negócios que visem constituição, transferência, modificação ou renúncia de direitos reais sobre imóveis acima do limite legal, salvo regra especial em contrário.",
+    "source_label": "Autoral | Código Civil, art. 108",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Forma solene em negócio imobiliário",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-006",
+    "discipline_slug": "direito-civil",
+    "topic": "Negócio jurídico e contratos",
+    "statement": "Devedor e amigo simulam compra e venda de automóvel apenas para aparentar que o bem saiu do patrimônio do devedor, sem intenção real de transferir a propriedade. Segundo o Código Civil, o negócio simulado é:",
+    "options": [
+      "plenamente válido entre as partes e apenas ineficaz contra credores.",
+      "nulo, sem prejuízo da subsistência do negócio dissimulado se este for válido na substância e na forma.",
+      "meramente anulável, sujeito ao prazo decadencial geral de quatro anos.",
+      "inexistente apenas se o credor comprovar insolvência do devedor."
+    ],
+    "correct_index": 1,
+    "explanation": "O art. 167 do Código Civil estabelece a nulidade do negócio jurídico simulado, ressalvando a subsistência do que se dissimulou se válido em sua substância e forma. Não se trata simplesmente de anulabilidade.",
+    "source_label": "Autoral | Código Civil, art. 167",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Simulação",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-007",
+    "discipline_slug": "direito-civil",
+    "topic": "Negócio jurídico e contratos",
+    "statement": "Contrato prevê que determinado direito somente surgirá se a empresa adquirente obtiver licença específica até o fim do ano. A licença é evento futuro e incerto. Antes de seu implemento, segundo o Código Civil:",
+    "options": [
+      "o direito já foi adquirido, podendo apenas ser resolvido se a licença não vier.",
+      "a condição é termo inicial porque o evento necessariamente ocorrerá em algum momento.",
+      "tratando-se de condição suspensiva, enquanto ela não se verificar não se adquire o direito a que o negócio visa.",
+      "a cláusula é inválida porque contratos não podem subordinar efeitos a evento futuro e incerto."
+    ],
+    "correct_index": 2,
+    "explanation": "O evento futuro e incerto caracteriza condição. Quando suspensiva, o art. 125 dispõe que, enquanto não se verificar, não se terá adquirido o direito a que o negócio jurídico visa.",
+    "source_label": "Autoral | Código Civil, arts. 121 e 125",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Condição suspensiva",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-008",
+    "discipline_slug": "direito-civil",
+    "topic": "Negócio jurídico e contratos",
+    "statement": "Lúcia outorgou mandato a Paulo para administrar determinado imóvel. Meses depois, foi judicialmente interditada por incapacidade superveniente que a inabilita a conferir os poderes correspondentes. Em regra, segundo o Código Civil, o mandato:",
+    "options": [
+      "permanece invariavelmente em vigor porque era válido quando foi celebrado.",
+      "só se extingue se o mandatário renunciar expressamente perante o juízo da interdição.",
+      "é automaticamente convertido em curatela em favor do mandatário.",
+      "pode extinguir-se pela interdição ou mudança de estado que inabilite o mandante a conferir os poderes, conforme as hipóteses legais."
+    ],
+    "correct_index": 3,
+    "explanation": "O art. 682 do Código Civil inclui entre as causas de extinção do mandato a morte ou interdição de uma das partes e a mudança de estado que inabilite o mandante a conferir os poderes ou o mandatário a exercê-los.",
+    "source_label": "Autoral | Código Civil, art. 682",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Extinção do mandato",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-009",
+    "discipline_slug": "direito-civil",
+    "topic": "Negócio jurídico e contratos",
+    "statement": "Sem que o devedor lhe peça, Carla presta fiança escrita em favor dele perante o credor, garantindo obrigação válida. O devedor posteriormente alega que a garantia é nula por não ter consentido. A alegação é:",
+    "options": [
+      "incorreta, porque a fiança pode ser estipulada ainda que sem consentimento do devedor ou contra a sua vontade.",
+      "correta, porque a fiança exige sempre manifestação conjunta de credor, devedor e fiador.",
+      "correta apenas se a obrigação principal tiver natureza contratual.",
+      "incorreta somente se Carla for parente do devedor."
+    ],
+    "correct_index": 0,
+    "explanation": "O Código Civil permite que a fiança seja estipulada ainda que sem consentimento do devedor ou contra sua vontade. A garantia deve observar, porém, os requisitos próprios e a forma escrita.",
+    "source_label": "Autoral | Código Civil, arts. 818 e 819",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Fiança",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-010",
+    "discipline_slug": "direito-civil",
+    "topic": "Negócio jurídico e contratos",
+    "statement": "Locação residencial foi celebrada por escrito pelo prazo de 30 meses. Encerrado o prazo, o locatário permaneceu no imóvel por mais de 30 dias sem oposição do locador. Nesse cenário, a Lei do Inquilinato prevê que:",
+    "options": [
+      "o contrato se extingue automaticamente e a permanência do locatário configura esbulho desde o primeiro dia.",
+      "a locação presume-se prorrogada por prazo indeterminado, e o locador pode denunciá-la observando o prazo legal de desocupação.",
+      "o contrato renova-se obrigatoriamente por novo período idêntico de 30 meses.",
+      "o locador perde definitivamente o direito de denunciar a locação sem motivo."
+    ],
+    "correct_index": 1,
+    "explanation": "Na locação residencial escrita por prazo igual ou superior a 30 meses, a permanência por mais de 30 dias sem oposição presume prorrogação por prazo indeterminado, cabendo denúncia vazia nos termos da Lei nº 8.245/1991.",
+    "source_label": "Autoral | Lei 8.245/1991, art. 46",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Locação residencial por 30 meses",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-011",
+    "discipline_slug": "direito-civil",
+    "topic": "Negócio jurídico e contratos",
+    "statement": "Comprador assume contratualmente a obrigação de, se futuramente quiser vender determinado bem, oferecê-lo antes ao vendedor original em igualdade de condições com terceiros. Trata-se de pacto de preferência. Nessa hipótese:",
+    "options": [
+      "o comprador fica definitivamente proibido de alienar o bem a terceiros.",
+      "a preferência somente existe se o bem for imóvel e o contrato tiver sido registrado.",
+      "o titular da preferência deve receber oportunidade de adquirir a coisa em igualdade de condições quando o comprador pretender vendê-la ou dá-la em pagamento, nos limites legais.",
+      "a preferência transfere desde logo a propriedade futura ao vendedor original."
+    ],
+    "correct_index": 2,
+    "explanation": "Na preempção ou preferência, o comprador assume a obrigação de oferecer ao vendedor a coisa que pretende vender ou dar em pagamento, para que este exerça preferência em igualdade de condições, conforme os arts. 513 e seguintes.",
+    "source_label": "Autoral | Código Civil, arts. 513 e seguintes",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Preempção ou preferência",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-012",
+    "discipline_slug": "direito-civil",
+    "topic": "Negócio jurídico e contratos",
+    "statement": "Rita vende imóvel a Sérgio mediante contrato válido, mas o título ainda não foi levado ao Registro de Imóveis. Quanto à transferência da propriedade imobiliária entre vivos, assinale a afirmativa correta.",
+    "options": [
+      "a tradição das chaves transfere por si só a propriedade imobiliária, tornando o registro dispensável.",
+      "o pagamento integral do preço transfere automaticamente o direito real de propriedade.",
+      "o contrato não produz qualquer efeito jurídico enquanto não houver registro.",
+      "o contrato pode produzir efeitos obrigacionais, mas a propriedade imobiliária entre vivos transfere-se com o registro do título translativo no Registro de Imóveis."
+    ],
+    "correct_index": 3,
+    "explanation": "No sistema brasileiro, o contrato pode gerar obrigações, mas a propriedade do imóvel entre vivos se transfere mediante registro do título translativo no Registro de Imóveis, conforme o art. 1.245 do Código Civil.",
+    "source_label": "Autoral | Código Civil, art. 1.245",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Transferência da propriedade imobiliária",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-013",
+    "discipline_slug": "direito-civil",
+    "topic": "Obrigações",
+    "statement": "Credora cede validamente seu crédito a terceiro sem pedir autorização ao devedor. O devedor ainda não foi notificado nem se declarou ciente da cessão. Segundo o Código Civil, assinale a correta.",
+    "options": [
+      "A cessão pode ser válida entre cedente e cessionário, mas não produz eficácia perante o devedor enquanto ele não for notificado ou não se declarar ciente.",
+      "A cessão é sempre nula sem anuência expressa do devedor.",
+      "A notificação serve apenas para fins tributários e não interfere na eficácia da cessão perante o devedor.",
+      "A cessão transforma automaticamente o devedor em garantidor da solvência do cedente."
+    ],
+    "correct_index": 0,
+    "explanation": "O credor pode ceder seu crédito salvo impedimento legal, natural ou convencional, mas a cessão não tem eficácia em relação ao devedor enquanto este não for notificado ou não se declarar ciente, conforme o art. 290.",
+    "source_label": "Autoral | Código Civil, arts. 286 e 290",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Cessão de crédito",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-014",
+    "discipline_slug": "direito-civil",
+    "topic": "Obrigações",
+    "statement": "Dois devedores assumem obrigação contratual em favor de credor, mas o instrumento nada declara sobre solidariedade e nenhuma lei a estabelece para a hipótese. O credor sustenta que toda pluralidade de devedores é solidária. A tese é:",
+    "options": [
+      "correta, porque a solidariedade é consequência natural da existência de mais de um devedor.",
+      "incorreta, pois a solidariedade não se presume; resulta da lei ou da vontade das partes.",
+      "correta apenas em obrigações pecuniárias.",
+      "incorreta somente quando os devedores tiverem patrimônios de valores muito diferentes."
+    ],
+    "correct_index": 1,
+    "explanation": "O art. 265 do Código Civil é expresso ao afirmar que a solidariedade não se presume, resultando da lei ou da vontade das partes. Pluralidade de sujeitos, isoladamente, não basta.",
+    "source_label": "Autoral | Código Civil, art. 265",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Solidariedade",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-015",
+    "discipline_slug": "direito-civil",
+    "topic": "Obrigações",
+    "statement": "Contrato fixa cláusula penal muito elevada para atraso mínimo. O devedor cumpre quase toda a obrigação e demonstra que a penalidade, diante da finalidade do negócio, é manifestamente excessiva. Segundo o Código Civil:",
+    "options": [
+      "o juiz jamais pode alterar a penalidade livremente pactuada entre partes capazes.",
+      "a cláusula penal torna-se automaticamente nula sempre que superar o prejuízo efetivamente provado.",
+      "o juiz deve reduzir equitativamente a penalidade se houver cumprimento parcial ou se o montante for manifestamente excessivo, consideradas natureza e finalidade do negócio.",
+      "a redução só é possível se o credor concordar expressamente."
+    ],
+    "correct_index": 2,
+    "explanation": "O art. 413 determina redução equitativa da penalidade quando a obrigação tiver sido cumprida em parte ou quando o montante for manifestamente excessivo, considerando a natureza e a finalidade do negócio.",
+    "source_label": "Autoral | Código Civil, art. 413",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Cláusula penal",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-016",
+    "discipline_slug": "direito-civil",
+    "topic": "Obrigações",
+    "statement": "Em obrigação submetida à redação atual do Código Civil, não há índice de atualização monetária convencionado nem lei específica que disponha de outro modo. Também são devidos juros legais. Após a Lei nº 14.905/2024, a orientação correta é:",
+    "options": [
+      "aplica-se necessariamente IGP-M e juros fixos de 1% ao mês em qualquer obrigação civil.",
+      "não há atualização monetária quando as partes silenciam sobre o índice.",
+      "a taxa legal corresponde integralmente à Selic, somada ao IPCA sem qualquer dedução.",
+      "a atualização monetária segue, em regra, o IPCA, e a taxa legal corresponde à Selic deduzida do índice de atualização monetária previsto no Código, segundo a metodologia aplicável."
+    ],
+    "correct_index": 3,
+    "explanation": "A Lei nº 14.905/2024 alterou os arts. 389 e 406: na ausência de índice convencionado ou específico, aplica-se IPCA; a taxa legal corresponde à Selic deduzida do índice de atualização monetária, conforme metodologia definida pelo CMN.",
+    "source_label": "Autoral | Código Civil, arts. 389 e 406 | Lei 14.905/2024",
+    "difficulty": "hard",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Juros legais e atualização monetária",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-017",
+    "discipline_slug": "direito-civil",
+    "topic": "Responsabilidade civil",
+    "statement": "Um vaso cai da janela de apartamento e danifica veículo estacionado regularmente na rua. O morador afirma que o proprietário do veículo deve provar sua culpa pessoal para obter reparação. À luz do Código Civil, a afirmação é:",
+    "options": [
+      "incorreta, pois o habitante do prédio responde pelo dano proveniente das coisas que dele caírem ou forem lançadas em lugar indevido, na hipótese legal.",
+      "correta, porque responsabilidade por objetos caídos de edifícios é sempre subjetiva.",
+      "correta apenas quando o objeto pertencer ao próprio morador.",
+      "incorreta somente se o acidente ocorrer dentro da área comum do condomínio."
+    ],
+    "correct_index": 0,
+    "explanation": "O art. 938 do Código Civil prevê responsabilidade do habitante do prédio, ou parte dele, pelo dano proveniente das coisas que dele caírem ou forem lançadas em lugar indevido, sem exigir a prova comum de culpa pessoal.",
+    "source_label": "Autoral | Código Civil, art. 938",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Coisas lançadas ou caídas de prédio",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-018",
+    "discipline_slug": "direito-civil",
+    "topic": "Responsabilidade civil",
+    "statement": "Empresa contratada para cobrar dívida passa a publicar diariamente o nome e fotografias do devedor em redes sociais, chamando-o de desonesto, embora pudesse utilizar meios regulares de cobrança. A conduta pode caracterizar:",
+    "options": [
+      "exercício regular absoluto de direito, porque a existência da dívida elimina limites de boa-fé e bons costumes.",
+      "abuso de direito e ato ilícito, se exceder manifestamente os limites impostos pelo fim econômico ou social, pela boa-fé ou pelos bons costumes.",
+      "ato lícito sempre que a dívida estiver documentalmente comprovada.",
+      "apenas infração administrativa, sem possibilidade de responsabilidade civil."
+    ],
+    "correct_index": 1,
+    "explanation": "O art. 187 qualifica como ato ilícito o exercício de um direito que exceda manifestamente os limites impostos pelo seu fim econômico ou social, pela boa-fé ou pelos bons costumes. Cobrança não autoriza humilhação pública.",
+    "source_label": "Autoral | Código Civil, arts. 186 e 187",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Abuso de direito",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-019",
+    "discipline_slug": "direito-civil",
+    "topic": "Responsabilidade civil",
+    "statement": "Vítima de acidente sofre intenso abalo psicológico e, de forma autônoma, deformidade física permanente perceptível. Em ação indenizatória, pretende cumular compensação por dano moral e dano estético. Segundo jurisprudência consolidada do STJ:",
+    "options": [
+      "a cumulação é sempre proibida porque todo dano estético está absorvido pelo dano moral.",
+      "somente o dano estético pode ser indenizado quando houver deformidade permanente.",
+      "é lícita a cumulação das indenizações por dano moral e dano estético quando identificáveis de forma autônoma.",
+      "a cumulação depende de o responsável ter agido necessariamente com dolo."
+    ],
+    "correct_index": 2,
+    "explanation": "A Súmula 387 do STJ admite a cumulação das indenizações de dano estético e dano moral. A exigência é que os danos sejam juridicamente identificáveis, não que haja dolo do responsável.",
+    "source_label": "Autoral | STJ, Súmula 387",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Dano moral e dano estético",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-020",
+    "discipline_slug": "direito-civil",
+    "topic": "Responsabilidade civil",
+    "statement": "Sem incidência de regra especial, vítima pretende ajuizar ação de reparação civil fundada em dano extracontratual ocorrido há mais de três anos, sem causa de suspensão ou interrupção. Segundo o Código Civil, a pretensão reparatória, em regra:",
+    "options": [
+      "é imprescritível quando o dano decorre de ato ilícito.",
+      "prescreve em dez anos porque toda obrigação civil segue o prazo geral.",
+      "prescreve em cinco anos sempre que o autor conhecer a identidade do responsável.",
+      "submete-se ao prazo de três anos previsto para a pretensão de reparação civil."
+    ],
+    "correct_index": 3,
+    "explanation": "O art. 206, § 3º, V, do Código Civil estabelece prazo de três anos para a pretensão de reparação civil, salvo hipóteses especiais disciplinadas por legislação ou regimes próprios.",
+    "source_label": "Autoral | Código Civil, art. 206, §3º, V",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Prescrição da reparação civil",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-021",
+    "discipline_slug": "direito-civil",
+    "topic": "Sucessões",
+    "statement": "Herdeiro devedor renuncia à herança por escritura pública com o propósito de evitar que seu credor satisfaça crédito legítimo. Estão presentes os requisitos legais para reação do credor. Segundo o Código Civil:",
+    "options": [
+      "o credor prejudicado pode, com autorização judicial e nos limites legais, aceitar a herança em nome do renunciante até satisfazer seu crédito.",
+      "a renúncia é inexistente e o credor torna-se herdeiro definitivo de todo o quinhão.",
+      "o credor somente pode pedir prisão civil do renunciante para obrigá-lo a aceitar a herança.",
+      "a renúncia nunca pode ser afetada por credores porque o direito sucessório é absolutamente incomunicável."
+    ],
+    "correct_index": 0,
+    "explanation": "O Código Civil permite aos credores prejudicados pela renúncia requerer autorização judicial para aceitar a herança em nome do renunciante, observados o prazo e o limite necessário ao pagamento dos créditos.",
+    "source_label": "Autoral | Código Civil, arts. 1.813 e 1.814",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Renúncia da herança e credores",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-022",
+    "discipline_slug": "direito-civil",
+    "topic": "Sucessões",
+    "statement": "Herdeiro é acusado de ter praticado homicídio doloso contra o autor da herança. Além dos interessados diretamente na sucessão, discute-se quem possui legitimidade para requerer sua exclusão por indignidade. À luz da legislação vigente:",
+    "options": [
+      "o Ministério Público jamais possui legitimidade em matéria de indignidade sucessória.",
+      "o Ministério Público possui legitimidade para demandar a exclusão por indignidade na hipótese legal relacionada a homicídio doloso ou tentativa contra o autor da herança.",
+      "somente o próprio indigno pode pedir judicialmente sua exclusão.",
+      "a exclusão ocorre automaticamente com a acusação criminal, dispensando qualquer disciplina sucessória."
+    ],
+    "correct_index": 1,
+    "explanation": "O Código Civil admite ação de exclusão por indignidade e prevê legitimidade do Ministério Público quando se tratar da hipótese legal de homicídio doloso ou tentativa contra o autor da herança e pessoas indicadas pela lei.",
+    "source_label": "Autoral | Código Civil, arts. 1.814 e 1.815",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Indignidade sucessória",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-023",
+    "discipline_slug": "direito-civil",
+    "topic": "Sucessões",
+    "statement": "Pai doa imóvel a uma de suas três filhas, sem declarar que a liberalidade sai da parte disponível e sem dispensá-la validamente da colação. Na abertura da sucessão, em regra, a doação feita à descendente:",
+    "options": [
+      "não produz qualquer efeito sucessório porque doação é negócio entre vivos.",
+      "torna a donatária automaticamente excluída da sucessão legítima.",
+      "importa adiantamento do que lhe cabe por herança e deve ser considerada na colação, observadas as regras e limites legais.",
+      "é necessariamente nula por falta de consentimento dos demais descendentes."
+    ],
+    "correct_index": 2,
+    "explanation": "A doação de ascendentes a descendentes importa adiantamento do que lhes cabe por herança. A colação busca igualar as legítimas, ressalvadas hipóteses de dispensa válida e limites da parte disponível.",
+    "source_label": "Autoral | Código Civil, arts. 544 e 2.002 e seguintes",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Doação e colação",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-024",
+    "discipline_slug": "direito-civil",
+    "topic": "Sucessões",
+    "statement": "Companheira sobrevivente é informada de que, por não ter sido formalmente casada, sua sucessão deve seguir integralmente o antigo art. 1.790 do Código Civil, em regime menos favorável que o do cônjuge. Considerando a jurisprudência constitucional consolidada:",
+    "options": [
+      "a informação é correta porque casamento e união estável mantêm regimes sucessórios necessariamente distintos.",
+      "a equiparação sucessória depende de lei municipal do domicílio dos companheiros.",
+      "a união estável não produz qualquer vocação hereditária quando existem parentes colaterais.",
+      "é inconstitucional distinguir os regimes sucessórios de cônjuges e companheiros nos moldes do antigo art. 1.790, aplicando-se o regime constitucionalmente reconhecido pelo STF."
+    ],
+    "correct_index": 3,
+    "explanation": "O STF declarou inconstitucional a diferenciação do regime sucessório entre cônjuges e companheiros prevista no art. 1.790, fixando orientação de equiparação para fins sucessórios, conforme o Tema 809.",
+    "source_label": "Autoral | STF Tema 809 | Código Civil",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Sucessão na união estável",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-025",
+    "discipline_slug": "direito-civil",
+    "topic": "Direitos reais",
+    "statement": "Proprietário concede direito de superfície mediante escritura pública registrada. Anos depois, decide vender o terreno a terceiro, que oferece determinado preço e condições. O superficiário oferece exatamente as mesmas condições. Segundo o Código Civil:",
+    "options": [
+      "o superficiário possui direito de preferência em igualdade de condições na alienação do imóvel, nos termos legais.",
+      "o direito de superfície impede qualquer venda do terreno enquanto estiver vigente.",
+      "o superficiário somente tem preferência se oferecer preço superior ao do terceiro.",
+      "o direito de preferência existe apenas em concessões gratuitas de superfície."
+    ],
+    "correct_index": 0,
+    "explanation": "O Código Civil assegura direito de preferência ao proprietário e ao superficiário, reciprocamente, em igualdade de condições, quando houver alienação do imóvel ou do direito de superfície.",
+    "source_label": "Autoral | Código Civil, art. 1.373",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Direito de superfície e preferência",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-026",
+    "discipline_slug": "direito-civil",
+    "topic": "Direitos reais",
+    "statement": "Joana possui como sua, sem oposição e por cinco anos ininterruptos, imóvel urbano de 180 m² utilizado para moradia de sua família. Ela não é proprietária de outro imóvel urbano ou rural. Em tese, estão presentes os requisitos temporais e materiais para:",
+    "options": [
+      "usucapião extraordinária, cuja única exigência é posse por cinco anos, qualquer que seja a área.",
+      "usucapião especial urbana, observados os demais requisitos constitucionais e legais.",
+      "usucapião rural, porque a destinação residencial substitui a exigência territorial.",
+      "aquisição derivada da propriedade mediante tradição do imóvel."
+    ],
+    "correct_index": 1,
+    "explanation": "A usucapião especial urbana alcança área urbana de até 250 m², possuída por cinco anos ininterruptos e sem oposição, usada para moradia própria ou familiar, desde que o possuidor não tenha outro imóvel urbano ou rural.",
+    "source_label": "Autoral | CF/88, art. 183 | Código Civil, art. 1.240",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Usucapião especial urbana",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-027",
+    "discipline_slug": "direito-civil",
+    "topic": "Direitos reais",
+    "statement": "Durante mais de dez anos, proprietário de um imóvel exerce de forma contínua, pacífica e aparente passagem sobre imóvel vizinho, com sinais externos permanentes caracterizadores de servidão. Sobre a aquisição por usucapião, assinale a correta.",
+    "options": [
+      "nenhuma servidão pode ser adquirida por usucapião, ainda que aparente.",
+      "qualquer servidão, inclusive não aparente, nasce automaticamente após cinco anos de tolerância.",
+      "a servidão aparente pode ser adquirida por usucapião nas condições e prazos legais; a aparência do exercício é juridicamente relevante.",
+      "a servidão somente pode existir se instituída por sentença em ação de divisão de terras."
+    ],
+    "correct_index": 2,
+    "explanation": "O art. 1.379 admite aquisição por usucapião de servidão aparente, observados os requisitos e prazos legais. O simples uso oculto ou mera tolerância não recebe o mesmo tratamento.",
+    "source_label": "Autoral | Código Civil, art. 1.379",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Servidão e usucapião",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-028",
+    "discipline_slug": "direito-civil",
+    "topic": "Direitos reais",
+    "statement": "Titular de direito real de laje afirma ser também proprietário integral do terreno, das fundações e de toda a construção-base apenas porque sua unidade autônoma foi regularmente registrada. À luz do Código Civil, a afirmação é:",
+    "options": [
+      "correta, pois a laje incorpora automaticamente todos os direitos do proprietário da construção-base.",
+      "correta apenas se a unidade superior tiver entrada independente.",
+      "incorreta somente quando houver condomínio edilício formalmente instituído.",
+      "incorreta, pois o direito real de laje constitui unidade imobiliária autônoma com regime próprio e não atribui, por si só, domínio integral sobre o terreno e a construção-base."
+    ],
+    "correct_index": 3,
+    "explanation": "O direito real de laje possui disciplina própria nos arts. 1.510-A e seguintes. A unidade autônoma sobreposta ou sotoposta não transforma seu titular em proprietário integral do solo, das fundações e da construção-base.",
+    "source_label": "Autoral | Código Civil, arts. 1.510-A e seguintes",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Direito real de laje",
+    "incidence": "high"
+  },
+  {
+    "code": "DCIV-L1-029",
+    "discipline_slug": "direito-civil",
+    "topic": "Proteção de dados e personalidade",
+    "statement": "Pedro mantém em caderno pessoal informações sobre aniversários e preferências de amigos exclusivamente para organizar encontros privados, sem finalidade econômica. Quanto à incidência da LGPD sobre esse tratamento, assinale a correta.",
+    "options": [
+      "A LGPD não se aplica ao tratamento realizado por pessoa natural para fins exclusivamente particulares e não econômicos.",
+      "A LGPD aplica-se integralmente a qualquer anotação contendo nome de terceiro, ainda que estritamente doméstica e sem finalidade econômica.",
+      "A LGPD só deixa de incidir se Pedro destruir as anotações em até 24 horas.",
+      "A exceção de uso particular existe apenas para dados mantidos em dispositivos eletrônicos."
+    ],
+    "correct_index": 0,
+    "explanation": "O art. 4º, I, da LGPD exclui de seu âmbito o tratamento realizado por pessoa natural para fins exclusivamente particulares e não econômicos. A forma física ou digital do registro não muda essa exceção.",
+    "source_label": "Autoral | LGPD, art. 4º, I",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Exclusão de tratamento particular",
+    "incidence": "medium"
+  },
+  {
+    "code": "DCIV-L1-030",
+    "discipline_slug": "direito-civil",
+    "topic": "Proteção de dados e personalidade",
+    "statement": "Clínica pretende compartilhar com empresa parceira histórico de doenças e tratamentos de seus pacientes apenas para oferecer publicidade personalizada, sem apontar hipótese legal específica para o tratamento. Sobre esses dados, assinale a correta.",
+    "options": [
+      "dados de saúde são dados pessoais comuns e podem ser compartilhados livremente para publicidade.",
+      "dados referentes à saúde são dados pessoais sensíveis e seu tratamento deve estar enquadrado nas hipóteses legais próprias da LGPD, não bastando mera conveniência comercial.",
+      "dados de saúde somente são protegidos pela LGPD quando pertencem a menores de idade.",
+      "a qualificação como sensível desaparece quando a informação é armazenada por pessoa jurídica privada."
+    ],
+    "correct_index": 1,
+    "explanation": "A LGPD classifica dados referentes à saúde como dados pessoais sensíveis. O tratamento deve observar uma das bases legais específicas do art. 11 e os princípios de finalidade, adequação e necessidade.",
+    "source_label": "Autoral | LGPD, arts. 5º, II, e 11",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Dados pessoais sensíveis de saúde",
+    "incidence": "medium"
+  },
+  {
+    "code": "DCIV-L1-031",
+    "discipline_slug": "direito-civil",
+    "topic": "Proteção de dados e personalidade",
+    "statement": "Encerrada a finalidade de determinado tratamento de dados pessoais, o controlador sustenta que a LGPD sempre exige eliminação imediata e absoluta de todas as informações, sem qualquer exceção. A afirmação é:",
+    "options": [
+      "correta, porque conservação após o término do tratamento é sempre ilícita.",
+      "correta apenas para dados armazenados em servidores localizados no Brasil.",
+      "incorreta, pois a LGPD prevê hipóteses de conservação, como cumprimento de obrigação legal ou regulatória e outras situações expressamente autorizadas.",
+      "incorreta apenas se o titular tiver falecido."
+    ],
+    "correct_index": 2,
+    "explanation": "A LGPD prevê eliminação após o término do tratamento, mas admite conservação em hipóteses legais, inclusive cumprimento de obrigação legal/regulatória e outras situações do art. 16, com os requisitos correspondentes.",
+    "source_label": "Autoral | LGPD, arts. 15 e 16",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Término do tratamento e conservação",
+    "incidence": "medium"
+  },
+  {
+    "code": "DCIV-L1-032",
+    "discipline_slug": "direito-civil",
+    "topic": "Direitos reais",
+    "statement": "Marina possui unidade autônoma constituída como direito real de laje sobre construção-base pertencente a Caio. Empresa pretende instalar equipamentos no subsolo da construção-base sem interferir estruturalmente na laje. Marina afirma que sua titularidade lhe confere veto absoluto sobre qualquer uso do subsolo. Segundo o regime do Código Civil:",
+    "options": [
+      "Marina possui domínio integral do subsolo por ser titular da unidade mais elevada da edificação.",
+      "a laje converte automaticamente todo o prédio em condomínio edilício de propriedade exclusiva de Marina e Caio em partes iguais.",
+      "qualquer instalação no subsolo exige transferência prévia da propriedade da construção-base à titular da laje.",
+      "a titularidade da laje não confere, por si só, domínio integral sobre o subsolo da construção-base; é necessário observar o conteúdo e os limites próprios desse direito real e eventual interferência na unidade."
+    ],
+    "correct_index": 3,
+    "explanation": "O direito real de laje constitui unidade autônoma e não atribui ao titular domínio integral sobre o terreno, fundações e demais partes da construção-base. O uso de áreas alheias deve ser analisado conforme os limites legais do instituto.",
+    "source_label": "Autoral | Código Civil, arts. 1.510-A e seguintes",
+    "difficulty": "hard",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Limites do direito real de laje",
+    "incidence": "medium"
+  }
+]
