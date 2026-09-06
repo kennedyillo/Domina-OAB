@@ -1,0 +1,642 @@
+[
+  {
+    "code": "DCON-L1-001",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Direitos e remédios constitucionais",
+    "statement": "Camila, brasileira naturalizada e em pleno gozo de seus direitos políticos, pretende ajuizar ação para invalidar ato administrativo que considera lesivo à moralidade administrativa. Sobre a legitimidade para a medida constitucional adequada, assinale a afirmativa correta.",
+    "options": [
+      "Camila não possui legitimidade, pois a ação popular é privativa de brasileiro nato.",
+      "Camila somente poderá propor a medida se demonstrar prejuízo patrimonial direto e pessoal.",
+      "Camila pode propor ação popular, pois a condição de cidadã, e não a de brasileira nata, é o requisito constitucional de legitimidade ativa.",
+      "Camila deverá representar ao Ministério Público, que possui legitimidade exclusiva para ajuizar ação popular."
+    ],
+    "correct_index": 2,
+    "explanation": "A ação popular pode ser proposta por qualquer cidadão, isto é, pessoa no gozo dos direitos políticos. A Constituição não restringe a legitimidade ao brasileiro nato. Fundamento: CF/88, art. 5º, LXXIII, e Lei nº 4.717/1965.",
+    "source_label": "Autoral | CF/88, art. 5º, LXXIII | Lei 4.717/1965",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Ação popular e legitimidade",
+    "incidence": "high"
+  },
+  {
+    "code": "DCON-L1-002",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Direitos e remédios constitucionais",
+    "statement": "Às duas horas da manhã, uma enchente rompe a porta de uma residência e deixa uma pessoa desacordada no interior do imóvel. Uma equipe pública de resgate ingressa na casa sem autorização do morador. À luz da Constituição, o ingresso é:",
+    "options": [
+      "ilícito, porque qualquer ingresso sem consentimento depende de ordem judicial.",
+      "lícito, pois desastre e prestação de socorro autorizam o ingresso sem consentimento, inclusive no período noturno.",
+      "ilícito, porque as exceções constitucionais ao consentimento somente operam durante o dia.",
+      "lícito apenas se a equipe obtiver autorização posterior do Poder Judiciário."
+    ],
+    "correct_index": 1,
+    "explanation": "A inviolabilidade do domicílio admite ingresso sem consentimento em caso de flagrante delito, desastre ou para prestar socorro. A limitação 'durante o dia' refere-se ao ingresso por determinação judicial. Fundamento: CF/88, art. 5º, XI.",
+    "source_label": "Autoral | CF/88, art. 5º, XI",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Inviolabilidade domiciliar",
+    "incidence": "high"
+  },
+  {
+    "code": "DCON-L1-003",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Direitos e remédios constitucionais",
+    "statement": "Lei estadual exige o pagamento prévio de uma taxa para que órgão administrativo examine petição por meio da qual o interessado denuncia abuso de poder praticado por agente público. A exigência é:",
+    "options": [
+      "constitucional, desde que o valor da taxa seja módico e proporcional ao custo administrativo.",
+      "constitucional, porque a gratuidade do direito de petição alcança apenas pessoas físicas hipossuficientes.",
+      "constitucional, desde que exista possibilidade de restituição da taxa se a petição for acolhida.",
+      "inconstitucional, porque o direito de petição em defesa de direitos ou contra ilegalidade ou abuso de poder independe do pagamento de taxas."
+    ],
+    "correct_index": 3,
+    "explanation": "A Constituição assegura, independentemente do pagamento de taxas, o direito de petição aos Poderes Públicos em defesa de direitos ou contra ilegalidade ou abuso de poder. Fundamento: CF/88, art. 5º, XXXIV, 'a'.",
+    "source_label": "Autoral | CF/88, art. 5º, XXXIV, a",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Direito de petição",
+    "incidence": "high"
+  },
+  {
+    "code": "DCON-L1-004",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Direitos e remédios constitucionais",
+    "statement": "Rafael descobriu que banco de dados de caráter público mantém informação incorreta sobre sua própria pessoa. Após requerer administrativamente a retificação e não obter solução, pretende utilizar remédio constitucional específico. A medida adequada é:",
+    "options": [
+      "habeas data, que pode ser utilizado para retificação de dados relativos ao próprio impetrante nas hipóteses constitucionais e legais.",
+      "habeas corpus, pois a manutenção de dado inexato representa constrangimento à liberdade individual.",
+      "ação popular, porque a existência de informação incorreta em banco de caráter público viola a moralidade administrativa.",
+      "mandado de injunção, pois a inexatidão do registro impede o exercício de direito constitucional."
+    ],
+    "correct_index": 0,
+    "explanation": "O habeas data serve, entre outras hipóteses, à retificação de dados relativos à pessoa do impetrante constantes de registros ou bancos de dados governamentais ou de caráter público. Fundamento: CF/88, art. 5º, LXXII, e Lei nº 9.507/1997, art. 7º.",
+    "source_label": "Autoral | CF/88, art. 5º, LXXII | Lei 9.507/1997",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Habeas data",
+    "incidence": "high"
+  },
+  {
+    "code": "DCON-L1-005",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Direitos e remédios constitucionais",
+    "statement": "Durante grave calamidade, o Município utiliza por algumas horas um gerador particular para manter hospital público em funcionamento. O equipamento é devolvido intacto, sem qualquer dano. O proprietário exige indenização exclusivamente pelo fato de o bem ter sido requisitado. Segundo a Constituição:",
+    "options": [
+      "a indenização é sempre prévia, pois toda intervenção estatal em propriedade privada exige pagamento antecipado.",
+      "a indenização é sempre devida, ainda que não exista dano, porque a requisição transfere temporariamente a propriedade ao Estado.",
+      "a indenização ulterior é devida se houver dano; inexistindo dano, a Constituição não assegura indenização apenas pelo uso requisitado.",
+      "a requisição somente seria válida se formalizada judicialmente antes da utilização do equipamento."
+    ],
+    "correct_index": 2,
+    "explanation": "Em caso de iminente perigo público, a autoridade competente pode usar propriedade particular, assegurada ao proprietário indenização ulterior se houver dano. Fundamento: CF/88, art. 5º, XXV.",
+    "source_label": "Autoral | CF/88, art. 5º, XXV",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Requisição administrativa",
+    "incidence": "high"
+  },
+  {
+    "code": "DCON-L1-006",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Direitos e remédios constitucionais",
+    "statement": "Uma pessoa é presa em flagrante por crime grave. Por razões de segurança, a autoridade decide não comunicar a prisão nem o local de custódia à família ou a pessoa indicada pelo preso. A decisão é:",
+    "options": [
+      "constitucional, porque a gravidade concreta do crime autoriza restrição administrativa das garantias do preso.",
+      "inconstitucional, pois a prisão e o local onde o preso se encontra devem ser comunicados imediatamente ao juiz competente e à família do preso ou pessoa por ele indicada.",
+      "constitucional por até 48 horas, prazo em que a autoridade pode preservar o sigilo da custódia.",
+      "inconstitucional apenas se o preso já tiver advogado constituído nos autos."
+    ],
+    "correct_index": 1,
+    "explanation": "A Constituição determina comunicação imediata da prisão e do local de custódia ao juiz competente e à família do preso ou pessoa por ele indicada. A gravidade do delito não cria exceção genérica. Fundamento: CF/88, art. 5º, LXII.",
+    "source_label": "Autoral | CF/88, art. 5º, LXII",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Direitos da pessoa presa",
+    "incidence": "high"
+  },
+  {
+    "code": "DCON-L1-007",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Direitos e remédios constitucionais",
+    "statement": "Lei federal condiciona apresentações públicas de músicos profissionais à inscrição obrigatória em conselho de classe, sem demonstrar risco técnico relevante que justifique a restrição. Considerando as liberdades profissional e artística, a solução constitucionalmente mais adequada é reconhecer que:",
+    "options": [
+      "toda profissão pode ser submetida a conselho de classe por simples escolha legislativa, sem necessidade de justificativa material.",
+      "a liberdade artística somente protege produção intelectual escrita, não alcançando apresentações musicais públicas.",
+      "o legislador pode exigir inscrição sempre que a atividade gere renda ao profissional, ainda que não haja risco social específico.",
+      "a restrição profissional deve possuir fundamento constitucionalmente legítimo, e exigência corporativa desnecessária pode violar as liberdades profissional e de expressão artística."
+    ],
+    "correct_index": 3,
+    "explanation": "A Constituição protege tanto a liberdade profissional, sujeita às qualificações legais justificáveis, quanto a liberdade de expressão artística. Restrições corporativas sem fundamento material podem ser incompatíveis com essas garantias. Fundamento: CF/88, art. 5º, IX e XIII.",
+    "source_label": "Autoral | CF/88, art. 5º, IX e XIII",
+    "difficulty": "hard",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Liberdade profissional e artística",
+    "incidence": "high"
+  },
+  {
+    "code": "DCON-L1-008",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Direitos e remédios constitucionais",
+    "statement": "Universidade pública cria política temporária de ação afirmativa, com critérios objetivos, destinada a enfrentar desigualdade estrutural comprovada no acesso à pós-graduação. Um candidato sustenta que qualquer tratamento diferenciado viola automaticamente a igualdade. À luz da Constituição, essa afirmação é:",
+    "options": [
+      "incorreta, pois a igualdade material admite diferenciações justificadas e proporcionais voltadas à superação de desigualdades reais.",
+      "correta, pois o princípio da igualdade impõe tratamento rigorosamente idêntico em qualquer política pública educacional.",
+      "correta, salvo se a medida tiver sido aprovada por emenda constitucional específica para aquela universidade.",
+      "incorreta apenas porque universidades públicas possuem autonomia absoluta para afastar direitos fundamentais."
+    ],
+    "correct_index": 0,
+    "explanation": "A igualdade constitucional não se reduz à igualdade formal. Medidas de ação afirmativa podem ser compatíveis com a Constituição quando perseguem finalidade legítima e observam critérios proporcionais. Fundamento: CF/88, arts. 3º e 5º, caput.",
+    "source_label": "Autoral | CF/88, arts. 3º e 5º",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Igualdade material e ações afirmativas",
+    "incidence": "high"
+  },
+  {
+    "code": "DCON-L1-009",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Controle de constitucionalidade",
+    "statement": "O STF declara inconstitucional determinada lei em ação direta de inconstitucionalidade. Anos depois, o Congresso aprova nova lei sobre a mesma matéria, com solução normativa reformulada. Sobre o efeito vinculante da decisão anterior, assinale a afirmativa correta.",
+    "options": [
+      "O Congresso está definitivamente impedido de legislar sobre a matéria, pois o efeito vinculante alcança a atividade legislativa típica.",
+      "O efeito vinculante alcança Judiciário e administração nos termos constitucionais, mas não impede por si só o exercício da função legislativa típica, sem prejuízo de controle da nova lei.",
+      "A nova lei é automaticamente inexistente, independentemente de novo controle, por reproduzir tema já apreciado pelo STF.",
+      "O efeito vinculante atinge apenas o Poder Judiciário federal, não alcançando administrações estaduais ou municipais."
+    ],
+    "correct_index": 1,
+    "explanation": "As decisões definitivas de mérito em ADI produzem eficácia contra todos e efeito vinculante em relação ao Judiciário e à administração pública direta e indireta. O legislador não fica absolutamente impedido de exercer função legislativa típica, e a nova norma pode ser submetida a controle. Fundamento: CF/88, art. 102, § 2º, e Lei nº 9.868/1999.",
+    "source_label": "Autoral | CF/88, art. 102, §2º | Lei 9.868/1999",
+    "difficulty": "hard",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Efeito vinculante da ADI",
+    "incidence": "high"
+  },
+  {
+    "code": "DCON-L1-010",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Controle de constitucionalidade",
+    "statement": "Lei federal editada em 1975 permanece formalmente em vigor, mas existe controvérsia relevante sobre sua compatibilidade material com preceito fundamental da Constituição de 1988. Em tese, no sistema de controle concentrado, o instrumento especialmente apto a discutir norma anterior à Constituição é:",
+    "options": [
+      "ação declaratória de constitucionalidade, porque qualquer norma federal pode ser confirmada pelo STF independentemente da data de edição.",
+      "ação direta de inconstitucionalidade, pois a incompatibilidade superveniente é tratada como inconstitucionalidade originária.",
+      "ação direta de inconstitucionalidade por omissão, pois a lei anterior se transforma em omissão normativa com a nova Constituição.",
+      "arguição de descumprimento de preceito fundamental, observados seus requisitos legais, inclusive em controvérsia relevante sobre norma anterior à Constituição."
+    ],
+    "correct_index": 3,
+    "explanation": "A Lei nº 9.882/1999 prevê ADPF em controvérsia constitucional relevante sobre lei ou ato normativo federal, estadual ou municipal, incluídos os anteriores à Constituição. A ADI não é a via para mera incompatibilidade material de direito pré-constitucional com a nova ordem. Fundamento: CF/88, art. 102, § 1º, e Lei nº 9.882/1999, art. 1º.",
+    "source_label": "Autoral | CF/88, art. 102, §1º | Lei 9.882/1999",
+    "difficulty": "hard",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "ADPF e norma pré-constitucional",
+    "incidence": "high"
+  },
+  {
+    "code": "DCON-L1-011",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Controle de constitucionalidade",
+    "statement": "Lei estadual posterior à Constituição entra em conflito com norma do Ato das Disposições Constitucionais Transitórias que continua produzindo efeitos. Um legitimado pretende utilizar o dispositivo do ADCT como parâmetro de controle concentrado. A pretensão é, em tese:",
+    "options": [
+      "compatível com o sistema constitucional, porque o ADCT integra a Constituição e possui estatura constitucional.",
+      "inviável, porque o ADCT possui natureza de lei complementar federal e não integra o bloco constitucional.",
+      "inviável, porque normas transitórias somente vinculam a União e jamais podem ser parâmetro para normas estaduais.",
+      "compatível apenas se o Congresso converter previamente o dispositivo transitório em norma permanente."
+    ],
+    "correct_index": 0,
+    "explanation": "O ADCT integra a Constituição e suas normas possuem hierarquia constitucional. Por isso, dispositivo constitucional transitório ainda aplicável pode atuar como parâmetro no controle de constitucionalidade. Fundamento: CF/88 e ADCT.",
+    "source_label": "Autoral | CF/88 | ADCT",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "ADCT como parâmetro de controle",
+    "incidence": "high"
+  },
+  {
+    "code": "DCON-L1-012",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Controle de constitucionalidade",
+    "statement": "Duas normas constitucionais originárias parecem apontar para soluções distintas em determinado caso. Um advogado sustenta que a norma de conteúdo mais importante deve prevalecer porque ocupa posição hierárquica superior dentro da própria Constituição originária. A afirmação é:",
+    "options": [
+      "correta, pois direitos fundamentais sempre ocupam nível formal superior às demais normas constitucionais originárias.",
+      "correta, desde que a norma considerada superior esteja localizada antes da outra no texto constitucional.",
+      "incorreta, pois não há hierarquia normativo-formal entre normas constitucionais originárias; eventual tensão deve ser resolvida por interpretação constitucional adequada.",
+      "incorreta apenas quando as duas normas estiverem no mesmo título da Constituição."
+    ],
+    "correct_index": 2,
+    "explanation": "As normas constitucionais originárias integram o mesmo nível hierárquico-formal. Conflitos aparentes são tratados pela interpretação e harmonização constitucional, não pela criação de uma hierarquia formal interna baseada no conteúdo. Fundamento: teoria constitucional consolidada aplicada à CF/88.",
+    "source_label": "Autoral | CF/88 | Teoria da Constituição",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Normas constitucionais originárias",
+    "incidence": "medium"
+  },
+  {
+    "code": "DCON-L1-013",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Controle de constitucionalidade",
+    "statement": "PEC que pretende abolir o voto periódico é colocada em tramitação na Câmara dos Deputados. Um deputado federal busca impedir judicialmente a continuidade do procedimento por entender violado seu direito ao devido processo legislativo constitucional. Em tese, a via compatível com a jurisprudência constitucional é:",
+    "options": [
+      "ADI contra a PEC, porque qualquer proposição legislativa já constitui ato normativo para controle abstrato.",
+      "mandado de segurança impetrado pelo parlamentar, em hipótese de violação constitucional do processo legislativo e das limitações ao poder de reforma.",
+      "ação popular, porque qualquer cidadão pode controlar previamente a constitucionalidade de PEC ainda em tramitação.",
+      "habeas data, pois o parlamentar pretende conhecer a compatibilidade constitucional da proposta antes da votação."
+    ],
+    "correct_index": 1,
+    "explanation": "A jurisprudência admite, em situações específicas, mandado de segurança de parlamentar para resguardar o devido processo legislativo constitucional, inclusive diante de afronta a limitações ao poder de reforma. A mera PEC ainda não é objeto típico de ADI. Fundamento: CF/88, art. 60, § 4º, e jurisprudência consolidada do STF.",
+    "source_label": "Autoral | CF/88, art. 60, §4º | jurisprudência STF",
+    "difficulty": "hard",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Controle preventivo do processo legislativo",
+    "incidence": "high"
+  },
+  {
+    "code": "DCON-L1-014",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Controle de constitucionalidade",
+    "statement": "O Presidente da República edita decreto, com fundamento direto no art. 84, VI, da Constituição, para reorganizar a administração federal sem aumento de despesa nem criação ou extinção de órgãos. Sobre a natureza do ato e seu controle, assinale a afirmativa correta.",
+    "options": [
+      "Trata-se necessariamente de simples regulamento de execução, subordinado a lei prévia específica em qualquer hipótese.",
+      "O decreto é imune ao controle concentrado por ser ato exclusivo do Poder Executivo.",
+      "O decreto somente poderia existir se o Congresso previamente delegasse competência legislativa ao Presidente.",
+      "Nas hipóteses constitucionais do art. 84, VI, pode haver decreto autônomo fundado diretamente na Constituição, sujeito ao controle constitucional cabível."
+    ],
+    "correct_index": 3,
+    "explanation": "O art. 84, VI, admite decreto autônomo para organização e funcionamento da administração federal sem aumento de despesa nem criação/extinção de órgãos e para extinção de funções ou cargos vagos. Ato normativo fundado diretamente na Constituição pode submeter-se ao controle constitucional pertinente. Fundamento: CF/88, art. 84, VI.",
+    "source_label": "Autoral | CF/88, art. 84, VI",
+    "difficulty": "hard",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Decreto autônomo",
+    "incidence": "high"
+  },
+  {
+    "code": "DCON-L1-015",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Federação, competências e intervenção",
+    "statement": "Movimento político estadual propõe emenda à Constituição para permitir que um Estado-membro se desligue unilateralmente da Federação após plebiscito local. A proposta é incompatível com a Constituição porque:",
+    "options": [
+      "a forma federativa de Estado é cláusula pétrea e a autonomia dos Estados não inclui direito de secessão.",
+      "Estados não possuem autonomia política e funcionam como meras divisões administrativas da União.",
+      "qualquer plebiscito estadual depende de aprovação unânime dos demais Estados para produzir efeitos.",
+      "a Constituição permite secessão, mas somente por lei complementar aprovada pelo Congresso Nacional."
+    ],
+    "correct_index": 0,
+    "explanation": "A Federação é indissolúvel e a forma federativa de Estado é cláusula pétrea. Autonomia dos entes federativos não se confunde com soberania nem inclui direito de secessão. Fundamento: CF/88, arts. 1º e 60, § 4º, I.",
+    "source_label": "Autoral | CF/88, arts. 1º e 60, §4º, I",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Forma federativa e autonomia",
+    "incidence": "high"
+  },
+  {
+    "code": "DCON-L1-016",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Federação, competências e intervenção",
+    "statement": "A Constituição não atribui expressamente determinada matéria legislativa à União nem aos Municípios, tampouco a reserva ao Distrito Federal. Não há vedação constitucional à atuação estadual. Em regra, a competência legislativa é:",
+    "options": [
+      "da União, porque toda competência não expressamente municipal pertence ao plano federal.",
+      "dos Municípios, porque o silêncio constitucional transforma a matéria em assunto de interesse local.",
+      "dos Estados, que conservam as competências que não lhes sejam vedadas pela Constituição.",
+      "do Congresso Nacional e das Assembleias Legislativas em competência cumulativa obrigatória."
+    ],
+    "correct_index": 2,
+    "explanation": "A Constituição atribui aos Estados as competências que não lhes sejam vedadas, consagrando competência residual ou remanescente estadual. Fundamento: CF/88, art. 25, § 1º.",
+    "source_label": "Autoral | CF/88, art. 25, §1º",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Competência residual dos Estados",
+    "incidence": "high"
+  },
+  {
+    "code": "DCON-L1-017",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Federação, competências e intervenção",
+    "statement": "Município edita norma para disciplinar horário e organização local de atividade econômica predominantemente municipal, sem contrariar normas federais ou estaduais válidas. A justificativa constitucional mais adequada para a atuação municipal é:",
+    "options": [
+      "competência privativa municipal para legislar sobre todo e qualquer tema econômico.",
+      "competência para legislar sobre assuntos de interesse local e suplementar a legislação federal e estadual no que couber.",
+      "competência residual idêntica à dos Estados, abrangendo tudo o que a Constituição não atribuir expressamente à União.",
+      "delegação legislativa presumida da União sempre que a atividade seja exercida dentro do território municipal."
+    ],
+    "correct_index": 1,
+    "explanation": "Municípios podem legislar sobre assuntos de interesse local e suplementar legislação federal e estadual no que couber. A competência não é geral nem equivalente à competência residual estadual. Fundamento: CF/88, art. 30, I e II.",
+    "source_label": "Autoral | CF/88, art. 30, I e II",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Competência municipal",
+    "incidence": "high"
+  },
+  {
+    "code": "DCON-L1-018",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Federação, competências e intervenção",
+    "statement": "Município deixa reiteradamente de prestar as contas devidas na forma da lei. Presentes os pressupostos constitucionais, o Estado ao qual pertence o Município pretende intervir. Sobre a hipótese, assinale a afirmativa correta.",
+    "options": [
+      "A Constituição admite intervenção estadual no Município quando não forem prestadas as contas devidas, na forma da lei.",
+      "A União deve intervir diretamente no Município, pois Estados jamais podem restringir a autonomia municipal.",
+      "A intervenção somente é possível após cinco anos consecutivos de ausência de prestação de contas.",
+      "A omissão na prestação de contas gera apenas responsabilidade administrativa do Prefeito, sem hipótese de intervenção."
+    ],
+    "correct_index": 0,
+    "explanation": "O art. 35 prevê hipóteses excepcionais de intervenção do Estado em Município, entre elas a não prestação das contas devidas na forma da lei. Fundamento: CF/88, art. 35, II.",
+    "source_label": "Autoral | CF/88, art. 35, II",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Intervenção estadual em Município",
+    "incidence": "high"
+  },
+  {
+    "code": "DCON-L1-019",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Federação, competências e intervenção",
+    "statement": "Estado produtor de petróleo sustenta que, por ocorrer exploração em seu território, a integralidade do resultado econômico do recurso natural lhe pertence e a União não pode disciplinar participações ou compensações. À luz da Constituição, a tese é:",
+    "options": [
+      "correta, pois recursos minerais e petróleo pertencem exclusivamente ao ente em cujo território se encontram.",
+      "correta apenas quando a exploração ocorrer em terra firme, mas não quando ocorrer na plataforma continental.",
+      "correta se o Estado comprovar que suporta a maior parte dos impactos ambientais da exploração.",
+      "incorreta, pois a Constituição disciplina os bens e recursos da União e assegura, nos termos constitucionais, participação ou compensação aos entes e órgãos alcançados pela exploração."
+    ],
+    "correct_index": 3,
+    "explanation": "A Constituição atribui à União determinados recursos naturais e estabelece participação no resultado ou compensação financeira pela exploração de petróleo, gás natural e outros recursos nas hipóteses constitucionais. Fundamento: CF/88, arts. 20, V, IX e § 1º.",
+    "source_label": "Autoral | CF/88, art. 20, §1º",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Recursos naturais e participações federativas",
+    "incidence": "high"
+  },
+  {
+    "code": "DCON-L1-020",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Poderes e processo legislativo",
+    "statement": "O Congresso aprova um projeto de lei complementar e, separadamente, uma proposta de emenda à Constituição. O Presidente da República discorda de dispositivos de ambos e pretende vetá-los parcialmente. Segundo a Constituição:",
+    "options": [
+      "o Presidente pode vetar parcialmente ambos, desde que indique fundamento jurídico para cada veto.",
+      "o Presidente pode vetar a PEC, mas não o projeto de lei complementar, que exige promulgação direta pelo Congresso.",
+      "o Presidente pode exercer veto sobre o projeto de lei, mas não sobre emenda constitucional aprovada pelo Congresso.",
+      "nenhum dos dois atos se submete a veto, pois veto presidencial existe apenas para lei ordinária."
+    ],
+    "correct_index": 2,
+    "explanation": "O veto integra o processo legislativo dos projetos de lei submetidos à sanção presidencial. Emenda constitucional é promulgada pelas Mesas da Câmara e do Senado e não se sujeita a sanção ou veto presidencial. Fundamento: CF/88, arts. 60 e 66.",
+    "source_label": "Autoral | CF/88, arts. 60 e 66",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Veto e emenda constitucional",
+    "incidence": "high"
+  },
+  {
+    "code": "DCON-L1-021",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Poderes e processo legislativo",
+    "statement": "Projeto de lei de iniciativa exclusiva do Presidente da República cria estrutura administrativa sem determinada despesa adicional. Durante a tramitação, emenda parlamentar acrescenta vantagem remuneratória que aumenta a despesa prevista. Em regra, a emenda é:",
+    "options": [
+      "válida sempre que aprovada por maioria absoluta do Congresso Nacional.",
+      "inconstitucional quando aumenta despesa em projeto sujeito à iniciativa reservada do Presidente, ressalvadas hipóteses constitucionais específicas.",
+      "válida porque, depois de apresentado o projeto, a reserva de iniciativa deixa de produzir efeitos.",
+      "inconstitucional apenas se o Presidente declarar previamente que não concorda com o aumento."
+    ],
+    "correct_index": 1,
+    "explanation": "A Constituição limita emendas parlamentares que aumentem despesa em projetos de iniciativa exclusiva do Presidente da República, ressalvadas as exceções constitucionais. Fundamento: CF/88, art. 63, I, em conjunto com as regras de iniciativa reservada.",
+    "source_label": "Autoral | CF/88, art. 63, I",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Emenda parlamentar e iniciativa reservada",
+    "incidence": "high"
+  },
+  {
+    "code": "DCON-L1-022",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Poderes e processo legislativo",
+    "statement": "Comissão permanente da Câmara dos Deputados afirma possuir, apenas por ser comissão parlamentar, todos os poderes de investigação próprios das autoridades judiciais atribuídos constitucionalmente às CPIs. A afirmação é:",
+    "options": [
+      "correta, pois a Constituição não distingue comissões permanentes de comissões parlamentares de inquérito.",
+      "correta somente quando a comissão permanente investigar Ministro de Estado.",
+      "correta desde que a maioria absoluta da Câmara ratifique previamente cada ato investigativo.",
+      "incorreta, pois os poderes de investigação próprios das autoridades judiciais são constitucionalmente atribuídos às CPIs constituídas com os requisitos do art. 58, § 3º."
+    ],
+    "correct_index": 3,
+    "explanation": "A Constituição confere poderes de investigação próprios das autoridades judiciais às comissões parlamentares de inquérito, observados seus requisitos de criação. Uma comissão permanente não adquire automaticamente esse regime. Fundamento: CF/88, art. 58, § 3º.",
+    "source_label": "Autoral | CF/88, art. 58, §3º",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "CPI e poderes de investigação",
+    "incidence": "high"
+  },
+  {
+    "code": "DCON-L1-023",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Poderes e processo legislativo",
+    "statement": "Lei municipal estabelece que os próprios Prefeito e Vice-Prefeito fixarão seus subsídios por decreto no início de cada mandato. À luz da Constituição, a solução é:",
+    "options": [
+      "inconstitucional, pois os subsídios do Prefeito, Vice-Prefeito e Secretários Municipais são fixados por lei de iniciativa da Câmara Municipal, observadas as regras constitucionais.",
+      "constitucional, porque o chefe do Executivo possui competência privativa para definir sua própria remuneração e a de seus auxiliares.",
+      "constitucional se o decreto respeitar o teto remuneratório federal e for publicado antes da posse.",
+      "inconstitucional apenas quanto aos Secretários Municipais, cuja remuneração é definida pelo Tribunal de Contas."
+    ],
+    "correct_index": 0,
+    "explanation": "A Constituição determina que os subsídios do Prefeito, Vice-Prefeito e Secretários Municipais sejam fixados por lei de iniciativa da Câmara Municipal. Fundamento: CF/88, art. 29, V.",
+    "source_label": "Autoral | CF/88, art. 29, V",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Subsídios municipais",
+    "incidence": "high"
+  },
+  {
+    "code": "DCON-L1-024",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Poder Judiciário e competências",
+    "statement": "Parte vencida em processo judicial pede ao Conselho Nacional de Justiça que desconstitua a sentença por considerá-la juridicamente incorreta. O pedido, quanto a essa pretensão, é incompatível com a Constituição porque:",
+    "options": [
+      "o CNJ integra o Poder Executivo e não possui qualquer competência sobre magistrados.",
+      "o CNJ somente pode atuar depois do trânsito em julgado e mediante autorização do STF.",
+      "o CNJ exerce controle administrativo, financeiro e disciplinar nos limites constitucionais, não funcionando como instância recursal para rever conteúdo jurisdicional de decisão judicial.",
+      "o CNJ pode rever decisões judiciais apenas quando proferidas por juiz de primeiro grau."
+    ],
+    "correct_index": 2,
+    "explanation": "O CNJ integra o Poder Judiciário e exerce funções de controle administrativo e financeiro e fiscalização disciplinar, mas não constitui instância recursal apta a desconstituir decisões jurisdicionais por discordância quanto ao mérito. Fundamento: CF/88, art. 103-B.",
+    "source_label": "Autoral | CF/88, art. 103-B",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Competências do CNJ",
+    "incidence": "medium"
+  },
+  {
+    "code": "DCON-L1-025",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Poder Judiciário e competências",
+    "statement": "Cliente pretende ajuizar ação indenizatória exclusivamente contra sociedade de economia mista federal, sem a presença da União, autarquia federal ou empresa pública federal no polo processual. Em regra, a causa será processada:",
+    "options": [
+      "necessariamente no STF, por envolver pessoa jurídica controlada pela União.",
+      "na Justiça Estadual, pois sociedade de economia mista federal, por si só, não integra a hipótese constitucional geral que desloca a causa para a Justiça Federal.",
+      "necessariamente na Justiça Federal, porque qualquer participação acionária da União define a competência federal.",
+      "no STJ originariamente, quando a sociedade atuar no setor financeiro."
+    ],
+    "correct_index": 1,
+    "explanation": "A competência federal do art. 109, I, menciona União, autarquias e empresas públicas federais, não incluindo, por essa simples condição, sociedades de economia mista federais. Ausente outra hipótese constitucional, a causa segue para a Justiça Estadual. Fundamento: CF/88, art. 109, I, e jurisprudência consolidada.",
+    "source_label": "Autoral | CF/88, art. 109, I | jurisprudência consolidada",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Competência da Justiça Federal",
+    "incidence": "medium"
+  },
+  {
+    "code": "DCON-L1-026",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Administração, controle externo e precatórios",
+    "statement": "Após processo de controle externo, Tribunal de Contas profere decisão que imputa débito a responsável pela aplicação irregular de recursos públicos. Segundo a Constituição, essa decisão:",
+    "options": [
+      "tem eficácia de título executivo quando resultar em imputação de débito ou multa.",
+      "produz apenas recomendação política e precisa ser convertida em sentença judicial para constituir obrigação.",
+      "autoriza o próprio Tribunal de Contas a promover execução judicial em nome próprio como órgão jurisdicional.",
+      "somente produz efeito executivo se for previamente homologada pelo Congresso Nacional."
+    ],
+    "correct_index": 0,
+    "explanation": "As decisões dos Tribunais de Contas de que resulte imputação de débito ou multa têm eficácia de título executivo. Isso não transforma o Tribunal de Contas em órgão do Poder Judiciário. Fundamento: CF/88, art. 71, § 3º.",
+    "source_label": "Autoral | CF/88, art. 71, §3º",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Decisão do Tribunal de Contas",
+    "incidence": "medium"
+  },
+  {
+    "code": "DCON-L1-027",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Administração, controle externo e precatórios",
+    "statement": "Titular de crédito alimentar inscrito em precatório tem 67 anos. Outro credor possui crédito comum apresentado anteriormente. Considerando a superpreferência constitucional, assinale a afirmativa correta.",
+    "options": [
+      "A idade não produz qualquer efeito, pois todos os precatórios seguem exclusivamente a ordem cronológica de apresentação.",
+      "O crédito alimentar do idoso deve ser integralmente pago antes de qualquer outro precatório, sem limite de valor.",
+      "A preferência etária somente existe para pessoas com 80 anos ou mais, porque a Constituição não adota o marco de 60 anos.",
+      "O crédito alimentar do titular com 60 anos ou mais possui superpreferência até o limite constitucional, e eventual restante segue a ordem aplicável aos precatórios."
+    ],
+    "correct_index": 3,
+    "explanation": "O art. 100, § 2º, confere preferência aos débitos alimentares cujos titulares tenham 60 anos, doença grave ou deficiência, até o limite equivalente ao triplo do valor de RPV fixado em lei para o ente, admitido fracionamento para essa finalidade. O restante segue a ordem cronológica. Fundamento: CF/88, art. 100, § 2º, com redação vigente.",
+    "source_label": "Autoral | CF/88, art. 100, §2º | EC 136/2025",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Superpreferência em precatórios",
+    "incidence": "medium"
+  },
+  {
+    "code": "DCON-L1-028",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Administração, controle externo e precatórios",
+    "statement": "Sentença transitada em julgado reconhece obrigação da Fazenda Pública cujo valor se enquadra, segundo a lei do ente, como obrigação de pequeno valor. Sobre o pagamento, assinale a afirmativa correta.",
+    "options": [
+      "O crédito deverá necessariamente ser convertido em precatório, ainda que classificado como obrigação de pequeno valor.",
+      "A Fazenda pode escolher livremente entre precatório e pagamento direto, sem observar a classificação legal do débito.",
+      "As obrigações definidas em lei como de pequeno valor não se submetem ao regime ordinário de expedição de precatório previsto no caput do art. 100.",
+      "O regime de pequeno valor só pode existir para a União, sendo vedado a Estados e Municípios fixar parâmetros próprios."
+    ],
+    "correct_index": 2,
+    "explanation": "A Constituição exclui do regime ordinário de precatórios os pagamentos de obrigações definidas em lei como de pequeno valor, observados os parâmetros constitucionais. Fundamento: CF/88, art. 100, §§ 3º e 4º.",
+    "source_label": "Autoral | CF/88, art. 100, §§3º-4º",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Requisição de pequeno valor",
+    "incidence": "medium"
+  },
+  {
+    "code": "DCON-L1-029",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Nacionalidade",
+    "statement": "Brasileira nata adquire voluntariamente outra nacionalidade em 2026, sem formular pedido de perda da nacionalidade brasileira. Considerando a redação constitucional dada pela EC nº 131/2023, a mera aquisição da outra nacionalidade:",
+    "options": [
+      "não provoca, por si só, perda da nacionalidade brasileira; a Constituição atual não mantém a antiga hipótese automática de perda pela mera aquisição de outra nacionalidade.",
+      "provoca perda automática da nacionalidade brasileira, salvo autorização prévia do Ministério da Justiça.",
+      "provoca perda automática apenas se a nova nacionalidade não decorrer de ascendência familiar.",
+      "suspende a nacionalidade brasileira até que a pessoa opte formalmente por uma das nacionalidades."
+    ],
+    "correct_index": 0,
+    "explanation": "A EC nº 131/2023 suprimiu a perda da nacionalidade brasileira pela mera aquisição de outra nacionalidade. A redação atual do art. 12, § 4º, prevê hipóteses distintas, incluindo pedido expresso de perda, ressalvada apatridia. Fundamento: CF/88, art. 12, §§ 4º e 5º, e EC nº 131/2023.",
+    "source_label": "Autoral | CF/88, art. 12, §§4º-5º | EC 131/2023",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Perda da nacionalidade",
+    "incidence": "low"
+  },
+  {
+    "code": "DCON-L1-030",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Ordem social e saúde",
+    "statement": "Estado decide estruturar atendimento do SUS com participação complementar de instituições privadas. Sobre o modelo constitucional de saúde, assinale a afirmativa correta.",
+    "options": [
+      "A Constituição proíbe qualquer participação privada no SUS, ainda que complementar e mediante contrato ou convênio.",
+      "Instituições privadas podem participar de forma complementar do SUS, segundo suas diretrizes, com preferência constitucional para entidades filantrópicas e sem fins lucrativos.",
+      "A participação complementar somente pode ocorrer com empresas privadas com fins lucrativos, porque entidades filantrópicas não podem receber recursos públicos.",
+      "A saúde deixa de ser dever estatal sempre que houver prestador privado contratado para executar parte do atendimento."
+    ],
+    "correct_index": 1,
+    "explanation": "A Constituição admite participação complementar de instituições privadas no SUS, segundo suas diretrizes, mediante contrato de direito público ou convênio, com preferência às entidades filantrópicas e sem fins lucrativos. Fundamento: CF/88, arts. 196, 197 e 199, § 1º.",
+    "source_label": "Autoral | CF/88, arts. 196-199",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Participação privada no SUS",
+    "incidence": "low"
+  },
+  {
+    "code": "DCON-L1-031",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Princípios e objetivos fundamentais",
+    "statement": "Programa federal direciona crédito e infraestrutura a regiões historicamente menos desenvolvidas, com critérios objetivos de redução das disparidades territoriais. A finalidade encontra apoio constitucional direto no objetivo de:",
+    "options": [
+      "assegurar a prevalência absoluta da livre iniciativa sobre qualquer política de desenvolvimento regional.",
+      "transformar a autonomia estadual em soberania econômica independente da União.",
+      "eliminar por decreto todas as diferenças econômicas entre pessoas e empresas privadas.",
+      "erradicar a pobreza e a marginalização e reduzir as desigualdades sociais e regionais."
+    ],
+    "correct_index": 3,
+    "explanation": "A redução das desigualdades sociais e regionais integra os objetivos fundamentais da República. Fundamento: CF/88, art. 3º, III.",
+    "source_label": "Autoral | CF/88, art. 3º, III",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Objetivos fundamentais da República",
+    "incidence": "low"
+  },
+  {
+    "code": "DCON-L1-032",
+    "discipline_slug": "direito-constitucional",
+    "topic": "Povos indígenas na Constituição",
+    "statement": "Integrante de comunidade indígena pretende vender individualmente a terceiros parcela de terra tradicionalmente ocupada pela comunidade e regularmente demarcada, alegando ser possuidor de longa data. Segundo a Constituição, assinale a afirmativa correta.",
+    "options": [
+      "A venda é livre porque a demarcação converte cada ocupante tradicional em proprietário privado individual da respectiva parcela.",
+      "A venda depende apenas de autorização da comunidade, que possui propriedade civil plena e pode dividir livremente as terras entre seus membros.",
+      "As terras tradicionalmente ocupadas possuem regime constitucional próprio, são bens da União e são inalienáveis e indisponíveis, não podendo ser vendidas individualmente pelo ocupante.",
+      "A venda é possível depois de cinco anos da demarcação, desde que o comprador mantenha a destinação cultural da área."
+    ],
+    "correct_index": 2,
+    "explanation": "As terras tradicionalmente ocupadas pelos povos indígenas são bens da União e submetem-se a regime constitucional próprio, com posse permanente dos povos e inalienabilidade e indisponibilidade. Fundamento: CF/88, arts. 20, XI, e 231, §§ 2º e 4º.",
+    "source_label": "Autoral | CF/88, arts. 20, XI e 231",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Terras tradicionalmente ocupadas",
+    "incidence": "low"
+  }
+]
