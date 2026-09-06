@@ -1,4 +1,4 @@
-import { clientIp,readJsonWithLimit } from "@/lib/public-api-security";
+import { clientIp,enforceRateLimit,readJsonWithLimit } from "@/lib/public-api-security";
 import { supabaseAdminRpc } from "@/lib/supabase";
 
 const ALLOWED_EVENTS = new Set(["page_view", "simulado_started", "simulado_completed"]);
@@ -13,6 +13,12 @@ function error(body:Record<string,unknown>,status:number,headers?:Record<string,
 
 export async function POST(request: Request) {
   try {
+    const rateResponse=await enforceRateLimit(request,"analytics",60,60);
+    if(rateResponse){
+      rateResponse.headers.set("Cache-Control","no-store");
+      return rateResponse;
+    }
+
     const body=await readJsonWithLimit<Record<string,unknown>>(request,4*1024);
     const eventType = clean(body.eventType, 40);
     const sessionId = clean(body.sessionId, 80);
