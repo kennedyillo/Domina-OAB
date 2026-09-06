@@ -26,9 +26,11 @@ export async function POST(request: Request) {
 
   const configuredOrigin=process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/,"");
   const origin=configuredOrigin||new URL(request.url).origin;
-  // O fluxo SSR troca o token_hash por sessão em /auth/confirm e só então
-  // redireciona o usuário autenticado para /redefinir-senha.
-  const redirectTo=`${origin}/auth/confirm`;
+  // O template padrão do Supabase (ConfirmationURL) conclui a verificação
+  // e redireciona com a sessão de recovery no fragmento da URL. A página
+  // /redefinir-senha já consome esse access_token de forma compatível.
+  // /auth/confirm continua disponível como fallback para template SSR/token_hash.
+  const redirectTo=`${origin}/redefinir-senha`;
 
   try{
     await requestPasswordReset(email,redirectTo);
