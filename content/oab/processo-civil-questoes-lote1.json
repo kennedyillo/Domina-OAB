@@ -1,0 +1,642 @@
+[
+  {
+    "code": "PCIV-L1-001",
+    "discipline_slug": "processo-civil",
+    "topic": "Sujeitos, intervenção e competência",
+    "statement": "Antes de ingressar na magistratura, Eduardo atuou como promotor de Justiça em determinada ação civil pública. Anos depois, já como juiz, o mesmo processo é distribuído ao seu juízo. À luz do CPC, assinale a afirmativa correta.",
+    "options": [
+      "Eduardo está impedido de atuar no processo, pois nele já interveio como membro do Ministério Público.",
+      "Eduardo poderá atuar porque sua intervenção anterior ocorreu antes da magistratura.",
+      "Há apenas suspeição, que somente produz efeitos se arguida pela parte em cinco dias.",
+      "Eduardo só não poderá proferir sentença, permanecendo autorizado a decidir questões interlocutórias."
+    ],
+    "correct_index": 0,
+    "explanation": "O CPC prevê impedimento do juiz quando ele tiver funcionado no processo como membro do Ministério Público, advogado, defensor público ou perito. O impedimento alcança a atuação judicial no processo, não apenas a sentença.",
+    "source_label": "Autoral | CPC, art. 144, I",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Impedimento do magistrado",
+    "incidence": "medium"
+  },
+  {
+    "code": "PCIV-L1-002",
+    "discipline_slug": "processo-civil",
+    "topic": "Sujeitos, intervenção e competência",
+    "statement": "Duas mil pessoas pretendem ajuizar, conjuntamente, ação indenizatória decorrente do mesmo evento. O juiz constata que o número de autores comprometerá a rápida solução e dificultará a defesa. Nesse cenário, o CPC permite que o juiz:",
+    "options": [
+      "extinga obrigatoriamente o processo, porque o litisconsórcio facultativo não admite mais de cem pessoas.",
+      "limite o litisconsórcio facultativo quanto ao número de litigantes, inclusive para preservar a rápida solução ou facilitar a defesa.",
+      "mantenha obrigatoriamente todos os autores, pois o litisconsórcio facultativo jamais pode ser limitado.",
+      "converta automaticamente o processo em ação coletiva, independentemente de pedido."
+    ],
+    "correct_index": 1,
+    "explanation": "O art. 113, §1º, do CPC autoriza a limitação do litisconsórcio facultativo quando o número de litigantes comprometer a rápida solução, dificultar a defesa ou o cumprimento da sentença.",
+    "source_label": "Autoral | CPC, art. 113, §1º",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Litisconsórcio multitudinário",
+    "incidence": "medium"
+  },
+  {
+    "code": "PCIV-L1-003",
+    "discipline_slug": "processo-civil",
+    "topic": "Sujeitos, intervenção e competência",
+    "statement": "Em ação entre locador e locatário, terceiro demonstra interesse jurídico em que a sentença seja favorável ao locatário, embora não seja titular da própria relação jurídica discutida entre as partes. A forma de intervenção compatível é:",
+    "options": [
+      "chamamento ao processo.",
+      "denunciação da lide.",
+      "assistência simples.",
+      "incidente de desconsideração da personalidade jurídica."
+    ],
+    "correct_index": 2,
+    "explanation": "A assistência simples é cabível quando o terceiro possui interesse jurídico em que a sentença seja favorável a uma das partes, sem ocupar a mesma posição jurídica do assistido na relação material discutida.",
+    "source_label": "Autoral | CPC, arts. 119 e seguintes",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Assistência simples",
+    "incidence": "medium"
+  },
+  {
+    "code": "PCIV-L1-004",
+    "discipline_slug": "processo-civil",
+    "topic": "Sujeitos, intervenção e competência",
+    "statement": "Contrato escrito entre duas empresas elege foro sem qualquer relação com o domicílio ou residência das partes e sem ligação com o local da obrigação. Considerando a redação do CPC após a Lei nº 14.879/2024, assinale a correta.",
+    "options": [
+      "A eleição é sempre válida porque a autonomia privada permite escolher qualquer juízo do país.",
+      "A ausência de pertinência somente pode ser discutida depois da sentença.",
+      "A cláusula é válida se estiver destacada em negrito, ainda que o foro seja aleatório.",
+      "A eleição deve guardar pertinência com as partes ou com o local da obrigação; ajuizamento em juízo aleatório pode justificar declinação de competência de ofício."
+    ],
+    "correct_index": 3,
+    "explanation": "A Lei nº 14.879/2024 alterou o art. 63 do CPC para exigir pertinência da eleição de foro com o domicílio ou residência de uma das partes ou o local da obrigação e qualificou o ajuizamento em juízo aleatório como prática abusiva passível de declinação de ofício.",
+    "source_label": "Autoral | CPC, art. 63, §§1º e 5º | Lei 14.879/2024",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Eleição de foro após Lei 14.879/2024",
+    "incidence": "medium"
+  },
+  {
+    "code": "PCIV-L1-005",
+    "discipline_slug": "processo-civil",
+    "topic": "Tutelas provisórias",
+    "statement": "Paciente demonstra, por documentos médicos, alta probabilidade de possuir direito ao tratamento e risco concreto de dano grave caso a cirurgia seja adiada. Para tutela de urgência, o CPC exige, em essência:",
+    "options": [
+      "probabilidade do direito e perigo de dano ou risco ao resultado útil do processo.",
+      "certeza absoluta do direito e trânsito em julgado de precedente idêntico.",
+      "apenas risco de dano, sendo irrelevante qualquer plausibilidade jurídica.",
+      "prova pericial concluída antes da decisão, em qualquer hipótese."
+    ],
+    "correct_index": 0,
+    "explanation": "A tutela de urgência exige elementos que evidenciem a probabilidade do direito e o perigo de dano ou risco ao resultado útil do processo, nos termos do art. 300 do CPC.",
+    "source_label": "Autoral | CPC, art. 300",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Requisitos da tutela de urgência",
+    "incidence": "medium"
+  },
+  {
+    "code": "PCIV-L1-006",
+    "discipline_slug": "processo-civil",
+    "topic": "Tutelas provisórias",
+    "statement": "Advogado precisa ajuizar medida urgente para evitar perecimento do direito, mas ainda não recebeu a procuração assinada pelo cliente. Segundo o CPC, ele:",
+    "options": [
+      "jamais pode postular sem procuração, ainda que o direito possa perecer.",
+      "pode atuar para evitar preclusão, decadência, prescrição ou praticar ato urgente, devendo posteriormente exibir o mandato no prazo legal.",
+      "pode atuar sem procuração durante todo o processo, bastando declaração verbal do cliente.",
+      "somente pode atuar se o Ministério Público autorizar previamente."
+    ],
+    "correct_index": 1,
+    "explanation": "O art. 104 do CPC admite postulação sem procuração para evitar preclusão, decadência ou prescrição ou para praticar ato considerado urgente, com posterior regularização da representação.",
+    "source_label": "Autoral | CPC, art. 104",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Ato urgente sem procuração",
+    "incidence": "medium"
+  },
+  {
+    "code": "PCIV-L1-007",
+    "discipline_slug": "processo-civil",
+    "topic": "Procedimento comum, defesa e prova",
+    "statement": "Réu pretende formular pretensão própria conexa com a ação principal contra o autor. No procedimento comum, a reconvenção deve ser proposta:",
+    "options": [
+      "sempre em processo autônomo distribuído por dependência.",
+      "somente depois do encerramento da fase instrutória.",
+      "na própria contestação, observados os pressupostos legais.",
+      "exclusivamente por petição apresentada antes da contestação."
+    ],
+    "correct_index": 2,
+    "explanation": "O art. 343 do CPC permite que o réu proponha reconvenção na contestação para manifestar pretensão própria conexa com a ação principal ou com o fundamento da defesa.",
+    "source_label": "Autoral | CPC, art. 343",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Reconvenção",
+    "incidence": "medium"
+  },
+  {
+    "code": "PCIV-L1-008",
+    "discipline_slug": "processo-civil",
+    "topic": "Procedimento comum, defesa e prova",
+    "statement": "Em ação indenizatória, uma das partes indica como testemunha pessoa de 17 anos de idade. Considerando apenas a idade e as regras do CPC sobre prova testemunhal, assinale a correta.",
+    "options": [
+      "Toda pessoa menor de 18 anos é absolutamente incapaz de depor como testemunha.",
+      "A testemunha de 17 anos somente pode depor se assistida pelos pais.",
+      "A idade inferior a 18 anos torna o depoimento automaticamente suspeito.",
+      "A incapacidade testemunhal por idade alcança o menor de 16 anos; ter 17 anos, por si só, não impede o depoimento."
+    ],
+    "correct_index": 3,
+    "explanation": "O art. 447, §2º, III, do CPC considera incapaz para testemunhar o menor de 16 anos. A pessoa de 17 anos não é incapaz apenas em razão da idade.",
+    "source_label": "Autoral | CPC, art. 447, §2º, III",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Capacidade da testemunha",
+    "incidence": "medium"
+  },
+  {
+    "code": "PCIV-L1-009",
+    "discipline_slug": "processo-civil",
+    "topic": "Procedimento comum, defesa e prova",
+    "statement": "No regime atual do CPC, após as alterações da Lei nº 14.195/2021, a citação deve ocorrer preferencialmente:",
+    "options": [
+      "por meio eletrônico, observadas as regras e os cadastros previstos no art. 246.",
+      "por oficial de justiça, sendo a citação eletrônica apenas subsidiária.",
+      "por edital em qualquer ação envolvendo pessoa jurídica.",
+      "por carta precatória, mesmo quando réu e juízo estão na mesma comarca."
+    ],
+    "correct_index": 0,
+    "explanation": "A Lei nº 14.195/2021 reformulou o art. 246 do CPC e estabeleceu a citação preferencialmente por meio eletrônico, segundo os endereços e cadastros disciplinados pela legislação e pelo CNJ.",
+    "source_label": "Autoral | CPC, art. 246 | Lei 14.195/2021",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Citação eletrônica",
+    "incidence": "medium"
+  },
+  {
+    "code": "PCIV-L1-010",
+    "discipline_slug": "processo-civil",
+    "topic": "Recursos, remessa e julgamento colegiado",
+    "statement": "Sentença é proferida contra a União e se enquadra em hipótese legal de remessa necessária. A União não apresenta apelação. Nessa situação:",
+    "options": [
+      "a ausência de apelação impede qualquer reexame da sentença.",
+      "a remessa necessária pode ocorrer independentemente de apelação, salvo incidência de alguma exceção prevista no art. 496 do CPC.",
+      "o juiz deve converter automaticamente a remessa necessária em recurso especial.",
+      "a remessa necessária somente existe em causas de valor inferior a mil salários mínimos contra a União."
+    ],
+    "correct_index": 1,
+    "explanation": "A remessa necessária é mecanismo legal independente da iniciativa recursal da Fazenda. O art. 496 estabelece hipóteses de incidência e exceções por valor ou fundamento em precedentes qualificados.",
+    "source_label": "Autoral | CPC, art. 496",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Remessa necessária",
+    "incidence": "high"
+  },
+  {
+    "code": "PCIV-L1-011",
+    "discipline_slug": "processo-civil",
+    "topic": "Recursos, remessa e julgamento colegiado",
+    "statement": "O juiz decide definitivamente um dos pedidos cumulados, que está em condições de imediato julgamento, e determina o prosseguimento do processo quanto aos demais. A decisão que julga parcialmente o mérito é impugnável por:",
+    "options": [
+      "apelação, porque todo julgamento de mérito é sentença.",
+      "recurso ordinário constitucional.",
+      "agravo de instrumento.",
+      "embargos infringentes."
+    ],
+    "correct_index": 2,
+    "explanation": "A decisão que julga parcialmente o mérito é decisão interlocutória e, conforme o art. 356, §5º, do CPC, é impugnável por agravo de instrumento.",
+    "source_label": "Autoral | CPC, art. 356, §5º",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Julgamento parcial do mérito",
+    "incidence": "high"
+  },
+  {
+    "code": "PCIV-L1-012",
+    "discipline_slug": "processo-civil",
+    "topic": "Recursos, remessa e julgamento colegiado",
+    "statement": "Em apelação, o resultado inicial do julgamento é não unânime e estão presentes os pressupostos do art. 942 do CPC. Nesse caso:",
+    "options": [
+      "cabem automaticamente embargos infringentes ao próprio tribunal.",
+      "o julgamento deve ser anulado e reiniciado em primeiro grau.",
+      "o resultado não unânime transforma o recurso em incidente de assunção de competência.",
+      "o julgamento prossegue com outros julgadores, em número suficiente para possibilitar eventual inversão do resultado inicial."
+    ],
+    "correct_index": 3,
+    "explanation": "O art. 942 prevê técnica de ampliação do colegiado em determinadas hipóteses de resultado não unânime. Não se trata de novo recurso nem dos antigos embargos infringentes.",
+    "source_label": "Autoral | CPC, art. 942",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Técnica de julgamento ampliado",
+    "incidence": "high"
+  },
+  {
+    "code": "PCIV-L1-013",
+    "discipline_slug": "processo-civil",
+    "topic": "Recursos, remessa e julgamento colegiado",
+    "statement": "Relator de apelação profere decisão monocrática que prejudica uma das partes. O recurso destinado a submeter essa decisão ao órgão colegiado competente é, em regra:",
+    "options": [
+      "agravo interno.",
+      "apelação adesiva.",
+      "recurso especial direto, obrigatoriamente.",
+      "agravo de instrumento para outro tribunal."
+    ],
+    "correct_index": 0,
+    "explanation": "O agravo interno é o recurso cabível contra decisão monocrática do relator para apreciação pelo respectivo órgão colegiado, nos termos do art. 1.021 do CPC.",
+    "source_label": "Autoral | CPC, art. 1.021",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Agravo interno",
+    "incidence": "high"
+  },
+  {
+    "code": "PCIV-L1-014",
+    "discipline_slug": "processo-civil",
+    "topic": "Recursos, remessa e julgamento colegiado",
+    "statement": "Juiz concede tutela provisória de urgência em decisão interlocutória. A parte contrária pretende impugná-la imediatamente. O recurso adequado é:",
+    "options": [
+      "apelação.",
+      "agravo de instrumento.",
+      "recurso ordinário.",
+      "apenas embargos de declaração, ainda que não haja vício."
+    ],
+    "correct_index": 1,
+    "explanation": "Decisões interlocutórias que versam sobre tutelas provisórias são recorríveis por agravo de instrumento, conforme art. 1.015, I, do CPC.",
+    "source_label": "Autoral | CPC, art. 1.015, I",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Agravo de instrumento e tutela provisória",
+    "incidence": "high"
+  },
+  {
+    "code": "PCIV-L1-015",
+    "discipline_slug": "processo-civil",
+    "topic": "Recursos, remessa e julgamento colegiado",
+    "statement": "Autor e réu são parcialmente sucumbentes. Apenas o autor interpõe apelação. No prazo das contrarrazões, o réu também deseja recorrer do capítulo em que foi vencido. O CPC admite:",
+    "options": [
+      "somente ação rescisória do réu.",
+      "novo recurso de apelação autônomo depois do término das contrarrazões.",
+      "recurso adesivo, subordinado ao recurso principal, se preenchidos os requisitos legais.",
+      "recurso especial adesivo diretamente contra a sentença."
+    ],
+    "correct_index": 2,
+    "explanation": "Havendo sucumbência recíproca, o recurso adesivo é admissível nas hipóteses do art. 997, inclusive em apelação, e fica subordinado ao recurso principal.",
+    "source_label": "Autoral | CPC, art. 997",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Recurso adesivo",
+    "incidence": "high"
+  },
+  {
+    "code": "PCIV-L1-016",
+    "discipline_slug": "processo-civil",
+    "topic": "Recursos, remessa e julgamento colegiado",
+    "statement": "Turma Recursal de Juizado Especial profere acórdão que, segundo a parte, viola norma constitucional e também lei federal. Considerando o sistema recursal, assinale a correta.",
+    "options": [
+      "É sempre cabível recurso especial ao STJ contra acórdão de Turma Recursal estadual.",
+      "Somente cabem embargos de declaração, ainda que a matéria constitucional esteja prequestionada.",
+      "A existência de alegada violação de lei federal torna obrigatório o recurso especial antes de qualquer outro.",
+      "Não cabe recurso especial ao STJ apenas por violação de lei federal contra Turma Recursal, mas recurso extraordinário pode ser cabível se presentes os requisitos constitucionais."
+    ],
+    "correct_index": 3,
+    "explanation": "A jurisprudência consolidada afasta recurso especial contra decisões de Turmas Recursais dos Juizados. Recurso extraordinário ao STF pode ser cabível quando houver questão constitucional e os requisitos próprios estiverem preenchidos.",
+    "source_label": "Autoral | CF, art. 102, III | sistema dos Juizados | jurisprudência consolidada",
+    "difficulty": "hard",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Recursos contra Turma Recursal",
+    "incidence": "high"
+  },
+  {
+    "code": "PCIV-L1-017",
+    "discipline_slug": "processo-civil",
+    "topic": "Execução, cumprimento e liquidação",
+    "statement": "Sentença condenatória é impugnada por recurso sem efeito suspensivo. O credor deseja iniciar a satisfação do julgado antes do trânsito em julgado. Em regra, é possível:",
+    "options": [
+      "cumprimento provisório, que corre por iniciativa e responsabilidade do exequente e observa as regras legais.",
+      "somente aguardar trânsito em julgado, porque todo cumprimento anterior é juridicamente inexistente.",
+      "converter a sentença em título extrajudicial para só então executar.",
+      "iniciar cumprimento definitivo, pois a interposição de recurso nunca interfere na natureza da execução."
+    ],
+    "correct_index": 0,
+    "explanation": "O CPC admite cumprimento provisório de sentença impugnada por recurso sem efeito suspensivo, nos termos dos arts. 520 e seguintes, por iniciativa e responsabilidade do exequente.",
+    "source_label": "Autoral | CPC, arts. 520 e seguintes",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Cumprimento provisório",
+    "incidence": "high"
+  },
+  {
+    "code": "PCIV-L1-018",
+    "discipline_slug": "processo-civil",
+    "topic": "Execução, cumprimento e liquidação",
+    "statement": "Sentença reconhece o dever de indenizar, mas deixa o valor para futura liquidação. A parte vencida interpõe apelação ainda pendente. O credor pretende desde logo apurar o montante. Nesse caso:",
+    "options": [
+      "a liquidação antes do trânsito em julgado é sempre vedada.",
+      "a liquidação pode ser realizada na pendência de recurso, em autos apartados, nos termos do CPC.",
+      "a liquidação exige desistência prévia do recurso da parte contrária.",
+      "a liquidação somente é possível se o tribunal autorizar expressamente no acórdão."
+    ],
+    "correct_index": 1,
+    "explanation": "O art. 512 do CPC permite a liquidação na pendência de recurso, processada em autos apartados no juízo de origem, cabendo ao liquidante instruir o pedido com as peças pertinentes.",
+    "source_label": "Autoral | CPC, art. 512",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Liquidação na pendência de recurso",
+    "incidence": "high"
+  },
+  {
+    "code": "PCIV-L1-019",
+    "discipline_slug": "processo-civil",
+    "topic": "Execução, cumprimento e liquidação",
+    "statement": "No cumprimento definitivo de sentença por quantia certa, o executado paga voluntariamente apenas metade do débito dentro do prazo do art. 523. Quanto à parcela remanescente:",
+    "options": [
+      "não incidem multa nem honorários, pois houve pagamento parcial.",
+      "incidem multa e honorários sobre o valor total original, inclusive sobre a parcela paga tempestivamente.",
+      "a multa e os honorários legais incidem sobre o restante não pago.",
+      "o processo deve ser extinto e o credor deverá propor nova ação para cobrar o saldo."
+    ],
+    "correct_index": 2,
+    "explanation": "Havendo pagamento parcial no prazo, a multa e os honorários previstos no art. 523, §1º, incidem sobre o restante, conforme §2º do mesmo artigo.",
+    "source_label": "Autoral | CPC, art. 523, §§1º e 2º",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Pagamento parcial no cumprimento",
+    "incidence": "high"
+  },
+  {
+    "code": "PCIV-L1-020",
+    "discipline_slug": "processo-civil",
+    "topic": "Execução, cumprimento e liquidação",
+    "statement": "Executado é intimado para pagar condenação e não realiza pagamento voluntário no prazo legal. Sobre o prazo para impugnação ao cumprimento de sentença, assinale a correta.",
+    "options": [
+      "depende sempre de nova citação pessoal por oficial de justiça.",
+      "só começa após penhora de algum bem.",
+      "pode ser apresentado a qualquer tempo enquanto não houver satisfação integral.",
+      "inicia-se após o término do prazo para pagamento voluntário, independentemente de penhora ou nova intimação, conforme o CPC."
+    ],
+    "correct_index": 3,
+    "explanation": "O art. 525 prevê que, transcorrido o prazo do art. 523 sem pagamento, inicia-se o prazo de 15 dias para impugnação, independentemente de penhora ou nova intimação.",
+    "source_label": "Autoral | CPC, art. 525",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Prazo da impugnação",
+    "incidence": "high"
+  },
+  {
+    "code": "PCIV-L1-021",
+    "discipline_slug": "processo-civil",
+    "topic": "Execução, cumprimento e liquidação",
+    "statement": "Em execução por quantia, o juiz determina indisponibilidade eletrônica de ativos financeiros do executado. Segundo o CPC, essa medida:",
+    "options": [
+      "pode ser determinada sem dar ciência prévia ao executado, preservado o contraditório posterior nas formas legais.",
+      "é nula se não houver audiência prévia do executado.",
+      "somente é permitida depois de frustrada hasta pública de imóvel.",
+      "depende de concordância expressa da instituição financeira."
+    ],
+    "correct_index": 0,
+    "explanation": "O art. 854 permite a indisponibilidade de ativos financeiros sem ciência prévia do executado, justamente para preservar a eficácia da medida, assegurando manifestação posterior sobre impenhorabilidade ou excesso.",
+    "source_label": "Autoral | CPC, art. 854",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Penhora eletrônica",
+    "incidence": "high"
+  },
+  {
+    "code": "PCIV-L1-022",
+    "discipline_slug": "processo-civil",
+    "topic": "Execução, cumprimento e liquidação",
+    "statement": "Credor requer adjudicação de automóvel penhorado avaliado em valor superior ao seu crédito. Para tornar-se proprietário do bem, em regra deverá:",
+    "options": [
+      "aguardar obrigatoriamente leilão e oferecer lance como qualquer terceiro.",
+      "depositar a diferença entre o valor do bem e o seu crédito, ficando o excedente à disposição do executado, observadas as regras da adjudicação.",
+      "renunciar integralmente ao crédito antes da adjudicação.",
+      "obter autorização do Ministério Público em qualquer execução."
+    ],
+    "correct_index": 1,
+    "explanation": "Na adjudicação, se o valor do crédito for inferior ao do bem, o adjudicante deverá depositar a diferença, que ficará à disposição do executado, conforme disciplina do art. 876.",
+    "source_label": "Autoral | CPC, art. 876",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Adjudicação",
+    "incidence": "high"
+  },
+  {
+    "code": "PCIV-L1-023",
+    "discipline_slug": "processo-civil",
+    "topic": "Execução, cumprimento e liquidação",
+    "statement": "Após trânsito em julgado de condenação contra Município, o credor requer cumprimento da sentença. No procedimento do CPC, o ente público:",
+    "options": [
+      "é citado para apresentar embargos em processo autônomo.",
+      "fica sujeito à penhora comum de bens públicos se não pagar em quinze dias.",
+      "é intimado para, querendo, apresentar impugnação nos próprios autos, seguindo-se o regime de pagamento aplicável à Fazenda Pública.",
+      "não pode apresentar defesa no cumprimento de sentença."
+    ],
+    "correct_index": 2,
+    "explanation": "O cumprimento contra a Fazenda Pública segue os arts. 534 e 535 do CPC. O ente é intimado para impugnar nos próprios autos, e a satisfação observa o regime de RPV ou precatório conforme o caso.",
+    "source_label": "Autoral | CPC, arts. 534 e 535 | CF, art. 100",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Cumprimento contra Fazenda Pública",
+    "incidence": "high"
+  },
+  {
+    "code": "PCIV-L1-024",
+    "discipline_slug": "processo-civil",
+    "topic": "Execução, cumprimento e liquidação",
+    "statement": "Devedor de alimentos deixa de pagar prestações recentes e o credor pretende utilizar a técnica de coerção pessoal. Segundo o entendimento consolidado e o CPC, a prisão civil relaciona-se:",
+    "options": [
+      "a qualquer prestação alimentar vencida nos últimos dez anos.",
+      "somente à parcela que vencer depois da sentença transitada em julgado.",
+      "apenas à primeira prestação não paga.",
+      "às três prestações anteriores ao ajuizamento e às que vencerem no curso do processo, sem prejuízo de cobrança patrimonial das demais."
+    ],
+    "correct_index": 3,
+    "explanation": "A técnica coercitiva de prisão alcança as três prestações anteriores ao ajuizamento e as que vencerem no curso do processo, conforme art. 528, §7º, do CPC e entendimento consolidado.",
+    "source_label": "Autoral | CPC, art. 528, §7º | jurisprudência consolidada",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Prisão civil por alimentos",
+    "incidence": "high"
+  },
+  {
+    "code": "PCIV-L1-025",
+    "discipline_slug": "processo-civil",
+    "topic": "Procedimentos especiais, Juizados e tutela coletiva",
+    "statement": "Pessoa pretende propor no Juizado Especial Cível estadual ação de menor complexidade no valor de 18 salários mínimos. Em regra, quanto à assistência por advogado:",
+    "options": [
+      "nas causas de até 20 salários mínimos, a parte pode comparecer pessoalmente, sem advogado, ressalvadas exigências nas fases e recursos previstos em lei.",
+      "advogado é sempre obrigatório desde o ajuizamento, independentemente do valor.",
+      "a dispensa de advogado só existe até cinco salários mínimos.",
+      "a presença de advogado é proibida nas causas de até 20 salários mínimos."
+    ],
+    "correct_index": 0,
+    "explanation": "A Lei nº 9.099/1995 permite comparecimento pessoal nas causas de até 20 salários mínimos; acima desse limite a assistência por advogado é obrigatória, sem prejuízo das regras específicas para recursos.",
+    "source_label": "Autoral | Lei 9.099/1995, art. 9º",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Capacidade postulatória nos JECs",
+    "incidence": "medium"
+  },
+  {
+    "code": "PCIV-L1-026",
+    "discipline_slug": "processo-civil",
+    "topic": "Procedimentos especiais, Juizados e tutela coletiva",
+    "statement": "Pessoa falece deixando herdeiros maiores e capazes, todos concordes quanto à partilha e sem litígio. Presentes os demais requisitos legais, o inventário:",
+    "options": [
+      "deve obrigatoriamente ser judicial porque todo inventário exige sentença.",
+      "pode ser realizado por escritura pública, com assistência de advogado ou defensor, quando atendidos os requisitos legais.",
+      "pode ser extrajudicial sem qualquer assistência jurídica.",
+      "somente pode ser feito em cartório se não houver bens imóveis."
+    ],
+    "correct_index": 1,
+    "explanation": "O CPC admite inventário e partilha por escritura pública quando presentes os requisitos legais, sendo necessária assistência de advogado ou defensor público.",
+    "source_label": "Autoral | CPC, art. 610, §§1º e 2º",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Inventário extrajudicial",
+    "incidence": "medium"
+  },
+  {
+    "code": "PCIV-L1-027",
+    "discipline_slug": "processo-civil",
+    "topic": "Procedimentos especiais, Juizados e tutela coletiva",
+    "statement": "Devedor ajuíza consignação em pagamento após recusa injustificada do credor, realiza tempestivamente o depósito integral e o réu, citado, não oferece contestação. Atendidos os pressupostos legais, o juiz deverá:",
+    "options": [
+      "devolver obrigatoriamente o depósito e extinguir o processo sem mérito.",
+      "converter a ação em execução contra o credor.",
+      "julgar procedente o pedido, declarar extinta a obrigação e impor ao réu os ônus previstos em lei.",
+      "designar necessariamente audiência de instrução para ouvir testemunhas."
+    ],
+    "correct_index": 2,
+    "explanation": "Na consignação, não havendo contestação e estando presentes os pressupostos legais, o juiz pode julgar procedente o pedido, declarar extinta a obrigação e condenar o réu em custas e honorários.",
+    "source_label": "Autoral | CPC, arts. 539 e seguintes",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Consignação em pagamento",
+    "incidence": "medium"
+  },
+  {
+    "code": "PCIV-L1-028",
+    "discipline_slug": "processo-civil",
+    "topic": "Procedimentos especiais, Juizados e tutela coletiva",
+    "statement": "Em ação de exigir contas, o réu contesta e apresenta as contas que afirma já ter prestado. Prosseguindo o procedimento, a providência compatível com o CPC é:",
+    "options": [
+      "extinguir necessariamente o processo sem mérito, porque a apresentação das contas elimina automaticamente o interesse processual.",
+      "julgar antecipadamente para impor novamente ao réu o dever de prestar exatamente as mesmas contas.",
+      "designar obrigatoriamente audiência de instrução, ainda que não exista questão probatória.",
+      "intimar o autor para se manifestar sobre as contas apresentadas no prazo legal."
+    ],
+    "correct_index": 3,
+    "explanation": "Apresentadas as contas pelo réu, o procedimento prevê manifestação do autor sobre elas, nos termos do art. 550 e seus parágrafos. A apresentação não leva automaticamente à extinção sem análise.",
+    "source_label": "Autoral | CPC, art. 550",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Ação de exigir contas",
+    "incidence": "medium"
+  },
+  {
+    "code": "PCIV-L1-029",
+    "discipline_slug": "processo-civil",
+    "topic": "Sujeitos, intervenção e competência",
+    "statement": "Contrato contém cláusula compromissória arbitral. Demandado é citado em ação judicial sobre matéria abrangida pela cláusula, mas apresenta contestação sem alegar a convenção de arbitragem. Em regra, essa omissão:",
+    "options": [
+      "implica aceitação da jurisdição estatal e renúncia ao juízo arbitral para aquele litígio, segundo a disciplina do CPC.",
+      "obriga o juiz a extinguir de ofício o processo assim que encontrar a cláusula, ainda que o réu nada tenha alegado.",
+      "pode ser corrigida em qualquer momento, inclusive depois do trânsito em julgado.",
+      "transforma a cláusula compromissória em cláusula de eleição de foro estatal."
+    ],
+    "correct_index": 0,
+    "explanation": "A convenção de arbitragem deve ser alegada em preliminar de contestação. A ausência de alegação implica aceitação da jurisdição estatal e renúncia ao juízo arbitral, conforme art. 337, §§5º e 6º, do CPC.",
+    "source_label": "Autoral | CPC, art. 337, X, §§5º e 6º",
+    "difficulty": "hard",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Arbitragem e contestação",
+    "incidence": "medium"
+  },
+  {
+    "code": "PCIV-L1-030",
+    "discipline_slug": "processo-civil",
+    "topic": "Procedimento comum, defesa e prova",
+    "statement": "Depois do trânsito em julgado de sentença de mérito, uma das partes ajuíza nova ação com as mesmas partes, a mesma causa de pedir e o mesmo pedido, pretendendo rediscutir a controvérsia. Em regra, a nova demanda encontra o obstáculo da:",
+    "options": [
+      "perempção automática por qualquer repetição de ação.",
+      "coisa julgada material.",
+      "conexão obrigatória.",
+      "mera prevenção, sem impedimento à rediscussão."
+    ],
+    "correct_index": 1,
+    "explanation": "A coisa julgada material torna imutável e indiscutível a decisão de mérito não mais sujeita a recurso, impedindo nova ação com a mesma tríplice identidade, ressalvadas vias excepcionais previstas em lei.",
+    "source_label": "Autoral | CPC, arts. 337, 502 e seguintes",
+    "difficulty": "easy",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Coisa julgada material",
+    "incidence": "medium"
+  },
+  {
+    "code": "PCIV-L1-031",
+    "discipline_slug": "processo-civil",
+    "topic": "Procedimentos especiais, Juizados e tutela coletiva",
+    "statement": "Associação legitimada abandona injustificadamente ação civil pública já ajuizada. Segundo a Lei da Ação Civil Pública, o processo:",
+    "options": [
+      "deve ser automaticamente extinto, sendo vedado a outro legitimado prosseguir.",
+      "deve ser convertido em ação individual de cada associado.",
+      "pode ter sua titularidade assumida pelo Ministério Público ou por outro legitimado, nas hipóteses legais.",
+      "somente pode prosseguir se o réu assumir o polo ativo."
+    ],
+    "correct_index": 2,
+    "explanation": "Em caso de desistência infundada ou abandono da ação por associação legitimada, o Ministério Público ou outro legitimado pode assumir a titularidade, conforme a disciplina da Lei nº 7.347/1985.",
+    "source_label": "Autoral | Lei 7.347/1985, art. 5º, §3º",
+    "difficulty": "medium",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Abandono de ação civil pública",
+    "incidence": "medium"
+  },
+  {
+    "code": "PCIV-L1-032",
+    "discipline_slug": "processo-civil",
+    "topic": "Procedimento comum, defesa e prova",
+    "statement": "Em ação indenizatória de elevado valor econômico, o juiz pretende fixar honorários de sucumbência por equidade apenas porque considera o percentual legal excessivo. Considerando o CPC e a jurisprudência qualificada do STJ, assinale a correta.",
+    "options": [
+      "a equidade é sempre livremente aplicável quando o valor da causa ultrapassar cem salários mínimos.",
+      "o juiz pode ignorar os percentuais legais sempre que a parte vencida for pessoa jurídica.",
+      "a equidade substitui obrigatoriamente a regra percentual em toda condenação de alto valor.",
+      "a apreciação equitativa é excepcional e depende das hipóteses legais, não podendo ser usada apenas para afastar os percentuais porque a condenação é elevada."
+    ],
+    "correct_index": 3,
+    "explanation": "O art. 85, §8º, prevê apreciação equitativa em hipóteses específicas. O STJ, no Tema 1.076, consolidou que a mera expressão econômica elevada não autoriza afastar os percentuais legais quando a condenação, proveito econômico ou valor da causa são mensuráveis.",
+    "source_label": "Autoral | CPC, art. 85 | STJ Tema 1.076",
+    "difficulty": "hard",
+    "exam_name": "Exame de Ordem Unificado - padrão autoral",
+    "exam_phase": "1ª fase",
+    "subtopic": "Honorários e equidade",
+    "incidence": "medium"
+  }
+]

@@ -1,0 +1,57 @@
+{
+  "discipline_slug": "processo-civil",
+  "sample": "41º a 46º Exames de Ordem Unificados, caderno Tipo 1",
+  "classification_method": "tema jurídico predominante; classificação editorial Domina OAB, sem reprodução de enunciados",
+  "total_observations": 36,
+  "summary": {
+    "execucao-cumprimento-e-liquidacao": 10,
+    "recursos-remessa-e-julgamento-colegiado": 7,
+    "sujeitos-intervencao-competencia-e-arbitragem": 6,
+    "procedimento-comum-defesa-prova-e-coisa-julgada": 5,
+    "procedimentos-especiais-juizados-e-tutela-coletiva": 6,
+    "tutelas-provisorias": 2
+  },
+  "observations": [
+    {"exam":"41º EOU","question":51,"topic":"sujeitos-intervencao-competencia-e-arbitragem","subtopic":"impedimento do magistrado por atuação anterior no processo"},
+    {"exam":"41º EOU","question":52,"topic":"sujeitos-intervencao-competencia-e-arbitragem","subtopic":"assistência e interesse jurídico do sublocatário"},
+    {"exam":"41º EOU","question":53,"topic":"tutelas-provisorias","subtopic":"tutela de urgência e probabilidade do direito"},
+    {"exam":"41º EOU","question":54,"topic":"recursos-remessa-e-julgamento-colegiado","subtopic":"técnica de julgamento ampliado do art. 942"},
+    {"exam":"41º EOU","question":55,"topic":"procedimentos-especiais-juizados-e-tutela-coletiva","subtopic":"competência do Juizado Especial Cível e despejo para uso próprio"},
+    {"exam":"41º EOU","question":56,"topic":"recursos-remessa-e-julgamento-colegiado","subtopic":"julgamento parcial do mérito e agravo de instrumento"},
+
+    {"exam":"42º EOU","question":51,"topic":"procedimento-comum-defesa-prova-e-coisa-julgada","subtopic":"reconvenção formulada na contestação"},
+    {"exam":"42º EOU","question":52,"topic":"procedimento-comum-defesa-prova-e-coisa-julgada","subtopic":"capacidade, impedimento e suspeição de testemunhas"},
+    {"exam":"42º EOU","question":53,"topic":"execucao-cumprimento-e-liquidacao","subtopic":"cumprimento provisório de sentença"},
+    {"exam":"42º EOU","question":54,"topic":"procedimento-comum-defesa-prova-e-coisa-julgada","subtopic":"honorários sucumbenciais e apreciação equitativa"},
+    {"exam":"42º EOU","question":55,"topic":"execucao-cumprimento-e-liquidacao","subtopic":"adjudicação de bem penhorado"},
+    {"exam":"42º EOU","question":56,"topic":"sujeitos-intervencao-competencia-e-arbitragem","subtopic":"denunciação da lide e seguradora"},
+
+    {"exam":"43º EOU","question":51,"topic":"sujeitos-intervencao-competencia-e-arbitragem","subtopic":"limitação do litisconsórcio facultativo multitudinário"},
+    {"exam":"43º EOU","question":52,"topic":"procedimentos-especiais-juizados-e-tutela-coletiva","subtopic":"Juizados Especiais Cíveis, valor da causa e revelia"},
+    {"exam":"43º EOU","question":53,"topic":"recursos-remessa-e-julgamento-colegiado","subtopic":"remessa necessária e Fazenda Pública"},
+    {"exam":"43º EOU","question":54,"topic":"execucao-cumprimento-e-liquidacao","subtopic":"cumprimento provisório de sentença de alimentos"},
+    {"exam":"43º EOU","question":55,"topic":"execucao-cumprimento-e-liquidacao","subtopic":"liquidação antes do trânsito em julgado"},
+    {"exam":"43º EOU","question":56,"topic":"sujeitos-intervencao-competencia-e-arbitragem","subtopic":"convenção de arbitragem não alegada na contestação"},
+
+    {"exam":"44º EOU","question":51,"topic":"recursos-remessa-e-julgamento-colegiado","subtopic":"agravo interno contra decisão monocrática do relator"},
+    {"exam":"44º EOU","question":52,"topic":"tutelas-provisorias","subtopic":"tutela antecipada antecedente e regularização da procuração"},
+    {"exam":"44º EOU","question":53,"topic":"execucao-cumprimento-e-liquidacao","subtopic":"indisponibilidade eletrônica e penhora de dinheiro"},
+    {"exam":"44º EOU","question":54,"topic":"sujeitos-intervencao-competencia-e-arbitragem","subtopic":"segredo de justiça e competência em divórcio e guarda"},
+    {"exam":"44º EOU","question":55,"topic":"execucao-cumprimento-e-liquidacao","subtopic":"cumprimento de sentença contra Fazenda Pública"},
+    {"exam":"44º EOU","question":56,"topic":"procedimentos-especiais-juizados-e-tutela-coletiva","subtopic":"consignação em pagamento e ausência de contestação"},
+
+    {"exam":"45º EOU","question":51,"topic":"recursos-remessa-e-julgamento-colegiado","subtopic":"agravo de instrumento contra tutela provisória"},
+    {"exam":"45º EOU","question":52,"topic":"procedimento-comum-defesa-prova-e-coisa-julgada","subtopic":"reconvenção contra autor e terceiro"},
+    {"exam":"45º EOU","question":53,"topic":"execucao-cumprimento-e-liquidacao","subtopic":"cumprimento de sentença de alimentos e prisão civil"},
+    {"exam":"45º EOU","question":54,"topic":"procedimentos-especiais-juizados-e-tutela-coletiva","subtopic":"inventário extrajudicial e assistência de advogado"},
+    {"exam":"45º EOU","question":55,"topic":"execucao-cumprimento-e-liquidacao","subtopic":"prazo de impugnação ao cumprimento de sentença"},
+    {"exam":"45º EOU","question":56,"topic":"procedimento-comum-defesa-prova-e-coisa-julgada","subtopic":"coisa julgada material"},
+
+    {"exam":"46º EOU","question":51,"topic":"execucao-cumprimento-e-liquidacao","subtopic":"liquidação de sentença na pendência de apelação"},
+    {"exam":"46º EOU","question":52,"topic":"execucao-cumprimento-e-liquidacao","subtopic":"pagamento parcial no cumprimento de sentença"},
+    {"exam":"46º EOU","question":53,"topic":"recursos-remessa-e-julgamento-colegiado","subtopic":"recurso extraordinário contra decisão de Turma Recursal"},
+    {"exam":"46º EOU","question":54,"topic":"recursos-remessa-e-julgamento-colegiado","subtopic":"recurso adesivo em apelação"},
+    {"exam":"46º EOU","question":55,"topic":"procedimentos-especiais-juizados-e-tutela-coletiva","subtopic":"ação de exigir contas e contas apresentadas na contestação"},
+    {"exam":"46º EOU","question":56,"topic":"procedimentos-especiais-juizados-e-tutela-coletiva","subtopic":"abandono de ação civil pública por associação"}
+  ]
+}
