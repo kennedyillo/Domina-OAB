@@ -1,5 +1,6 @@
 name: Authenticated Smoke QA
 
+# Rerun 4: produção com timeout de signup aplicado.
 on:
   pull_request:
     paths:
