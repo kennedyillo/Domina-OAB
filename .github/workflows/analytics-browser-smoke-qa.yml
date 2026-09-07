@@ -1,0 +1,42 @@
+name: Analytics Browser Smoke QA
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/analytics-browser-smoke.mjs'
+      - '.github/workflows/analytics-browser-smoke-qa.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  analytics-browser-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Run analytics smoke against production
+        env:
+          BASE_URL: https://www.dominaoab.com.br
+        run: node scripts/analytics-browser-smoke.mjs
+
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: analytics-browser-smoke-screenshots
+          path: artifacts/analytics-browser-smoke/*.png
+          if-no-files-found: ignore
+          retention-days: 7
