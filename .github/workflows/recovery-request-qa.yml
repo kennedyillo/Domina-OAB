@@ -1,0 +1,31 @@
+name: Recovery Request QA
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/recovery-request-qa.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  recovery-request:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Request password recovery for QA account
+        shell: bash
+        run: |
+          set -euo pipefail
+          headers=$(mktemp)
+          code=$(curl -sS -D "$headers" -o /dev/null -w '%{http_code}' \
+            -X POST \
+            -H 'content-type: application/x-www-form-urlencoded' \
+            --data-urlencode 'email=kmps16+dominaqa-rbac-34068762530-1@gmail.com' \
+            'https://www.dominaoab.com.br/api/auth/password-reset')
+          echo "HTTP=$code"
+          location=$(awk 'BEGIN{IGNORECASE=1} /^location:/{sub(/\r$/,""); print $2}' "$headers" | tail -1)
+          echo "LOCATION=$location"
+          test "$code" = '303'
+          [[ "$location" == *'/recuperar-senha?sent=1'* ]]
+          echo 'RECOVERY_REQUEST_OK'
