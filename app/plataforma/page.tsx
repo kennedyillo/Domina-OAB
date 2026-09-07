@@ -38,7 +38,8 @@ export default async function Plataforma() {
               <StudentDiagnostics />
             </div>
             <div style={{ marginTop: 24, display: "flex", gap: 12, flexWrap: "wrap" }}>
-              <Link className="button" href="/simulado">Fazer novo simulado <ArrowRight size={17} /></Link>
+              <Link className="button" href="/simulado?mode=exam">Simulado tradicional <ArrowRight size={17} /></Link>
+              <Link className="button button-secondary" href="/simulado?mode=study">Modo estudo <BookOpenCheck size={16} /></Link>
               <Link className="button button-secondary" href="/disciplinas">Ver disciplinas</Link>
             </div>
           </section>
@@ -55,7 +56,7 @@ export default async function Plataforma() {
           <span className="eyebrow"><span /> DOMINA OAB</span>
           <h1 style={{ margin: "8px 0" }}>{signedIn ? "Sua conta está pronta para começar." : "Comece por um simulado real."}</h1>
           <p style={{ maxWidth: 720 }}>
-            Faça um simulado com questões publicadas e receba o resultado básico. O diagnóstico detalhado e o histórico são liberados para contas com acesso ativo.
+            Escolha entre simulado tradicional, com gabarito apenas no final, ou modo estudo, com correção e explicação questão por questão. O diagnóstico detalhado e o histórico são liberados para contas com acesso ativo.
           </p>
 
           <div className="diagnosis-overview" style={{ marginTop: 28 }}>
@@ -73,14 +74,15 @@ export default async function Plataforma() {
             </article>
             <article className="readiness-card">
               <BookOpenCheck />
-              <small>CONTEÚDO</small>
-              <h2>Questões revisadas</h2>
-              <p>Use o simulado gratuito para conhecer o fluxo antes de ativar um plano.</p>
+              <small>DOIS MODOS</small>
+              <h2>Prova ou estudo guiado</h2>
+              <p>Treine sem feedback antecipado ou veja a fundamentação depois de cada resposta.</p>
             </article>
           </div>
 
           <div style={{ marginTop: 28, display: "flex", gap: 12, flexWrap: "wrap" }}>
-            <Link className="button" href="/simulado">Fazer simulado gratuito <ArrowRight size={17} /></Link>
+            <Link className="button" href="/simulado?mode=exam">Simulado tradicional <ArrowRight size={17} /></Link>
+            <Link className="button button-secondary" href="/simulado?mode=study">Modo estudo <BookOpenCheck size={16} /></Link>
             {!signedIn && <Link className="button button-secondary" href="/cadastro">Criar conta</Link>}
             <Link className="button button-secondary" href="/#planos"><LockKeyhole size={16} /> Conhecer planos</Link>
           </div>
