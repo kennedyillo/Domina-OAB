@@ -1,0 +1,42 @@
+name: RBAC Mobile Smoke QA
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/rbac-mobile-smoke.mjs'
+      - '.github/workflows/rbac-mobile-smoke-qa.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  rbac-mobile-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Run RBAC and responsive smoke against production
+        env:
+          BASE_URL: https://www.dominaoab.com.br
+        run: node scripts/rbac-mobile-smoke.mjs
+
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rbac-mobile-smoke-screenshots
+          path: artifacts/rbac-mobile-smoke/*.png
+          if-no-files-found: ignore
+          retention-days: 7
